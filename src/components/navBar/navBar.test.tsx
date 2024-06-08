@@ -21,8 +21,8 @@ describe("NavBar", () => {
 
     it("should render the schedule appointment and whatsapp buttons", () => {
         render(<NavBar />, { wrapper: BrowserRouter });
-        const listItems = document.querySelectorAll(".listItem");
-        expect(listItems).toHaveLength(2);
+        const buttons = screen.getAllByRole("button");
+        expect(buttons).toHaveLength(2);
     });
 
     it("should the buttons' icon be rendered correctly", () => {

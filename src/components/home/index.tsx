@@ -1,3 +1,4 @@
+import { Hero } from "@components/hero"
 import { NavBar } from "@components/navBar"
 import styled from "styled-components"
 
@@ -5,6 +6,7 @@ export const Home = () => {
     return (
         <Container>
                 <NavBar />
+                <Hero />
         </Container>
     )
 }

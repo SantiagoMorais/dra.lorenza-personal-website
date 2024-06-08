@@ -6,18 +6,10 @@ interface IStyle {
     secondaryTextColor: string
 }
 
-interface IFontStyle {
-    fontWeight: number,
-    fontStyle: string
-}
-
 interface ITipography {
-    light: IFontStyle,
-    lightItalic: IFontStyle,
-    medium: IFontStyle,
-    mediumItalic: IFontStyle,
-    bold: IFontStyle,
-    boldItalic: IFontStyle,
+    lightWeight: number,
+    mediumWeight: number,
+    boldWeight: number
 }
 
 interface IFontSize {
@@ -37,18 +29,15 @@ export const style: IStyle = {
 }
 
 export const fontStyle: ITipography = {
-    light: {fontWeight: 300, fontStyle: "normal"},
-    lightItalic: {fontWeight: 300, fontStyle: "italic"},
-    medium: {fontWeight: 500, fontStyle: "normal"},
-    mediumItalic: {fontWeight: 500, fontStyle: "italic"},
-    bold: {fontWeight: 700, fontStyle: "normal"},
-    boldItalic: {fontWeight: 700, fontStyle: "italic"},
+    lightWeight: 300,
+    mediumWeight: 500,
+    boldWeight: 700
 }
 
 export const fontSize: IFontSize = {
     fontSizeSmall: "1.2rem",
     fontSizeBase: "1.6rem",
-    fontSizeMedium: "2.4rem",
-    fontSizeLarge: "3rem",
-    fontSizeExtraLarge: "4.5rem"
+    fontSizeMedium: "2.2rem",
+    fontSizeLarge: "2.8rem",
+    fontSizeExtraLarge: "3.5rem"
 }

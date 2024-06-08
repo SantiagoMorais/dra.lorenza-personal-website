@@ -1,3 +1,4 @@
+import { Button } from "@components/button"
 import { IconDefinition, faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons"
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
@@ -42,16 +43,11 @@ export const NavBar = () => {
             <div className="scheduleAppointment">
                 <img src="" alt="logo" className="logo" />
                 <div className="navigation">
-                    <ul className="list">
+                    <div className="list">
                         {listItems.map(item =>
-                            <li key={item.text} className="listItem">
-                                <a href={item.href} className="link">
-                                    <FontAwesomeIcon icon={item.icon} className="icon" />
-                                    {item.text}
-                                </a>
-                            </li>
+                            <Button content={item.text} href={item.href} icon={item.icon}/>
                         )}
-                    </ul>
+                    </div>
                 </div>
             </div>
 
