@@ -1,18 +1,23 @@
 import { AboutMe } from "@components/aboutMe"
 import { Assessments } from "@components/assessments"
 import { Hero } from "@components/hero"
-import { NavBar } from "@components/navBar"
+// import { NavBar } from "@components/navBar"
+import { NavBarSecondOption } from "@components/navBarSecondOption"
+import { ScheduleAppointment } from "@components/scheduleAppointment"
 import { Treatments } from "@components/treatments"
+import { WhatsAppButton } from "@components/whatsAppButton"
 import styled from "styled-components"
 
 export const Home = () => {
     return (
         <Container>
-            <NavBar />
+            <NavBarSecondOption />
             <Hero />
             <Treatments />
             <AboutMe />
             <Assessments />
+            <ScheduleAppointment />
+            <WhatsAppButton />
         </Container>
     )
 }

@@ -3,7 +3,7 @@ import { IconDefinition, faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons"
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { fontSize, style } from "@styles/style"
+import { fontSize, fontStyle, style } from "@styles/style"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
@@ -21,7 +21,7 @@ interface IPagesList {
     link: string
 }
 
-export const NavBar = () => {
+export const NavBarSecondOption = () => {
     const [accordionOppened, setAccordionOppened] = useState<boolean>(false)
 
     const listItems: IListItems[] = [
@@ -30,10 +30,10 @@ export const NavBar = () => {
     ]
 
     const pages: IPagesList[] = [
-        {name: "home", link: "/"},
-        {name: "blog", link: "/blog"},
-        {name: "contato", link: "/contato"},
-        {name: "como chegar", link: "/como-chegar"},
+        { name: "home", link: "/" },
+        { name: "blog", link: "/blog" },
+        { name: "contato", link: "/contato" },
+        { name: "como chegar", link: "/como-chegar" },
     ]
 
     const handleOpenAccordion = () => {
@@ -43,24 +43,26 @@ export const NavBar = () => {
     return (
         <Container theme={style} data-testid="navBar">
             <div className="scheduleAppointment">
-                <img src={horizontalLogo} alt="logo" className="logo horizontal" />
-                <img src={verticalLogo} alt="logo" className="logo vertical" />
+                <Link to={"/"}>
+                    <img src={horizontalLogo} alt="logo" className="logo horizontal" />
+                    <img src={verticalLogo} alt="logo" className="logo vertical" />
+                </Link>
                 <div className="navigation">
                     <div className="list">
                         {listItems.map(item =>
-                            <Button key={item.text} content={item.text} href={item.href} icon={item.icon}/>
+                            <Button key={item.text} content={item.text} href={item.href} icon={item.icon} />
                         )}
                     </div>
                 </div>
             </div>
 
-            <div className="accordionBackground">
-                <button
-                    onClick={handleOpenAccordion}
-                    className="accordionButton">
-                    <FontAwesomeIcon data-testid="accordionIcon" icon={accordionOppened ? faTimes : faBars} className={`accordionIcon ${accordionOppened ? "accordionOppened" : ""}`} />
-                </button>
-            </div>
+            <button
+                onClick={handleOpenAccordion}
+                className={`accordionButton ${accordionOppened && "buttonFixed"}`}>
+                <FontAwesomeIcon data-testid="accordionIcon" icon={accordionOppened ? faTimes : faBars} className={`accordionIcon ${accordionOppened ? "accordionOppened" : ""}`} />
+            </button>
+
+            <div className={`${accordionOppened && "shadow"}`}></div>
 
             <div className="pagesContainer">
                 <ul className={`pages ${accordionOppened && "pagesOppened"}`}>
@@ -81,6 +83,7 @@ const Container = styled.section`
     display: flex;
     flex-direction: column;
     width: 100%;
+    position: relative;
 
     .scheduleAppointment {
         align-self: center;
@@ -140,28 +143,26 @@ const Container = styled.section`
         }
     }
 
-    .accordionBackground {
-        width: 100%;
+    .accordionButton {
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: ${fontSize.fontSizeMedium};
+        background: none;
+        z-index: 3;
         display: none;
-        justify-content: center;
-        background: linear-gradient(90deg, ${({ theme }) => theme.primaryColor} 0%, ${({ theme }) => theme.tertiaryColor} 100%);
+        
+        .accordionIcon {
+            display: flex;
+            border-radius: .5rem;
+            font-size: ${fontSize.fontSizeMedium};
+            padding: .5rem;
+            transition: .3s ease-out;
 
-        .accordionButton {
-            background: none;
-            border: none;
-            cursor: pointer;
-            
-            .accordionIcon {
-                display: flex;
-                border-radius: .5rem;
-                color: ${({ theme }) => theme.textColor};
-                font-size: ${fontSize.fontSizeMedium};
-                padding: .5rem;
-                transition: .3s ease-out;
-
-                &.accordionOppened {
-                    transform: rotate(180deg);
-                }
+            &.accordionOppened {
+                transform: rotate(180deg);
             }
         }
     }
@@ -241,39 +242,54 @@ const Container = styled.section`
             }
         }
         
-        .accordionBackground {
-            display: flex;
-            .accordionButton {
-                display: block;
+        .accordionButton {
+            display: block;
+
+            &.buttonFixed {
+                position: fixed;
             }
         }
 
-        .pagesContainer {
-            display: flex;
-            width: 100%;
-            justify-content: center;
+        .shadow {
+            position: fixed;
+            width: 100dvw;
+            height: 100dvh;
+            background: black;
+            opacity: .6;
+            z-index: 2;
+            transition: .3s;
+        }
 
+        .pagesContainer {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            
             .pages {
-                position: absolute;
                 flex-direction: column;
-                width: max-content;
-                padding: 0 1rem;
-                max-height: 0;
+                width: 0;
+                height: 100dvh;
                 overflow: hidden;
-                transition: .5s;
-                border-radius: 0 0 1rem 1rem;
+                transition: width .5s, padding .5s;
                 border-style: solid;
-                border-width: 0 1px 1px 1px;
+                border-width: 0 0 0 .1rem;
                 border-color: transparent;
                 background: none;
                 gap: 2rem;
+                opacity: 0;
+                justify-content: start;
 
                 .page {
                     color: ${({ theme }) => theme.primaryColor};
-                    text-align: center;
+                    text-align: left;
+                    width: fit-content;
 
                     .name {
-                        font-size: ${fontSize.fontSizeSmall};
+                        font-size: ${fontSize.fontSizeBase};
+                        min-width: max-content;
+                        display: inline-block;
+                        font-weight: ${fontStyle.boldWeight};
                     }
     
                     &::after {
@@ -282,10 +298,11 @@ const Container = styled.section`
                 }
 
                 &.pagesOppened {
-                    max-height: 15rem;
-                    padding: 1rem;
-                    background: ${({ theme }) => theme.secondaryColor};
+                    opacity: 1;
+                    background: ${({ theme }) => theme.textColor};
                     border-color: ${({ theme }) => theme.primaryColor};
+                    width: 20rem;
+                    padding: 5rem 2rem;
                 }
             }
         }
