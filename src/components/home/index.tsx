@@ -1,4 +1,5 @@
 import { AboutMe } from "@components/aboutMe"
+import { Address } from "@components/address"
 import { Assessments } from "@components/assessments"
 import { Hero } from "@components/hero"
 // import { NavBar } from "@components/navBar"
@@ -18,6 +19,7 @@ export const Home = () => {
             <Assessments />
             <ScheduleAppointment />
             <WhatsAppButton />
+            <Address />
         </Container>
     )
 }

@@ -43,7 +43,7 @@ const Container = styled.section`
 
         .imageContainer {
             max-width: 40rem;
-            height: 40rem;
+            height: 50rem;
             overflow: hidden; 
             position: relative;
 
@@ -84,6 +84,7 @@ const Container = styled.section`
             .imageContainer {
                 max-width: 100%;
                 width: 100%;
+                height: 40rem;
 
                 .scheduleImage {
                     mask-image: linear-gradient(to bottom, black, black 90%, transparent 100%);
@@ -95,7 +96,8 @@ const Container = styled.section`
                 max-width: 100%;
                 text-align: center;
                 align-items: center;
-                padding: 0 2rem;
+                padding: 2rem;
+                padding-top: 0;
             }
         }
     }
