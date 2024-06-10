@@ -45,7 +45,7 @@ export const NavBar = () => {
                 <div className="navigation">
                     <div className="list">
                         {listItems.map(item =>
-                            <Button content={item.text} href={item.href} icon={item.icon}/>
+                            <Button key={item.text} content={item.text} href={item.href} icon={item.icon}/>
                         )}
                     </div>
                 </div>

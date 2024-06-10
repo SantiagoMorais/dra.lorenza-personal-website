@@ -1,12 +1,14 @@
 import { Hero } from "@components/hero"
 import { NavBar } from "@components/navBar"
+import { Treatments } from "@components/treatments"
 import styled from "styled-components"
 
 export const Home = () => {
     return (
         <Container>
-                <NavBar />
-                <Hero />
+            <NavBar />
+            <Hero />
+            <Treatments />
         </Container>
     )
 }
