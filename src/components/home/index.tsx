@@ -1,3 +1,4 @@
+import { AboutMe } from "@components/aboutMe"
 import { Hero } from "@components/hero"
 import { NavBar } from "@components/navBar"
 import { Treatments } from "@components/treatments"
@@ -9,6 +10,7 @@ export const Home = () => {
             <NavBar />
             <Hero />
             <Treatments />
+            <AboutMe />
         </Container>
     )
 }
