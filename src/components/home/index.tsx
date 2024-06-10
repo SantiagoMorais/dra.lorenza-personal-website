@@ -1,4 +1,5 @@
 import { AboutMe } from "@components/aboutMe"
+import { Assessments } from "@components/assessments"
 import { Hero } from "@components/hero"
 import { NavBar } from "@components/navBar"
 import { Treatments } from "@components/treatments"
@@ -11,6 +12,7 @@ export const Home = () => {
             <Hero />
             <Treatments />
             <AboutMe />
+            <Assessments />
         </Container>
     )
 }
