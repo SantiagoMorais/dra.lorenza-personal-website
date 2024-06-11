@@ -27,11 +27,9 @@ const ButtonContainer = styled.button`
     display: flex;
     border:none;
     max-width: 20rem;
-    flex: 1;
     align-items: center;
     justify-content: center;
     color: ${({ theme }) => theme.textColor};
-    text-transform: capitalize;
     font-size: ${fontSize.fontSizeBase};
     cursor: pointer;
     padding: .25rem 1rem;
@@ -39,7 +37,6 @@ const ButtonContainer = styled.button`
     transition: .3s;
     background-color: ${({ theme }) => theme.primaryColor};
     min-width: fit-content;
-    word-break: break-all;
 
     &:hover {
         opacity: .9;
@@ -47,6 +44,7 @@ const ButtonContainer = styled.button`
     }
 
     .link {
+        height: fit-content;
         .icon {
             margin-right: .5rem;
         }

@@ -38,7 +38,7 @@ describe("NavBar", () => {
     it("should render all pages' link", () => {
         render(<NavBar />, { wrapper: BrowserRouter });
         const pagesLink = document.querySelectorAll(".page");
-        expect(pagesLink).toHaveLength(4)
+        expect(pagesLink).toHaveLength(3)
     })
 
     it("should the accordion icon changes when clicked", () => {

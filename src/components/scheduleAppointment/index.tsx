@@ -3,11 +3,21 @@ import styled from "styled-components"
 import scheduleImage from "@assets/imgs/scheduleAppointment.jpg"
 import { Button } from "@components/button"
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons"
+import { faInstagram } from "@fortawesome/free-brands-svg-icons"
 
 export const ScheduleAppointment = () => {
     return (
-        <Container theme={style}>
+        <Container theme={style} id="contact" >
             <div className="content">
+                <div className="info instagram">
+                    <h2 className="title">
+                        Gostaria de explorar uma variedade maior de conteúdos sobre nutrologia?
+                    </h2>
+                    <p className="text">
+                        Me siga no instagram!
+                    </p>
+                    <Button icon={faInstagram} content="Instagram" href="" />
+                </div>
                 <div className="imageContainer">
                     <img src={scheduleImage} alt="Marque a sua consulta" className="scheduleImage" />
                 </div>
@@ -19,7 +29,7 @@ export const ScheduleAppointment = () => {
                     <p className="text">
                         Entre em contato: (99) 99999-9999/ (99) 99999-9999 ou faça sua reserva aqui mesmo.
                     </p>
-                    <Button href="" icon={faCalendarDays} content="Agende a sua consulta"/>
+                    <Button href="" icon={faCalendarDays} content="Agende a sua consulta" />
                 </div>
             </div>
         </Container>
@@ -28,7 +38,7 @@ export const ScheduleAppointment = () => {
 
 const Container = styled.section`
     width: 100%;
-    background-color: ${({theme}) => theme.secondaryColor};
+    background-color: ${({ theme }) => theme.secondaryColor};
     display: flex;
     justify-content: center;
 
@@ -46,6 +56,7 @@ const Container = styled.section`
             height: 50rem;
             overflow: hidden; 
             position: relative;
+            flex: 2;
 
             .scheduleImage {
                 width: 100%;
@@ -63,15 +74,24 @@ const Container = styled.section`
             flex-direction: column;
             gap: 1rem;
             justify-content: center;
+            flex: 1;
 
             .title {
                 font-size: ${fontSize.fontSizeMedium};
-                color: ${({theme}) => theme.primaryColor};
+                color: ${({ theme }) => theme.primaryColor};
             }
 
             .text {
                 font-size: ${fontSize.fontSizeBase};
                 font-weight: ${fontStyle.mediumWeight};
+            }
+        }
+
+        .info.instagram {
+            align-items: flex-end;
+
+            .title {
+                text-align: end;
             }
         }
     }
@@ -80,11 +100,13 @@ const Container = styled.section`
         .content {
             flex-direction: column;
             padding: 0 0 2rem;
+            gap: 1rem;
     
             .imageContainer {
                 max-width: 100%;
                 width: 100%;
                 height: 40rem;
+                order: 1;
 
                 .scheduleImage {
                     mask-image: linear-gradient(to bottom, black, black 90%, transparent 100%);
@@ -96,9 +118,17 @@ const Container = styled.section`
                 max-width: 100%;
                 text-align: center;
                 align-items: center;
-                padding: 2rem;
-                padding-top: 0;
+                padding: 0 2rem;
+                order: 2;
             }
+
+            .info.instagram {
+                align-items: center;
+
+            .title {
+                text-align: center;
+            }
+        }
         }
     }
 `

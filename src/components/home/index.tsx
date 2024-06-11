@@ -1,6 +1,7 @@
 import { AboutMe } from "@components/aboutMe"
 import { Address } from "@components/address"
 import { Assessments } from "@components/assessments"
+import { Footer } from "@components/footer"
 import { Hero } from "@components/hero"
 // import { NavBar } from "@components/navBar"
 import { NavBarSecondOption } from "@components/navBarSecondOption"
@@ -13,6 +14,7 @@ export const Home = () => {
     return (
         <Container>
             <NavBarSecondOption />
+            {/* <NavBar /> */}
             <Hero />
             <Treatments />
             <AboutMe />
@@ -20,6 +22,7 @@ export const Home = () => {
             <ScheduleAppointment />
             <WhatsAppButton />
             <Address />
+            <Footer />
         </Container>
     )
 }

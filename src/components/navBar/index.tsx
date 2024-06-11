@@ -5,7 +5,6 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { fontSize, style } from "@styles/style"
 import { useState } from "react"
-import { Link } from "react-router-dom"
 import styled from "styled-components"
 import verticalLogo from "@assets/imgs/verticalLogo.jpg"
 import horizontalLogo from "@assets/imgs/horizontalLogo.jpg"
@@ -30,10 +29,9 @@ export const NavBar = () => {
     ]
 
     const pages: IPagesList[] = [
-        {name: "home", link: "/"},
-        {name: "blog", link: "/blog"},
-        {name: "contato", link: "/contato"},
-        {name: "como chegar", link: "/como-chegar"},
+        {name: "home", link: "#home"},
+        {name: "contato", link: "#contact"},
+        {name: "como chegar", link: "#address"},
     ]
 
     const handleOpenAccordion = () => {
@@ -66,9 +64,9 @@ export const NavBar = () => {
                 <ul className={`pages ${accordionOppened && "pagesOppened"}`}>
                     {pages.map(page =>
                         <li key={page.name} className="page">
-                            <Link to={page.link} className="name">
+                            <a href={page.link} className="name">
                                 {page.name}
-                            </Link>
+                            </a>
                         </li>
                     )}
                 </ul>

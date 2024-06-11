@@ -5,7 +5,6 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { fontSize, fontStyle, style } from "@styles/style"
 import { useState } from "react"
-import { Link } from "react-router-dom"
 import styled from "styled-components"
 import verticalLogo from "@assets/imgs/verticalLogo.jpg"
 import horizontalLogo from "@assets/imgs/horizontalLogo.jpg"
@@ -30,23 +29,22 @@ export const NavBarSecondOption = () => {
     ]
 
     const pages: IPagesList[] = [
-        { name: "home", link: "/" },
-        { name: "blog", link: "/blog" },
-        { name: "contato", link: "/contato" },
-        { name: "como chegar", link: "/como-chegar" },
+        { name: "home", link: "#home" },
+        { name: "contato", link: "#contact" },
+        { name: "como chegar", link: "#address" },
     ]
 
     const handleOpenAccordion = () => {
-        setAccordionOppened(!accordionOppened)
+        if(window.innerWidth < 768) setAccordionOppened(!accordionOppened)
     }
 
     return (
-        <Container theme={style} data-testid="navBar">
+        <Container theme={style} data-testid="navBar" id="home">
             <div className="scheduleAppointment">
-                <Link to={"/"}>
+                <a href="#home">
                     <img src={horizontalLogo} alt="logo" className="logo horizontal" />
                     <img src={verticalLogo} alt="logo" className="logo vertical" />
-                </Link>
+                </a>
                 <div className="navigation">
                     <div className="list">
                         {listItems.map(item =>
@@ -68,9 +66,9 @@ export const NavBarSecondOption = () => {
                 <ul className={`pages ${accordionOppened && "pagesOppened"}`}>
                     {pages.map(page =>
                         <li key={page.name} className="page">
-                            <Link to={page.link} className="name">
+                            <a onClick={handleOpenAccordion} href={page.link} className="name">
                                 {page.name}
-                            </Link>
+                            </a>
                         </li>
                     )}
                 </ul>
