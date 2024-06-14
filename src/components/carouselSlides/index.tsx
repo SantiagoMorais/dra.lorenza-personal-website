@@ -82,7 +82,6 @@ const Container = styled.div`
 
             &:hover {
                 scale: 1.2;
-                color: ${({ theme }) => theme.primaryColor};
                 opacity: 1;
             }
         }

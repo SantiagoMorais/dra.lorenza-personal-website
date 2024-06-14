@@ -7,7 +7,7 @@ import styled from "styled-components"
 export const WhatsAppButton = () => {
     return (
         <Container theme={style}>
-            <a href={whatsAppLink} className="link">
+            <a href={whatsAppLink} className="link" target="_blank" >
                 <FontAwesomeIcon icon={faWhatsapp} className="icon" />
                 <p className="text">Fale conosco via WhatsApp</p>
             </a>

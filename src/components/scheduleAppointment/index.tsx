@@ -125,10 +125,10 @@ const Container = styled.section`
             .info.instagram {
                 align-items: center;
 
-            .title {
-                text-align: center;
+                .title {
+                    text-align: center;
+                }
             }
-        }
         }
     }
 `

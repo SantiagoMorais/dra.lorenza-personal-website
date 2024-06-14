@@ -4,6 +4,11 @@ import { BrowserRouter } from "react-router-dom"
 import verticalLogoImage from "@assets/imgs/verticalLogo.jpg"
 import horizontalLogoImage from "@assets/imgs/horizontalLogo.jpg"
 
+function mockWindowResize(width: number) {
+    window.innerWidth = width;
+    window.dispatchEvent(new Event('resize'));
+}
+
 describe("NavBar", () => {
     it("should render the component correctly", () => {
         render(<NavBar />, { wrapper: BrowserRouter });
@@ -43,11 +48,15 @@ describe("NavBar", () => {
 
     it("should the accordion icon changes when clicked", () => {
         render(<NavBar />, { wrapper: BrowserRouter });
-        const accordionIcon = screen.getByTestId("accordionIcon")
+        const icon = screen.getByTestId("accordionIcon")
+        const button = screen.getByTestId("openWindowButton")
 
-        expect(accordionIcon.classList.contains("accordionOppened")).toBeFalsy()
+        expect(icon).toBeInTheDocument();
+        expect(button).toBeInTheDocument();
+        expect(icon).not.toHaveClass("accordionOppened");
         
-        fireEvent.click(accordionIcon)
-        expect(accordionIcon.classList.contains("accordionOppened")).toBeTruthy()
+        mockWindowResize(767)
+        fireEvent.click(button);
+        expect(icon).toHaveClass("accordionOppened");
     })
 })

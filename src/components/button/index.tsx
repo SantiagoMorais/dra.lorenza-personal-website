@@ -45,8 +45,13 @@ const ButtonContainer = styled.button`
 
     .link {
         height: fit-content;
+
         .icon {
             margin-right: .5rem;
+        }
+
+        &::first-letter {
+            text-transform: capitalize;
         }
     }
 ` 
