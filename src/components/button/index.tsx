@@ -29,13 +29,13 @@ const ButtonContainer = styled.button`
     max-width: 20rem;
     align-items: center;
     justify-content: center;
-    color: ${({ theme }) => theme.textColor};
+    color: ${style.textColor};
     font-size: ${fontSize.fontSizeBase};
     cursor: pointer;
     padding: .25rem 1rem;
     border-radius: 50px;
     transition: .3s;
-    background-color: ${({ theme }) => theme.primaryColor};
+    background-color: ${style.primaryColor};
     min-width: fit-content;
 
     &:hover {

@@ -12,7 +12,7 @@ interface ITipography {
     boldWeight: number
 }
 
-interface IFontSize {
+export interface IFontSize {
     fontSizeSmall: string,
     fontSizeBase: string,
     fontSizeMedium: string,
