@@ -41,3 +41,68 @@ export const fontSize: IFontSize = {
     fontSizeLarge: "2.8rem",
     fontSizeExtraLarge: "3.5rem"
 }
+
+export const faqBreakPoints = () => `
+        @media (max-width: 1024px) {
+            .faqs {
+                .faq {
+                    .answer {
+                        &.selected {
+                            height: 12rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            .faqs {
+                .faq {
+                    .answer {
+                        &.selected {
+                            height: 20rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 480px) {
+            .faqs {
+                .faq {
+                    .answer {
+                        &.selected {
+                            height: 32rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 320px) {
+            .faqs {
+                .faq {
+                    .answer {
+                        &.selected {
+                            height: 42rem;
+                            max-height: min-content;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 280px) {
+            .faqs {
+                .faq {
+                    .answer {
+                        &.selected {
+                            height: 48rem;
+                            max-height: min-content;
+                        }
+                    }
+                }
+            }
+        }
+    )
+`

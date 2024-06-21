@@ -8,6 +8,7 @@ import { ScheduleAppointment } from "@components/scheduleAppointment"
 import { Treatments } from "@components/treatments"
 import { WhatsAppButton } from "@components/whatsAppButton"
 import styled from "styled-components"
+import { FAQs } from "./faqs"
 
 export const Home = () => {
     return (
@@ -19,6 +20,7 @@ export const Home = () => {
             <Assessments />
             <ScheduleAppointment />
             <Address />
+            <FAQs />
             <Footer />
             <WhatsAppButton />
         </Container>
