@@ -7,8 +7,8 @@ export const phoneNumber: number = 31990757035;
 export const phoneNumberInString: string = "(31) 9 9075-7035";
 export const emailLink: string = "mailto:lorenzanutrologia@gmail.com";
 export const address: string = "R. Paracatu, 1154 - sala 406 - Santo Agostinho, Belo Horizonte - MG";
-export const instagramLink: string = ""
-export const scheduleAnAppointmentLink: string = ""
+export const instagramLink: string = "https://www.instagram.com/dralorenzaarruda/"
+export const scheduleAnAppointmentLink: string = "https://www.doctoralia.com.br/lorenza-arruda/nutrologo/belo-horizonte"
 
 interface IListItems {
     text: string,
@@ -25,6 +25,6 @@ export const whatsAppLink: string = `https://api.whatsApp.com/send?phone=${phone
 export const googleMapsLink: string = `https://www.google.com/maps/search/?api=1&query=${formatMessageForWeb(address)}`
 
 export const navBarButtons: IListItems[] = [
-    { text: "agendar consulta", icon: faCalendarDays, href: "" },
+    { text: "agendar consulta", icon: faCalendarDays, href: scheduleAnAppointmentLink },
     { text: "WhatsApp", icon: faWhatsapp, href: whatsAppLink }
 ];

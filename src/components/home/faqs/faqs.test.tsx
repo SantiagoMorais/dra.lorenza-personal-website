@@ -11,7 +11,7 @@ describe("<FAQs />", () => {
     it('should render the all the questions correctly', () => {
         render(<FAQs />);
         const faqs = screen.getAllByRole("listitem");
-        expect(faqs).toHaveLength(10);
+        expect(faqs).toHaveLength(7);
     });
 
     it('should add a new className to the corresponding answer when your faq is clicked', () => {

@@ -18,7 +18,7 @@ interface ILinks {
 
 export const Footer = () => {
     const { currentLink, setCurrentLink } = useContext(NavBarContext);
-    
+
     const handlePageChange = (link: string) => {
         setCurrentLink(link);
     }
@@ -44,7 +44,7 @@ export const Footer = () => {
                 </div>
                 <div className="info">
                     <p className="about">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nulla ipsam adipisci magnam harum eos hic reiciendis. Rem nobis nisi ab architecto possimus blanditiis, asperiores laudantium suscipit itaque iusto. Libero!
+                        A Dra. Lorenza Arruda é uma médica nutróloga dedicada a oferecer um atendimento de qualidade, individualizado e feito com empatia e cuidado. Em sua prática diária, ela se empenha em entender as necessidades e preocupações dos pacientes, abordando cada caso com uma perspectiva holística. Dra. Lorenza busca não apenas tratar, mas também educar e capacitar seus pacientes, proporcionando uma experiência médica única que alia confiança, conforto e excelência.
                     </p>
                     <div className="social">
                         <p className="follow">Entre em contato pelas minhas redes:</p>
@@ -123,6 +123,7 @@ const Container = styled.div`
             }
 
             .social {
+                max-width: 50rem;
                 display: flex;
                 flex-direction: column;
                 gap: .5rem;
@@ -131,6 +132,7 @@ const Container = styled.div`
                 .follow {
                     font-size: ${fontSize.fontSizeBase};
                     font-weight: ${fontStyle.mediumWeight};
+                    text-align: center;
                 }
 
                 .socialList {

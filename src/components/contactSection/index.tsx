@@ -1,5 +1,5 @@
 import { Footer } from "@components/footer"
-import { NavBar } from "@components/navBar"
+import { Header } from "@components/navBar"
 import { WhatsAppButton } from "@components/whatsAppButton"
 import styled from "styled-components"
 import { Address } from "./address"
@@ -8,7 +8,7 @@ import { ScheduleAppointment } from "@components/contactSection/scheduleAppointm
 export const ContactSection = () => {
     return (
         <Container>
-            <NavBar />
+            <Header />
             <ScheduleAppointment />
             <Address />
             <Footer />

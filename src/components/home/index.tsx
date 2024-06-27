@@ -2,7 +2,7 @@ import { AboutMe } from "@components/home/aboutMe"
 import { Assessments } from "@components/home/assessments"
 import { Footer } from "@components/footer"
 import { Hero } from "@components/home/hero"
-import { NavBar } from "@components/navBar"
+import { Header } from "@components/navBar"
 import { Treatments } from "@components/home/treatments"
 import { WhatsAppButton } from "@components/whatsAppButton"
 import styled from "styled-components"
@@ -12,7 +12,7 @@ import { CaringBeyondMethodology } from "./caringBeyondMethodology"
 export const Home = () => {
     return (
         <Container>
-            <NavBar />
+            <Header />
             <Hero />
             <AboutMe />
             <CaringBeyondMethodology />
