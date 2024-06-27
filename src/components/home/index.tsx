@@ -1,25 +1,23 @@
-import { AboutMe } from "@components/aboutMe"
-import { Address } from "@components/address"
-import { Assessments } from "@components/assessments"
+import { AboutMe } from "@components/home/aboutMe"
+import { Assessments } from "@components/home/assessments"
 import { Footer } from "@components/footer"
-import { Hero } from "@components/hero"
+import { Hero } from "@components/home/hero"
 import { NavBar } from "@components/navBar"
-import { ScheduleAppointment } from "@components/scheduleAppointment"
-import { Treatments } from "@components/treatments"
+import { Treatments } from "@components/home/treatments"
 import { WhatsAppButton } from "@components/whatsAppButton"
 import styled from "styled-components"
 import { FAQs } from "./faqs"
+import { CaringBeyondMethodology } from "./caringBeyondMethodology"
 
 export const Home = () => {
     return (
         <Container>
             <NavBar />
             <Hero />
-            <Treatments />
             <AboutMe />
+            <CaringBeyondMethodology />
+            <Treatments />
             <Assessments />
-            <ScheduleAppointment />
-            <Address />
             <FAQs />
             <Footer />
             <WhatsAppButton />

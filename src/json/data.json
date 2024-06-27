@@ -5,12 +5,16 @@
             "link": "/"
         },
         {
-            "name": "contato",
-            "link": "/contact"
+            "name": "serviços",
+            "link": "/services"
         },
         {
-            "name": "como chegar",
-            "link": "/address"
+            "name": "blog",
+            "link": "/blog"
+        },
+        {
+            "name": "contato",
+            "link": "/contact"
         }
     ],
     "faqs": [
@@ -54,5 +58,30 @@
             "question": "Como agendar uma consulta?",
             "answer": "Para agendar uma consulta, basta clicar no botão 'Agende Sua Consulta' na nossa landingpage ou entrar em contato através das informações fornecidas na seção de contato. Estamos aqui para ajudar você a iniciar sua jornada para uma vida plena e saudável."
         }
+    ],
+    "aboutMeInfo": {
+        "title": "Médica Nutróloga especializada em Emagrecimento e Saúde Mental, comprometida em ajudar você a alcançar uma vida plena e saudável.",
+        "academy": [
+            "Graduada em Medicina pela Escola Superior da Santa Casa de Misericórdia de Vitória - EMESCAM", "Residência em Clínica Médica pelo Instituto de Previdência dos Servidores do Estado de Minas Gerais- IPSEMG",
+            "Residência em Nutrologia pelo Instituto de Previdência dos Servidores do Estado de Minas Gerais- IPSEMG",
+            "Pós graduação em Nutrologia pela USP",
+            "Pós Graduação em Fisiologia do Exercício - UNIFESP"
+        ],
+        "otherStudies": [
+            "Capacitação em Modulação Intestinal",
+            "Certificação para Terapeutas pelo Instituto CIM"
+        ]
+    },
+    "caringBeyondMethTopics": [
+        {"title": "Avaliação Clínica Global e Nutricional", "explanation": "Detalhe da dieta atual, identificação de hábitos prejudiciais e estratégias personalizadas."},   
+        {"title": "Atividade Física e Sono Reparador", "explanation": "Avaliação de atividade física, suplementação e estratégias para melhorar o sono."},   
+        {"title": "Gestão de Ansiedade e Educação da Vontade", "explanation": "Técnicas de relaxamento, estratégias para gerenciar a ansiedade e desenvolver novos hábitos."}
+    ],
+    "treatments": [
+        {"id": 1, "description": "Avaliação nutricional personalizada", "image": "https://placehold.co/100x100"},
+        {"id": 2, "description": "Composição corporal (bioimpedância)", "image": "https://placehold.co/200x200"},
+        {"id": 3, "description": "Reprogramação de sono", "image": "https://placehold.co/300x300"},
+        {"id": 4, "description": "Gestão de ansiedade", "image": "https://placehold.co/400x400"},
+        {"id": 5, "description": "Consultas de suplementação e intervenção medicamentosa", "image": "https://placehold.co/500x500"}
     ]
 }

@@ -1,27 +1,28 @@
 import styled from "styled-components"
 import heroImage from "@assets/imgs/heroImage.jpg"
 import heroImageMobile from "@assets/imgs/heroImageMobile.jpg"
-import heroImageWithoutBG from "@assets/imgs/heroImageWithouBG.png"
+import heroImageWithoutBG from "@assets/imgs/heroImageWithoutBg.png"
 import { fontSize, fontStyle, style } from "@styles/style"
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 import { Button } from "@components/button"
+import { faCalendarDays } from "@fortawesome/free-regular-svg-icons"
+import { scheduleAnAppointmentLink } from "@styles/variables"
 
 export const Hero = () => {
     return (
-        <Container>
+        <Container >
             <div className="content">
                 <img src={heroImage} alt="Imagem principal" className="heroImage" />
                 <img src={heroImageWithoutBG} className="heroImageWithoutBG" />
                 <img src={heroImageMobile} alt="Imagem principal" className="heroImageMobile" />
                 <div className="slogan">
-                    <h1 className="title">Alcance seu Potencial Máximo:</h1>
-                    <h2 className="subtitle">Transforme sua Vida com Orientação Nutrológica Personalizada, Ciência e Cuidado de Quem Entende de Saúde</h2>
+                    <h1 className="title">Uma Jornada para <br />uma Vida Plena</h1>
+                    <h2 className="subtitle">Bases Integradas para Saúde, Bem-Estar e Equilíbrio</h2>
                 </div>
                 <span className="lineStyle"></span>
             </div>
             <div className="contactMe">
-                <p className="message">Marque sua consulta diretamente pelo WhatsApp</p>
-                <Button href="" icon={faWhatsapp} content="Falar no Whatsapp" />
+                <p className="message">Marque sua consulta diretamente pelo aplicativo</p>
+                <Button href={scheduleAnAppointmentLink} icon={faCalendarDays} content="Agende a sua consulta" />
             </div>
         </Container>
     )
@@ -39,26 +40,29 @@ const Container = styled.section`
         align-items: center;
         overflow: hidden;
         position: relative;
+        background-color: black;
 
         .heroImage {
             width: 100%;
             object-fit: cover;
-            object-position: 10dvw;
+            opacity: .6;
         }
 
         .heroImageWithoutBG {
             position: absolute;
             z-index: 2;
-            width: 100%;
-            object-position: 10dvw;
+            height: 100%;
+            scale: 2.2;
+            transform: translate(-50%, 25%);
+            right: 0;
         }
 
         .heroImageMobile {
             display: none;
-            height: 50rem;
+            max-height: 70rem;
             width: 100%;
             object-fit: cover;
-            object-position: right;
+            object-position: center top;
         }
 
         .slogan {
@@ -70,7 +74,7 @@ const Container = styled.section`
             left: 10dvw;
             
             .title {
-                font-size: 3.2dvw;
+                font-size: 3.8dvw;
                 line-height: 1;
                 font-weight: ${fontStyle.boldWeight};
                 color: ${style.primaryColor};
@@ -79,7 +83,7 @@ const Container = styled.section`
             }
 
             .subtitle {
-                font-size: 2dvw;
+                font-size: 2.8dvw;
                 font-weight: ${fontStyle.mediumWeight};
                 color: ${style.tertiaryColor};
             }
@@ -89,27 +93,17 @@ const Container = styled.section`
             content: '';
             position: absolute;
             top: 0;
-            left: 10dvw;
+            left: 0dvw;
             bottom: 0;
-            width: 60dvw;
-            background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            width: 100dvw;
+            background: linear-gradient(to left, rgba(237, 221, 214, 0) 0%, rgb(237, 221, 214) 70%);
             pointer-events: none;
-        }
-
-        &::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 10.1dvw;
-            background: ${style.textColor};
         }
 
         .lineStyle {
             height: .2rem;
             width: 100%;
-            background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+            background: linear-gradient(to left, ${style.tertiaryColor}, rgba(255, 255, 255, 0));
             position: absolute;
             z-index: 1;
             bottom: 8%;
@@ -118,12 +112,12 @@ const Container = styled.section`
 
     .contactMe {
         width: 100%;
-        background: linear-gradient(90deg, ${style.secondaryTextColor} 0%, ${style.primaryColor} 50%, ${style.secondaryTextColor} 100%);
         display: flex;
         justify-content: center;
         align-items: center;
         gap: .5rem 2rem;
         padding: 1rem;
+        background: linear-gradient(to right, ${style.primaryColor}, ${style.tertiaryColor});
         flex-wrap: wrap;
 
         .message {
@@ -147,6 +141,7 @@ const Container = styled.section`
 
             .slogan {
                 max-width: 100dvw;
+                width: 100%;
                 z-index: 1;
                 top: auto;
                 bottom: 2rem;
@@ -155,18 +150,21 @@ const Container = styled.section`
                 padding: 0 2rem;
                 
                 .title {
-                    font-size: ${fontSize.fontSizeMedium};
                     text-align: center;
                     line-height: 1;
-
+                    font-size: ${fontSize.fontSizeLarge};
                     margin-bottom: 2%;
                 }
     
                 .subtitle {
-                    font-size: ${fontSize.fontSizeBase};
+                    font-size: ${fontSize.fontSizeMedium};
                     font-weight: ${fontStyle.boldWeight};
                     text-align: center;
                 }
+            }
+
+            .lineStyle {
+                bottom: 0;
             }
 
             &::after {
@@ -177,10 +175,6 @@ const Container = styled.section`
                 width: 100%;
                 background: linear-gradient(0deg, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0)) 100%;
                 pointer-events: none;
-            }
-
-            &::before {
-                display: none;
             }
         }
 
@@ -193,10 +187,12 @@ const Container = styled.section`
         }
     }
 
-    @media (max-width: 480px) {
+    @media(max-width: 420px) {
         .content {
-            .heroImageMobile {
-                object-position: -28rem;
+            .slogan {
+                .title {
+                    font-size: ${fontSize.fontSizeMedium};
+                }
             }
         }
     }

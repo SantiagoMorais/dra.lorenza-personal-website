@@ -4,14 +4,14 @@ import { AboutMe } from "."
 describe("<AboutMe />", () => {
     it("should render the component correctly", () => {
         render(<AboutMe />);
-        const title = screen.getByText(/quem é a dra.lorenza arruda/i);
+        const title = screen.getByText(/conheça a Dra. Lorenza/i);
         expect(title).toBeInTheDocument();
     });
 
     it("should render all the curriculum itens correctly", () => {
         render(<AboutMe />);
         const curriculumItems = screen.getAllByRole("listitem");
-        expect(curriculumItems).toHaveLength(5);
+        expect(curriculumItems).toHaveLength(7);
     });
 
     it("should render the button to make the appointment", () => {

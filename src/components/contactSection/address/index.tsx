@@ -4,15 +4,15 @@ import styled from "styled-components"
 import location from "@assets/imgs/location.jpg"
 import mapImage from "@assets/imgs/mapAddress.jpg"
 import { fontSize, style } from "@styles/style"
-import { googleMapsLink } from "@styles/variables"
+import { address, googleMapsLink } from "@styles/variables"
 
 export const Address = () => {
     return (
-        <Container theme={style} id="address">
+        <Container id="address">
             <h2 className="title">Como chegar ao consultório</h2>
             <div className="address">
                 <FontAwesomeIcon icon={faMapLocationDot} className="icon" />
-                <p className="text">Av. das Flores, 1234, Sala 56, bairro Jardim das Estrelas, Belo Horizonte, MG</p>
+                <p className="text">{address}</p>
             </div>
             <div className="location">
                 <img src={location} alt="Consultório" className="clinicImage" />
@@ -38,11 +38,10 @@ const Container = styled.section`
 
     .title {
         font-size: ${fontSize.fontSizeMedium};
-        color: ${style.textColor};
+        color: ${style.primaryColor};
     }
-    
+
     .address {
-        color: ${style.textColor};
         display: flex;
         align-items: center;
         gap: 1rem;
@@ -68,7 +67,7 @@ const Container = styled.section`
             max-height: 35rem;
             object-fit: cover;
             border-radius: 1rem;
-            filter: drop-shadow(.5rem .5rem .5rem ${style.secondaryTextColor});
+            filter: drop-shadow(.5rem .5rem .5rem ${style.tertiaryColor});
         }
             
         .map {
@@ -80,7 +79,7 @@ const Container = styled.section`
             border-radius: 1rem;
             overflow: hidden;
             position: relative;
-            filter: drop-shadow(.5rem .5rem .5rem ${style.secondaryTextColor});
+            filter: drop-shadow(.5rem .5rem .5rem ${style.tertiaryColor});
 
             .seeLocation {
                 position: absolute;

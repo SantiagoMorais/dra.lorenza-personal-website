@@ -1,24 +1,21 @@
-import { CarouselSlides, ICarouselInfo } from "@components/carouselSlides"
-import { fontSize, style } from "@styles/style"
+import { CarouselSlides } from "@components/carouselSlides"
+import { fontSize, fontStyle, style } from "@styles/style"
 import styled from "styled-components"
+import data from "@json/data.json"
+import { Button } from "@components/button"
+import { faCircle } from "@fortawesome/free-regular-svg-icons"
 
 export const Treatments = () => {
-    const carouselContent: ICarouselInfo[] = [
-        { id: 1, image: "https://placehold.co/100x100", description: "Título 1" },
-        { id: 2, image: "https://placehold.co/200x200", description: "Título 2" },
-        { id: 3, image: "https://placehold.co/300x300", description: "Título 3" },
-        { id: 4, image: "https://placehold.co/400x400", description: "Título 4" },
-        { id: 5, image: "https://placehold.co/500x500", description: "Título 5" },
-        { id: 6, image: "https://placehold.co/600x600", description: "Título 6" }
-    ]
-
     return (
-        <Container theme={style}>
+        <Container>
             <h2 className="title">
-                Seja bem-vindo ao site
+                Nossos serviços
             </h2>
-            <p className="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident reiciendis itaque iste! Numquam repudiandae accusamus accusantium, ea id ducimus expedita harum iusto ipsa eveniet ratione enim eaque! Autem, delectus earum?</p>
-            <CarouselSlides info={carouselContent} slidesNumber={2} />
+            <h3 className="subtitle">
+                Consultas presenciais e teleatendimento
+            </h3>
+            <CarouselSlides info={data.treatments} slidesNumber={2} />
+            <Button content="Veja todos os serviços" icon={faCircle} href=""/>
         </Container>
     )
 }
@@ -33,15 +30,15 @@ const Container = styled.section`
     gap: 1rem;
 
     .title {
-        color: ${style.textColor};
+        color: ${style.primaryColor};
         font-size: ${fontSize.fontSizeLarge};
         text-align: center;
     }
-    
-    .text {
-        color: ${style.textColor};
-        font-size: ${fontSize.fontSizeBase};
-        max-width: 90rem;
+
+    .subtitle {
+        color: ${style.secondaryTextColor};
+        font-size: ${fontSize.fontSizeMedium};
+        font-weight: ${fontStyle.mediumWeight};
         text-align: center;
     }
 

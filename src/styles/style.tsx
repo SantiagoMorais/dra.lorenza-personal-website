@@ -35,11 +35,11 @@ export const fontStyle: ITipography = {
 }
 
 export const fontSize: IFontSize = {
-    fontSizeSmall: "1.2rem",
-    fontSizeBase: "1.6rem",
-    fontSizeMedium: "2.2rem",
-    fontSizeLarge: "2.8rem",
-    fontSizeExtraLarge: "3.5rem"
+    fontSizeSmall: "1.4rem",
+    fontSizeBase: "1.8rem",
+    fontSizeMedium: "2.4rem",
+    fontSizeLarge: "3rem",
+    fontSizeExtraLarge: "3.6rem"
 }
 
 export const faqBreakPoints = () => `

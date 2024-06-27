@@ -120,7 +120,7 @@ const Container = styled.div`
     }
 
     @media (max-width: 768px) {
-        padding: 0 2rem;
+        padding: 3rem 2rem 0;
 
         .title {
             font-size: 3rem;

@@ -6,7 +6,7 @@ import assessment4 from "@assets/imgs/assessment-4.jpg"
 import assessment5 from "@assets/imgs/assessment-5.jpg"
 import assessment6 from "@assets/imgs/assessment-6.jpg"
 import doctoraliaIcon from "@assets/imgs/doctoralia-icon.png"
-import { doctoraliaLink } from "@styles/variables"
+import { doctoraliaReviewsLink } from "@styles/variables"
 import { fontSize, style } from "@styles/style"
 import { CarouselSlides, ICarouselInfo } from "@components/carouselSlides"
 
@@ -21,63 +21,75 @@ export const Assessments = () => {
     ]
 
     return (
-        <Container theme={style}>
-            <h3 className="title">Veja as avaliações da Dra.Lorenza Arruda!</h3>
-            <CarouselSlides info={assessments} slidesNumber={1} />
-            <p className="message">
-                Veja todas as avaliações da Dra.Lorenza no portal da Doctoralia!
-                <a className="link" href={doctoraliaLink} target="_blank" >
-                    <img src={doctoraliaIcon} alt="ícone doctoralia" className="icon" />
-                    Clique aqui!
-                </a>
-            </p>
+        <Container >
+            <div className="container">
+                <h3 className="title">O que nossos pacientes dizem</h3>
+                <CarouselSlides info={assessments} slidesNumber={1} />
+                <p className="message">
+                    Veja mais depoimentos!
+                    <a className="link" href={doctoraliaReviewsLink} target="_blank" >
+                        <img src={doctoraliaIcon} alt="ícone doctoralia" className="icon" />
+                        Clique aqui!
+                    </a>
+                </p>
+            </div>
         </Container>
     )
 }
 
 const Container = styled.section`
-    max-width: 144rem;
     width: 100%;
-    padding: 4rem 2rem;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    justify-content: center;
+    background-color: ${style.secondaryColor};
 
-    .title {
-        color: ${style.textColor};
-        font-size: ${fontSize.fontSizeBase};
-        text-align: center;
-    }
-    
-    .message {
-        color: ${style.textColor};
-        font-size: ${fontSize.fontSizeSmall};
-        max-width: 90rem;
-        text-align: center;
+    .container {
+        max-width: 144rem;
+        width: 100%;
+        padding: 3rem 2rem;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: .5rem;
+        gap: 1rem;
 
-        .link {
+        .title {
+            color: ${style.primaryColor};
+            font-size: ${fontSize.fontSizeLarge};
+            text-align: center;
+        }
+        
+        .message {
+            font-size: ${fontSize.fontSizeBase};
+            max-width: 90rem;
+            text-align: center;
             display: flex;
+            flex-direction: column;
             align-items: center;
             gap: .5rem;
-            justify-content: center;
-            opacity: .8;
-            transition: .3s;
-            width: fit-content;
-            padding: 0 1rem;
-
-            .icon {
-                width: 3rem;
+            
+            .link {
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+                justify-content: center;
+                transition: .3s;
+                width: fit-content;
+                padding: 0 1rem;
+                border: .1rem solid ${style.secondaryTextColor};
+                padding: .5rem 1.5rem;
+                border-radius: 50rem;
+                
+                .icon {
+                    width: 3rem;
+                }
+                
+                &:hover {
+                    scale: 1.1;
+                    background-color: ${style.textColor};
+                    color: ${style.tertiaryColor};
+                    border-color: ${style.tertiaryColor};
+                }
             }
-
-            &:hover {
-                opacity: 1;
-                scale: 1.1;
-            }
-        }
+        }    
     }
 `

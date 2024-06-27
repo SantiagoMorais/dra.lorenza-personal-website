@@ -24,14 +24,14 @@ describe("NavBar", () => {
         expect(verticalLogo).toBeInTheDocument()
         expect(horizontalLogo).toBeInTheDocument()
 
-        expect(verticalLogo).toHaveAttribute("src", verticalLogoImage)    
-        expect(horizontalLogo).toHaveAttribute("src", horizontalLogoImage)    
+        expect(verticalLogo).toHaveAttribute("src", verticalLogoImage)
+        expect(horizontalLogo).toHaveAttribute("src", horizontalLogoImage)
     })
 
-    it("should render the schedule appointment and whatsapp buttons", () => {
+    it("should render the schedule appointment and whatsApp buttons", () => {
         render(<NavBar />, { wrapper: BrowserRouter });
-        const buttons = screen.getAllByRole("button");
-        expect(buttons).toHaveLength(2);
+        const buttons = document.querySelector(".list")
+        expect(buttons).toMatchSnapshot();
     });
 
     it("should the buttons' icon be rendered correctly", () => {
@@ -43,7 +43,7 @@ describe("NavBar", () => {
     it("should render all pages' link", () => {
         render(<NavBar />, { wrapper: BrowserRouter });
         const pagesLink = document.querySelectorAll(".page");
-        expect(pagesLink).toHaveLength(3)
+        expect(pagesLink).toHaveLength(4)
     })
 
     it("should the accordion icon changes when clicked", () => {
@@ -54,7 +54,7 @@ describe("NavBar", () => {
         expect(icon).toBeInTheDocument();
         expect(button).toBeInTheDocument();
         expect(icon).not.toHaveClass("accordionOppened");
-        
+
         mockWindowResize(767)
         fireEvent.click(button);
         expect(icon).toHaveClass("accordionOppened");

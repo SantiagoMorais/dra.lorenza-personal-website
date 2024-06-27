@@ -9,15 +9,15 @@ interface IButton {
     href: string
 }
 
-export const Button: React.FC<IButton> = ({ content, icon, href }) => {
+export const Button: React.FC<IButton> = ({ content, icon, href }) => {    
     return (
-        <ButtonContainer theme={style}>
+        <ButtonContainer>
             <a href={href} className="link" target="_blank">
                 <FontAwesomeIcon
                     data-testid="icon"
                     icon={icon}
                     className="icon" />
-                {content}
+                <span className="text">{content}</span>
             </a>
         </ButtonContainer>
     )
@@ -45,13 +45,12 @@ const ButtonContainer = styled.button`
 
     .link {
         height: fit-content;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
 
-        .icon {
-            margin-right: .5rem;
-        }
-
-        &::first-letter {
-            text-transform: capitalize;
+        .text::first-letter {
+            text-transform: uppercase;
         }
     }
 ` 

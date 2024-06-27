@@ -4,10 +4,11 @@ import scheduleImage from "@assets/imgs/scheduleAppointment.jpg"
 import { Button } from "@components/button"
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons"
 import { faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { instagramLink, phoneNumberInString, scheduleAnAppointmentLink } from "@styles/variables"
 
 export const ScheduleAppointment = () => {
     return (
-        <Container theme={style} id="contact" >
+        <Container id="contact" >
             <div className="content">
                 <div className="info instagram">
                     <h2 className="title">
@@ -16,7 +17,7 @@ export const ScheduleAppointment = () => {
                     <p className="text">
                         Me siga no instagram!
                     </p>
-                    <Button icon={faInstagram} content="Instagram" href="" />
+                    <Button icon={faInstagram} content="Instagram" href={instagramLink} />
                 </div>
                 <div className="imageContainer">
                     <img src={scheduleImage} alt="Marque a sua consulta" className="scheduleImage" />
@@ -27,9 +28,9 @@ export const ScheduleAppointment = () => {
                         Precisa de orientações sobre nutrição ou quer agendar uma consulta?
                     </p>
                     <p className="text">
-                        Entre em contato: (99) 99999-9999/ (99) 99999-9999 ou faça sua reserva aqui mesmo.
+                        Entre em contato: <br />{phoneNumberInString} ou faça sua reserva aqui mesmo.
                     </p>
-                    <Button href="" icon={faCalendarDays} content="Agende a sua consulta" />
+                    <Button href={scheduleAnAppointmentLink} icon={faCalendarDays} content="Agende a sua consulta" />
                 </div>
             </div>
         </Container>
@@ -38,7 +39,7 @@ export const ScheduleAppointment = () => {
 
 const Container = styled.section`
     width: 100%;
-    background-color: ${({ theme }) => theme.secondaryColor};
+    background-color: ${style.secondaryColor};
     display: flex;
     justify-content: center;
 
@@ -78,7 +79,7 @@ const Container = styled.section`
 
             .title {
                 font-size: ${fontSize.fontSizeMedium};
-                color: ${({ theme }) => theme.primaryColor};
+                color: ${style.primaryColor};
             }
 
             .text {

@@ -1,20 +1,42 @@
 import { Button } from "@components/button"
-import { faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons"
-import { whatsAppLink } from "@styles/variables"
+import { IconDefinition, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons"
+import { emailLink, instagramLink, whatsAppLink } from "@styles/variables"
 import styled from "styled-components"
 import horizontalLogo from "@assets/imgs/horizontalLogo.jpg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAt, faPhone } from "@fortawesome/free-solid-svg-icons"
 import { fontSize, fontStyle, style } from "@styles/style"
+import data from "@json/data.json"
+import { Link } from "react-router-dom"
+import { useContext } from "react"
+import { NavBarContext } from "@contexts/navBarContext"
+
+interface ILinks {
+    icon: IconDefinition,
+    link: string
+}
 
 export const Footer = () => {
+    const { currentLink, setCurrentLink } = useContext(NavBarContext);
+    
+    const handlePageChange = (link: string) => {
+        setCurrentLink(link);
+    }
+
+    const links: ILinks[] = [
+        { icon: faInstagram, link: instagramLink },
+        { icon: faPhone, link: whatsAppLink },
+        { icon: faAt, link: emailLink },
+        { icon: faWhatsapp, link: whatsAppLink },
+    ];
+
     return (
-        <Container theme={style}>
+        <Container >
             <div className="contact">
                 <p className="text">
                     Agende sua consulta comigo diretamente pelo WhatsApp
                 </p>
-                <Button href={whatsAppLink} icon={faWhatsapp} content="Falar no whatsapp" />
+                <Button href={whatsAppLink} icon={faWhatsapp} content="Falar no WhatsApp" />
             </div>
             <div className="content">
                 <div className="imageContainer">
@@ -27,39 +49,24 @@ export const Footer = () => {
                     <div className="social">
                         <p className="follow">Entre em contato pelas minhas redes:</p>
                         <ul className="socialList">
-                            <li className="listItem">
-                                <button className="button">
-                                    <FontAwesomeIcon icon={faInstagram} className="icon" />
-                                </button>
-                            </li>
-                            <li className="listItem">
-                                <button className="button">
-                                    <FontAwesomeIcon icon={faPhone} className="icon" />
-                                </button>
-                            </li>
-                            <li className="listItem">
-                                <button className="button">
-                                    <FontAwesomeIcon icon={faAt} className="icon" />
-                                </button>
-                            </li>
-                            <li className="listItem">
-                                <button className="button">
-                                    <FontAwesomeIcon icon={faWhatsapp} className="icon" />
-                                </button>
-                            </li>
+                            {links.map((item, index) =>
+                                <li className="listItem" key={index}>
+                                    <a href={item.link} className="button">
+                                        <FontAwesomeIcon icon={item.icon} className="icon" />
+                                    </a>
+                                </li>
+                            )}
                         </ul>
                     </div>
                 </div>
                 <div className="navigation">
-                    <a href="#home" className="section">
-                        Home
-                    </a>
-                    <a href="#address" className="section">
-                        Como chegar
-                    </a>
-                    <a href="#contact" className="section">
-                        Contatos
-                    </a>
+                    {data.links.map(item =>
+                        <div key={item.name} className="link">
+                            <Link className={`section ${currentLink === item.name && "pageSelected"}`} to={item.link} onClick={() => handlePageChange(item.name)}>
+                                {item.name}
+                            </Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </Container>
@@ -76,13 +83,13 @@ const Container = styled.div`
         flex-wrap: wrap;
         justify-content: center;
         width: 100dvw;
-        background: linear-gradient(90deg, ${({ theme }) => theme.primaryColor} 0%, ${({ theme }) => theme.tertiaryColor} 100%);
+        background: linear-gradient(90deg, ${style.primaryColor} 0%, ${style.tertiaryColor} 100%);
         align-items: center;
         gap: .5rem 2rem;
         padding: .5rem;
 
         .text {
-            color: ${({ theme }) => theme.textColor};
+            color: ${style.textColor};
             font-size: ${fontSize.fontSizeSmall};
             min-width: fit-content;
             font-weight: ${fontStyle.mediumWeight};
@@ -91,7 +98,7 @@ const Container = styled.div`
 
     .content {
         display: flex;
-        padding: 2rem;
+        padding: 2rem 2rem 3rem;
         gap: 2rem;
         align-items: center;
 
@@ -140,13 +147,13 @@ const Container = styled.div`
                             &:hover > .icon {
                                 scale: 1.1;
                                 opacity: 1;
-                                filter: drop-shadow(0 0 1rem ${({theme}) => theme.primaryColor});
+                                filter: drop-shadow(0 0 1rem ${style.primaryColor});
                                 }
                                 
                             .icon {
                                 transition: .3s;
                                 font-size: ${fontSize.fontSizeLarge};
-                                color: ${({theme}) => theme.primaryColor};
+                                color: ${style.primaryColor};
                                 opacity: .8;
                             }
                         }
@@ -163,15 +170,32 @@ const Container = styled.div`
             align-items: end;
             gap: .5rem;
 
-            .section {
-                min-width: fit-content;
-                font-size: ${fontSize.fontSizeBase};
-                font-weight: ${fontStyle.boldWeight};
-                transition: .3s;
+            .link {
                 position: relative;
 
+                .section {
+                    min-width: fit-content;
+                    font-size: ${fontSize.fontSizeBase};
+                    font-weight: ${fontStyle.boldWeight};
+                    transition: .3s;
+                    text-transform: capitalize;
+                    
+                    &.pageSelected::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: .1rem;
+                        background: ${style.secondaryTextColor};
+                        transform: scaleX(1);
+                        transform-origin: left;
+                        transition: transform .5s;
+                    }
+                }
+
                 &:hover {
-                    color: ${({theme}) => theme.primaryColor};
+                    color: ${style.primaryColor};
                 }
 
                 &::after {
@@ -181,7 +205,7 @@ const Container = styled.div`
                     left: 0;
                     width: 100%;
                     height: .1rem;
-                    background: ${({ theme }) => theme.primaryColor};
+                    background: ${style.primaryColor};
                     transform: scaleX(0);
                     transform-origin: left;
                     transition: transform .5s;
@@ -196,6 +220,7 @@ const Container = styled.div`
                     transform-origin: right;
                 }
             }
+
         }
     }
 

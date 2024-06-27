@@ -35,7 +35,7 @@ export const CarouselSlides: React.FC<ICarouselProps> = ({ info, slidesNumber })
     }, [slidesNumber])
 
     return (
-        <Container theme={style}>
+        <Container >
             <Swiper
                 loop={true}
                 className="swiper"
@@ -76,7 +76,7 @@ const Container = styled.div`
         padding: 0 4rem;
 
         .swiper-button-next, .swiper-button-prev {
-            color: ${({ theme }) => theme.primaryColor};
+            color: ${style.primaryColor};
             transition: .3s;
             opacity: .8;
 
@@ -97,7 +97,7 @@ const Container = styled.div`
         }
 
         .swiper-pagination-bullet {
-            background: ${({ theme }) => theme.primaryColor};
+            background: ${style.primaryColor};
         }
 
         .slide {
@@ -112,12 +112,13 @@ const Container = styled.div`
                 max-height: 35rem;
                 object-fit: cover;
                 border-radius: 1rem;
-                border: .3rem solid ${({ theme }) => theme.textColor};
+                border: .3rem solid ${style.textColor};
             }
                 
             .itemDescription {
                 font-size: ${fontSize.fontSizeMedium};
                 font-weight: ${fontStyle.mediumWeight};
+                text-align: center;
             }
         }
     }
@@ -137,6 +138,10 @@ const Container = styled.div`
     
                 .slideImage {
                     max-height: 25rem;
+                }
+
+                .itemDescription {
+                    font-size: ${fontSize.fontSizeBase};
                 }
             }
         }

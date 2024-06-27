@@ -2,34 +2,34 @@ import styled from "styled-components"
 import image from "@assets/imgs/aboutMeImage.jpg"
 import { Button } from "@components/button"
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons"
-import { fontSize, style } from "@styles/style"
+import { fontSize, fontStyle, style } from "@styles/style"
+import data from "@json/data.json"
+import { scheduleAnAppointmentLink } from "@styles/variables"
 
 export const AboutMe = () => {
-    const curriculumItems: string[] = [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae vehicula nulla.",
-        "Pellentesque volutpat euismod risus, ut posuere mi dapibus sed. Aliquam erat volutpat.",
-        "Sed fringilla, velit ut consectetur tempor, nibh ex tincidunt nisl, ut varius nulla.",
-        "Nulla facilisi. Sed non justo ac eros fermentum convallis. Praesent convallis dapibus.",
-        "Nam ac enim dapibus, efficitur tortor eget, pellentesque magna. Nullam eget lacus.",
-    ];
-    
-    
-
     return (
-        <Container>
+        <Container id="about">
             <div className="content">
                 <img src={image} alt="Imagem profissional" className="aboutMeImage" />
                 <div className="aboutMe">
-                    <h2 className="title">Quem é a Dra.Lorenza Arruda</h2>
-                    <p className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id amet odio suscipit sit officiis quis, tenetur neque fugit dolore tempore reiciendis dolorum consequuntur culpa aspernatur beatae, iusto exercitationem, nihil tempora!</p>
+                    <h2 className="title">Conheça a Dra. Lorenza</h2>
+                    <p className="description">{data.aboutMeInfo.title}</p>
                     <ul className="curriculum">
-                        {curriculumItems.map(item =>
+                        {data.aboutMeInfo.academy.map(item =>
                             <li key={item} className="element">
                                 {item}
                             </li>
                         )}
                     </ul>
-                    <Button href="" icon={faCalendarDays} content="Agende a sua consulta" />
+                    <p className="description additionalInfo">Outras formações</p>
+                    <ul className="curriculum">
+                        {data.aboutMeInfo.otherStudies.map(item =>
+                            <li key={item} className="element">
+                                {item}
+                            </li>
+                        )}
+                    </ul>
+                    <Button href={scheduleAnAppointmentLink} icon={faCalendarDays} content="Agende a sua consulta" />
                 </div>
             </div>
         </Container>
@@ -37,13 +37,12 @@ export const AboutMe = () => {
 }
 
 const Container = styled.section`  
-    background: ${style.secondaryColor};
     width: 100%;
     display: flex;
     justify-content: center;
 
     .content {
-        padding: 2rem;
+        padding: 4rem 2rem;
         max-width: 120rem;
         width: 100%;
         display: flex;
@@ -53,11 +52,10 @@ const Container = styled.section`
 
         .aboutMeImage {
             object-fit: cover;
-            background-color: red;
+            filter: drop-shadow(.5rem .5rem .5rem ${style.tertiaryColor});
             width: 40rem;
             max-width: 45dvw;
             border-radius: .5rem;
-            box-shadow: .5rem .5rem .5rem ${style.tertiaryColor};
         }
             
         .aboutMe {
@@ -75,17 +73,21 @@ const Container = styled.section`
             
             .description {
                 font-size: ${fontSize.fontSizeBase};
-                color: ${style.secondaryTextColor};
+                
+                &.additionalInfo {
+                    font-weight: ${fontStyle.boldWeight};
+                    color: ${style.primaryColor};
+                }
             }
-            
+
             .curriculum {
-                color: ${style.secondaryTextColor};
                 display: flex;
                 flex-direction: column;
                 gap: .5rem;
                 padding-right: 2rem;
                 text-align: justify;
                 margin: 1rem 0;
+                width: 100%;
 
                 .element {
                     list-style: inside;

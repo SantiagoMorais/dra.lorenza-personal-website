@@ -2,11 +2,31 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { fontSize, style } from "@styles/style"
 import { whatsAppLink } from "@styles/variables"
+import { useEffect, useState } from "react"
 import styled from "styled-components"
 
 export const WhatsAppButton = () => {
+    const [showButton, setShowButton] = useState<boolean>(true);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const windowHeight = window.innerHeight;
+            const scrollHeight = document.body.scrollHeight;
+            const scrollPosition = window.scrollY
+            
+            windowHeight + scrollPosition + 200 >= scrollHeight
+                ? setShowButton(false)
+                : setShowButton(true)
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        }
+    }, [])
+
     return (
-        <Container theme={style}>
+        <Container $isVisible={showButton}>
             <a href={whatsAppLink} className="link" target="_blank" >
                 <FontAwesomeIcon icon={faWhatsapp} className="icon" />
                 <p className="text">Fale conosco via WhatsApp</p>
@@ -15,16 +35,17 @@ export const WhatsAppButton = () => {
     )
 }
 
-const Container = styled.button`
+const Container = styled.button<{ $isVisible: boolean }>`
     opacity: .6;
     background: #25D366;
     border: none;
     border-radius: 50rem;
     position: fixed;
-    bottom: 2rem;
+    bottom: ${props => (props.$isVisible ? "2rem" : "-6rem")};
     right: 2rem;
-    transition: .3s;
+    transition: .5s;
     z-index: 3;
+    opacity: ${props => (props.$isVisible ? .6 : 0)};
 
     .link {
         display: flex;
@@ -33,12 +54,12 @@ const Container = styled.button`
         align-items: center;
 
         .icon {
-            color: ${({theme}) => theme.textColor};
+            color: ${style.textColor};
             font-size: ${fontSize.fontSizeMedium};
         }
         
         .text {
-            color: ${({theme}) => theme.textColor};
+            color: ${style.textColor};
             font-size: ${fontSize.fontSizeSmall};
         }
     }
@@ -49,7 +70,9 @@ const Container = styled.button`
     }
 
     @media (max-width: 768px) {
-        border-radius: 50%;;
+        bottom: ${props => (props.$isVisible ? "2rem" : "-6rem")};
+        border-radius: 50%;
+        opacity: ${props => (props.$isVisible ? .6 : 0)};
 
         .link {
             padding: 0;
