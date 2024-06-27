@@ -44,7 +44,7 @@ export const Footer = () => {
                 </div>
                 <div className="info">
                     <p className="about">
-                        A Dra. Lorenza Arruda é uma médica nutróloga dedicada a oferecer um atendimento de qualidade, individualizado e feito com empatia e cuidado. Em sua prática diária, ela se empenha em entender as necessidades e preocupações dos pacientes, abordando cada caso com uma perspectiva holística. Dra. Lorenza busca não apenas tratar, mas também educar e capacitar seus pacientes, proporcionando uma experiência médica única que alia confiança, conforto e excelência.
+                    A Dra. Lorenza Arruda é uma médica nutróloga dedicada a oferecer um atendimento de qualidade, individualizado e com empatia. Ela se empenha em entender as necessidades dos pacientes, abordando cada caso de forma holística. Dra. Lorenza busca tratar, educar e capacitar seus pacientes, proporcionando uma experiência médica única, com confiança, conforto e excelência.
                     </p>
                     <div className="social">
                         <p className="follow">Entre em contato pelas minhas redes:</p>

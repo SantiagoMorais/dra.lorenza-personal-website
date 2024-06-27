@@ -17,10 +17,11 @@ export interface ICarouselInfo {
 
 export interface ICarouselProps {
     info: ICarouselInfo[],
-    slidesNumber: number
+    slidesNumber: number,
+    imagesHeightInRem?: number
 }
 
-export const CarouselSlides: React.FC<ICarouselProps> = ({ info, slidesNumber }) => {
+export const CarouselSlides: React.FC<ICarouselProps> = ({ info, slidesNumber, imagesHeightInRem }) => {
     const [slidesPerView, setSlidesPerView] = useState<number>(2)
 
     useEffect(() => {
@@ -35,7 +36,7 @@ export const CarouselSlides: React.FC<ICarouselProps> = ({ info, slidesNumber })
     }, [slidesNumber])
 
     return (
-        <Container >
+        <Container $imagesHeight={imagesHeightInRem}>
             <Swiper
                 loop={true}
                 className="swiper"
@@ -64,7 +65,7 @@ export const CarouselSlides: React.FC<ICarouselProps> = ({ info, slidesNumber })
     )
 }
 
-const Container = styled.div`
+const Container = styled.div<{$imagesHeight: number | undefined}>`
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -105,14 +106,15 @@ const Container = styled.div`
             flex-direction: column;
             align-items: center;
             margin-bottom: 3rem;
+            user-select: none;
 
             .slideImage {
                 width: 100%;
-                height: auto;
-                max-height: 35rem;
+                min-width: 10rem;
                 object-fit: cover;
                 border-radius: 1rem;
                 border: .3rem solid ${style.textColor};
+                height: ${props => props.$imagesHeight ? `${props.$imagesHeight}rem` : 'auto'};
             }
                 
             .itemDescription {
@@ -138,10 +140,26 @@ const Container = styled.div`
     
                 .slideImage {
                     max-height: 25rem;
+                    height: ${props => props.$imagesHeight ? `${props.$imagesHeight * .8}rem` : 'auto'};
                 }
 
                 .itemDescription {
                     font-size: ${fontSize.fontSizeBase};
+                }
+            }
+        }
+    }
+
+    @media (max-width: 425px) {
+        .swiper {
+            .slide {
+                .slideImage {
+                    max-height: 25rem;
+                    height: ${props => props.$imagesHeight ? `${props.$imagesHeight * .6}rem` : 'auto'};
+                }
+
+                .itemDescription {
+                    font-size: ${fontSize.fontSizeSmall};
                 }
             }
         }

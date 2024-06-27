@@ -1,8 +1,36 @@
 import { fontSize, fontStyle, style } from "@styles/style"
 import styled from "styled-components"
-import data from "@json/data.json"
+import caringBeyondTopic1 from "@assets/imgs/caringBeyondImages/caringBeyondTopic1.jpg"
+import caringBeyondTopic2 from "@assets/imgs/caringBeyondImages/caringBeyondTopic2.jpg"
+import caringBeyondTopic3 from "@assets/imgs/caringBeyondImages/caringBeyondTopic3.jpg"
+import { useState } from "react"
+interface ICaringBeyondMethTopic {
+    title: string;
+    explanation: string;
+    image: string;
+}
 
 export const CaringBeyondMethodology = () => {
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+    const caringBeyondMethodology: ICaringBeyondMethTopic[] = [
+        {
+            title: "Avaliação Clínica Global e Nutricional",
+            explanation: "Detalhe da dieta atual, identificação de hábitos prejudiciais e estratégias personalizadas.",
+            image: caringBeyondTopic1
+        },
+        {
+            title: "Atividade Física e Sono Reparador",
+            explanation: "Avaliação de atividade física, suplementação e estratégias para melhorar o sono.",
+            image: caringBeyondTopic2
+        },
+        {
+            title: "Gestão de Ansiedade e Educação da Vontade",
+            explanation: "Técnicas de relaxamento, estratégias para gerenciar a ansiedade e desenvolver novos hábitos.",
+            image: caringBeyondTopic3
+        }
+    ];
+
     return (
         <Container id="methodology">
             <div className="content">
@@ -13,20 +41,30 @@ export const CaringBeyondMethodology = () => {
                     A Metodologia "Cuidar Além" é baseada em uma abordagem integral que abrange avaliação nutricional, física, mental e emocional.
                 </p>
                 <div className="info">
-                    <img className="image" src="https://placehold.co/300x300" alt="imagem da metodologia 'Cuidar Além'" />
                     <div className="methodologyDescription">
                         <h3 className="subtitle">
                             Bases para uma Vida Plena
                         </h3>
                         <ul className="topics">
-                            {data.caringBeyondMethTopics.map(item =>
-                                <li key={item.title} className="topicItem">
-                                    <h4 className="topicTitle">
-                                        {item.title}
-                                    </h4>
-                                    <p className="explanation">
-                                        {item.explanation}
-                                    </p>
+                            {caringBeyondMethodology.map((item, index) =>
+                                <li
+                                    key={item.title}
+                                    className="topicItem"
+                                    onMouseEnter={() => setHoveredIndex(index)}
+                                    onMouseLeave={() => setHoveredIndex(null)}
+                                    style={{ 
+                                        opacity: hoveredIndex === null || hoveredIndex === index ? 1 : .6
+                                     }}
+                                >
+                                    <img src={item.image} alt={item.title} className="topicImage" />
+                                    <div className="info">
+                                        <h4 className="topicTitle">
+                                            {item.title}
+                                        </h4>
+                                        <p className="explanation">
+                                            {item.explanation}
+                                        </p>
+                                    </div>
                                 </li>
                             )}
                         </ul>
@@ -68,15 +106,6 @@ const Container = styled.section`
         .info {
             display: flex;
             gap: 3rem;
-            margin-top: 1rem;
-
-            .image {
-                flex: 1;
-                border-radius: 1rem;
-                box-shadow: .5rem .5rem .5rem ${style.tertiaryColor};
-                object-fit: cover;
-                object-position: center;
-            }
 
             .methodologyDescription {
                 display: flex;
@@ -88,26 +117,61 @@ const Container = styled.section`
                     font-size: ${fontSize.fontSizeMedium};
                     color: ${style.primaryColor};
                     font-weight: ${fontStyle.boldWeight};
+                    text-align: center;
+                    margin: 1rem 0;
                 }
 
                 .topics {
                     display: flex;
-                    flex-direction: column;
-                    gap: 1rem;
+                    gap: 2rem;
+                    flex-wrap: wrap;
 
                     .topicItem {
                         list-style-type: disc;
-                        margin-left: 1.6rem;
+                        display: flex;
+                        flex-direction: column;
+                        flex: 1;
+                        max-width: 100%;
+                        min-width: 30rem;
+                        background-color: ${style.textColor};
+                        border-radius: 1rem;
+                        overflow: hidden;
+                        border: ${style.textColor} solid .2rem;
+                        transition: .5s;
+                        cursor: default;
 
-                        .topicTitle {
-                            font-size: ${fontSize.fontSizeBase};
-                            color: ${style.primaryColor};
-                            font-weight: ${fontStyle.mediumWeight};
+                        .topicImage {
+                            height: 30rem;
+                            object-fit: cover;
+                            border-bottom: ${style.textColor} solid .2rem;
                         }
 
-                        .explanation {
-                            font-size: ${fontSize.fontSizeBase};
+                        .info {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1rem;
+                            padding: 1rem 2rem;
+                            
+                            .topicTitle {
+                                font-size: ${fontSize.fontSizeMedium};
+                                color: ${style.primaryColor};
+                                font-weight: ${fontStyle.mediumWeight};
+                                text-align: center;
+                                line-height: 120%;
+                            }
+                            
+                            .explanation {
+                                font-size: ${fontSize.fontSizeBase};
+                                color: ${style.secondaryTextColor};
+                                text-align: justify;
+                                padding: 0 1rem;
+                            }
                         }
+
+                        &:hover {
+                            transform: scale(1.1);
+                        }
+                        
                     }
                 }
             }
@@ -116,7 +180,6 @@ const Container = styled.section`
 
     @media (max-width: 768px) {
         .content {
-
             .description {
                 font-size: ${fontSize.fontSizeBase};
                 width: 100%;

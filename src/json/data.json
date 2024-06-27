@@ -60,11 +60,6 @@
             "Certificação para Terapeutas pelo Instituto CIM"
         ]
     },
-    "caringBeyondMethTopics": [
-        {"title": "Avaliação Clínica Global e Nutricional", "explanation": "Detalhe da dieta atual, identificação de hábitos prejudiciais e estratégias personalizadas."},   
-        {"title": "Atividade Física e Sono Reparador", "explanation": "Avaliação de atividade física, suplementação e estratégias para melhorar o sono."},   
-        {"title": "Gestão de Ansiedade e Educação da Vontade", "explanation": "Técnicas de relaxamento, estratégias para gerenciar a ansiedade e desenvolver novos hábitos."}
-    ],
     "treatments": [
         {"id": 1, "description": "Avaliação nutricional personalizada", "image": "https://placehold.co/100x100"},
         {"id": 2, "description": "Composição corporal (bioimpedância)", "image": "https://placehold.co/200x200"},

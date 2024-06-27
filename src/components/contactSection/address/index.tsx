@@ -1,8 +1,8 @@
 import { faMapLocationDot } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
-import location from "@assets/imgs/location.jpg"
-import mapImage from "@assets/imgs/mapAddress.jpg"
+import location from "@assets/imgs/contactImages/location.jpg"
+import mapImage from "@assets/imgs/contactImages/mapAddress.jpg"
 import { fontSize, style } from "@styles/style"
 import { address, googleMapsLink } from "@styles/variables"
 

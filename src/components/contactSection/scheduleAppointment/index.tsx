@@ -1,6 +1,6 @@
 import { fontSize, fontStyle, style } from "@styles/style"
 import styled from "styled-components"
-import scheduleImage from "@assets/imgs/scheduleAppointment.jpg"
+import scheduleImage from "@assets/imgs/contactImages/scheduleAppointment.jpg"
 import { Button } from "@components/button"
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons"
 import { faInstagram } from "@fortawesome/free-brands-svg-icons"

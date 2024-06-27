@@ -8,11 +8,10 @@ describe("<CaringBeyondMethodology />", () => {
         expect(title).toBeInTheDocument();
     });
 
-    it("should render the image correctly", () => {
+    it("should render the images correctly", () => {
         render(<CaringBeyondMethodology />)
-        const image = screen.getByAltText(/imagem da metodologia 'Cuidar Além'/i);
-        expect(image).toBeInTheDocument();
-        expect(image).toHaveAttribute("src", "https://placehold.co/300x300")
+        const image = screen.getAllByRole("img");
+        expect(image).toHaveLength(3)
     });
 
     it("should render all topics from the methodology correctly", () => {

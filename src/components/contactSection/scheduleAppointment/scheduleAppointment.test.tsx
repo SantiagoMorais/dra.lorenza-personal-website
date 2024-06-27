@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import { ScheduleAppointment } from "."
-import scheduleImage from "@assets/imgs/scheduleAppointment.jpg"
+import scheduleImage from "@assets/imgs/contactImages/scheduleAppointment.jpg"
 
 describe("<ScheduleAppointment />", () => {
     it("should render the component correctly", () => {
