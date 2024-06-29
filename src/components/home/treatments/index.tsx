@@ -9,8 +9,11 @@ import image5 from "@assets/imgs/servicesImages/servicesImage5.jpg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUserMd } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "react-router-dom"
+import { useEffect, useState } from "react"
 
 export const Treatments = () => {
+    const [spaceBetweenCarousel, setSpaceBetweenCarousel] = useState<number>(50)
+
     const treatmentsData = [
         { "id": 1, "description": "Avaliação nutricional personalizada", "image": image1 },
         { "id": 2, "description": "Composição corporal (bioimpedância)", "image": image2 },
@@ -18,6 +21,24 @@ export const Treatments = () => {
         { "id": 4, "description": "Gestão de ansiedade", "image": image4 },
         { "id": 5, "description": "Consultas de suplementação e intervenção medicamentosa", "image": image5 }
     ];
+
+    useEffect(() => {
+        const handleSpaceBetween = () => {
+            const largeDevicesScreen = window.innerWidth > 768
+            const mediumDevicesScreen = window.innerWidth <= 768 && window.innerWidth > 425
+            if(largeDevicesScreen) {
+                setSpaceBetweenCarousel(50)
+            } else if (mediumDevicesScreen) {
+                setSpaceBetweenCarousel(30)
+            } else {
+                setSpaceBetweenCarousel(10)
+            }
+        }
+
+        window.addEventListener("resize", handleSpaceBetween)
+
+        return () => (window.removeEventListener("resize", handleSpaceBetween))
+    }, [])
 
     return (
         <Container>
@@ -27,7 +48,7 @@ export const Treatments = () => {
             <h3 className="subtitle">
                 Consultas presenciais e teleatendimento
             </h3>
-            <CarouselSlides info={treatmentsData} slidesNumber={2} imagesHeightInRem={30} />
+            <CarouselSlides info={treatmentsData} slidesNumber={2} imagesHeightInRem={30} spaceBetween={spaceBetweenCarousel} />
             <Link to={"/services"} className="moreInfoButton">
                 <FontAwesomeIcon icon={faUserMd}/>
                 Veja todos os serviços

@@ -18,10 +18,11 @@ export interface ICarouselInfo {
 export interface ICarouselProps {
     info: ICarouselInfo[],
     slidesNumber: number,
-    imagesHeightInRem?: number
+    imagesHeightInRem?: number,
+    spaceBetween?: number
 }
 
-export const CarouselSlides: React.FC<ICarouselProps> = ({ info, slidesNumber, imagesHeightInRem }) => {
+export const CarouselSlides: React.FC<ICarouselProps> = ({ info, slidesNumber, imagesHeightInRem, spaceBetween }) => {
     const [slidesPerView, setSlidesPerView] = useState<number>(2)
 
     useEffect(() => {
@@ -40,7 +41,7 @@ export const CarouselSlides: React.FC<ICarouselProps> = ({ info, slidesNumber, i
             <Swiper
                 loop={true}
                 className="swiper"
-                spaceBetween={50}
+                spaceBetween={spaceBetween ? spaceBetween : 50}
                 slidesPerView={slidesPerView}
                 navigation
                 modules={[Pagination]}
