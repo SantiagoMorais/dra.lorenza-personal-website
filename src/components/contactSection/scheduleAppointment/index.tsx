@@ -14,10 +14,11 @@ export const ScheduleAppointment = () => {
                     <h2 className="title">
                         Gostaria de explorar uma variedade maior de conteúdos sobre nutrologia?
                     </h2>
-                    <p className="text">
+                    <p className="text instagram">
                         Me siga no instagram!
                     </p>
                     <Button icon={faInstagram} content="Instagram" href={instagramLink} />
+                    <div className="breakLine"></div>
                 </div>
                 <div className="imageContainer">
                     <img src={scheduleImage} alt="Marque a sua consulta" className="scheduleImage" />
@@ -85,6 +86,10 @@ const Container = styled.section`
             .text {
                 font-size: ${fontSize.fontSizeBase};
                 font-weight: ${fontStyle.mediumWeight};
+
+                &.instagram {
+                    text-align: right;
+                }
             }
         }
 
@@ -93,6 +98,14 @@ const Container = styled.section`
 
             .title {
                 text-align: end;
+            }
+
+            .breakLine {
+                width: 100%;
+                height: .2rem;
+                background: linear-gradient(to left, rgba(0,0,0,0), ${style.primaryColor}, rgba(0,0,0,0));
+                opacity: .6;
+                display: none;
             }
         }
     }
@@ -128,6 +141,10 @@ const Container = styled.section`
 
                 .title {
                     text-align: center;
+                }
+
+                .breakLine {
+                    display: block;
                 }
             }
         }

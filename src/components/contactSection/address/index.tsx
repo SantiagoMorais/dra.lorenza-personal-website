@@ -15,7 +15,9 @@ export const Address = () => {
                 <p className="text">{address}</p>
             </div>
             <div className="location">
-                <img src={location} alt="Consultório" className="clinicImage" />
+                <div className="clinic">
+                    <img src={location} alt="Consultório" className="clinicImage" />
+                </div>
                 <div className="map">
                     <a className="seeLocation" href={googleMapsLink} target="_blank" >
                         <h3 className="message">
@@ -39,6 +41,7 @@ const Container = styled.section`
     .title {
         font-size: ${fontSize.fontSizeMedium};
         color: ${style.primaryColor};
+        text-align: center;
     }
 
     .address {
@@ -58,24 +61,25 @@ const Container = styled.section`
         display: flex;
         gap: 2rem;
         width: 100%;
-        flex-wrap: wrap;
+        height: 35rem;
 
-        .clinicImage {
-            width: 100%;
+        .clinic {
             flex: 1;
-            min-width: 30rem;
-            max-height: 35rem;
-            object-fit: cover;
-            border-radius: 1rem;
-            filter: drop-shadow(.5rem .5rem .5rem ${style.tertiaryColor});
+            width: 100%;
+
+            .clinicImage {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 1rem;
+                filter: drop-shadow(.5rem .5rem .5rem ${style.tertiaryColor});
+                object-position: top;
+            }
         }
             
         .map {
             width: 100%;
             flex: 1;
-            min-width: 30rem;
-            height: 35rem;
-            background-color: black;
             border-radius: 1rem;
             overflow: hidden;
             position: relative;
@@ -108,12 +112,27 @@ const Container = styled.section`
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                transition: .3s;
                 cursor: pointer;
+                object-position: center center;
+            }
+        }
+    }
 
-                &:hover {
-                    opacity: .6;
-                }
+    @media (max-width: 768px) {
+        .location {
+            flex-direction: column;
+            height: auto;
+
+            .clinic {
+                order: 2;
+                height: 30rem;
+                flex: auto;
+            }
+            
+            .map {
+                order: 1;
+                flex: auto;
+                height: 30rem;
             }
         }
     }

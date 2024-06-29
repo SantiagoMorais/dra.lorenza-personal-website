@@ -93,10 +93,11 @@ const Container = styled.div`
             font-size: ${fontSize.fontSizeSmall};
             min-width: fit-content;
             font-weight: ${fontStyle.mediumWeight};
+            text-align: center;
         }
     }
 
-    .content {
+    .content { 
         display: flex;
         padding: 2rem 2rem 3rem;
         gap: 2rem;
