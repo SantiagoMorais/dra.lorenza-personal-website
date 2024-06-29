@@ -50,12 +50,15 @@ export const CaringBeyondMethodology = () => {
                                 <li
                                     key={item.title}
                                     className="topicItem"
+                                >
+                                    <div 
+                                    className="topicBackground"
                                     onMouseEnter={() => setHoveredIndex(index)}
                                     onMouseLeave={() => setHoveredIndex(null)}
                                     style={{ 
-                                        opacity: hoveredIndex === null || hoveredIndex === index ? 1 : .6
+                                        opacity: hoveredIndex === null || hoveredIndex === index ? 0 : .4
                                      }}
-                                >
+                                    ></div>
                                     <img src={item.image} alt={item.title} className="topicImage" />
                                     <div className="info">
                                         <h4 className="topicTitle">
@@ -127,7 +130,6 @@ const Container = styled.section`
                     flex-wrap: wrap;
 
                     .topicItem {
-                        list-style-type: disc;
                         display: flex;
                         flex-direction: column;
                         flex: 1;
@@ -139,14 +141,30 @@ const Container = styled.section`
                         border: ${style.textColor} solid .2rem;
                         transition: .5s;
                         cursor: default;
+                        position: relative;
+
+                        .topicBackground {
+                            background: black;
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            z-index: 1;
+                            opacity: 0;
+                            transition: .5s;
+                        }
 
                         .topicImage {
+                            z-index: 0;
                             height: 30rem;
                             object-fit: cover;
                             border-bottom: ${style.textColor} solid .2rem;
+                            width: 100%;
                         }
 
                         .info {
+                            z-index: 0;
                             display: flex;
                             flex-direction: column;
                             gap: 1rem;
@@ -166,12 +184,11 @@ const Container = styled.section`
                                 text-align: justify;
                                 padding: 0 1rem;
                             }
-                        }
-
-                        &:hover {
-                            transform: scale(1.1);
-                        }
+                        }   
                         
+                        &:hover {
+                            scale: 1.05;
+                        }
                     }
                 }
             }
@@ -188,13 +205,38 @@ const Container = styled.section`
             .info {
                 flex-direction: column;
 
-                .image {
-                    width: 100%;
-                }
-
                 .methodologyDescription {
                     .subtitle {
                         text-align: center;
+                    }
+
+                    .topics {
+                        .topicItem {
+                            min-width: 20rem;
+
+                            .topicImage {
+                                height: 20rem;
+                            }
+    
+                            .info {
+                                padding: 1rem;
+                                
+                                .topicTitle {
+                                    font-size: ${fontSize.fontSizeBase};
+                                }
+                                
+                                .explanation {
+                                    line-height: 120%;
+                                    font-size: ${fontSize.fontSizeSmall};
+                                    text-align: center;
+                                    padding: 0 0 1rem;
+                                }
+                            }   
+                            
+                            &:hover {
+                                scale: 1.05;
+                            }
+                        }
                     }
                 }
             }
