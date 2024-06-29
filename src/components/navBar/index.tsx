@@ -6,12 +6,20 @@ import horizontalLogo from "@assets/imgs/horizontalLogo.jpg"
 import { Link } from "react-router-dom"
 import { navBarButtons, } from "@styles/variables"
 import { NavBar } from "./navBar"
+import { useContext } from "react"
+import { NavBarContext } from "@contexts/navBarContext"
 
 export const Header = () => {
+    const { setCurrentLink } = useContext(NavBarContext)
+
+    const handleCurrentPage = (link: string) => {
+        setCurrentLink(link)
+    }
+
     return (
         <Container data-testid="header" id="home">
             <div className="scheduleAppointment">
-                <Link to={"/"}>
+                <Link to={"/"} onClick={() => handleCurrentPage("home")}>
                     <img src={horizontalLogo} alt="logo" className="logo horizontal" />
                     <img src={verticalLogo} alt="logo" className="logo vertical" />
                 </Link>

@@ -13,8 +13,15 @@ interface INavBarProviderProps {
 
 export const NavBarProvider: React.FC<INavBarProviderProps> = ({children}) => {
     const localPage = localStorage.getItem('LorenzaCurrentLink');
-    const storagePage = localPage ? JSON.parse(localPage) : "abacaxi";
-    
+    let storagePage: string;
+
+    try {
+        storagePage = localPage ? JSON.parse(localPage) : "home";
+    } catch (error) {
+        console.error("Error parsing JSON from localStorage", error);
+        storagePage = "home";
+    }
+
     const [currentLink, setCurrentLink] = useState<string>(storagePage);
 
     useEffect(() => {
