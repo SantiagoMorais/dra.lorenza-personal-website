@@ -28,6 +28,6 @@ describe("<Footer />", () => {
     it("should render all navigation buttons correctly", () => {
         render(<Footer />, {wrapper: BrowserRouter});
         const buttons = document.querySelectorAll(".section");
-        expect(buttons).toHaveLength(4);
+        expect(buttons).toHaveLength(3);
     })
 })

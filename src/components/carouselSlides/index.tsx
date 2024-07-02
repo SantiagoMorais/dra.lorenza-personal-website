@@ -100,13 +100,15 @@ const Container = styled.div<{$imagesHeight: number | undefined}>`
 
         .swiper-pagination-bullet {
             background: ${style.primaryColor};
+            width: 1.5rem;
+            height: 1.5rem;
         }
 
         .slide {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             user-select: none;
 
             .slideImage {

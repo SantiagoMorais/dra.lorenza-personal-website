@@ -1,29 +1,46 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { fontSize, style } from "@styles/style"
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 interface IButton {
     content: string,
     icon: IconDefinition,
-    href: string
+    href?: string,
+    buttonColor?: string,
+    linkPath?: string
 }
 
-export const Button: React.FC<IButton> = ({ content, icon, href }) => {    
+interface ButtonContainerProps {
+    $buttonColor?: string;
+}
+
+export const Button: React.FC<IButton> = ({ content, icon, href, buttonColor, linkPath }) => {
     return (
-        <ButtonContainer>
-            <a href={href} className="link" target="_blank">
-                <FontAwesomeIcon
-                    data-testid="icon"
-                    icon={icon}
-                    className="icon" />
-                <span className="text">{content}</span>
-            </a>
+        <ButtonContainer $buttonColor={buttonColor}>
+            {linkPath
+                ? <Link to={linkPath} className="link">
+                    <FontAwesomeIcon
+                        data-testid="icon"
+                        icon={icon}
+                        className="icon" />
+                    <span className="text">{content}</span>
+                </Link>
+                : <a href={href} className="link" target="_blank">
+                    <FontAwesomeIcon
+                        data-testid="icon"
+                        icon={icon}
+                        className="icon" />
+                    <span className="text">{content}</span>
+                </a>
+            }
+
         </ButtonContainer>
     )
 }
 
-const ButtonContainer = styled.button`
+const ButtonContainer = styled.button<ButtonContainerProps>`
     display: flex;
     border:none;
     max-width: 20rem;
@@ -35,7 +52,7 @@ const ButtonContainer = styled.button`
     padding: .25rem 1rem;
     border-radius: 50px;
     transition: .3s;
-    background-color: ${style.primaryColor};
+    background-color: ${({ $buttonColor }) => $buttonColor ? $buttonColor : style.primaryColor};
     min-width: fit-content;
 
     &:hover {

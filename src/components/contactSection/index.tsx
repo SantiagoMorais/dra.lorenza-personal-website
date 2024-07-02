@@ -1,5 +1,5 @@
 import { Footer } from "@components/footer"
-import { Header } from "@components/navBar"
+import { Header } from "@components/header"
 import { WhatsAppButton } from "@components/whatsAppButton"
 import styled from "styled-components"
 import { Address } from "./address"
