@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react"
 import { Footer } from "."
 import { BrowserRouter } from "react-router-dom"
-import horizontalLogo from "@assets/imgs/horizontalLogo.jpg"
+import horizontalLogo from "@assets/imgs/homeAndNavBar/horizontalLogo.jpg"
 
 describe("<Footer />", () => {
     it("should render the component correctly", () => {

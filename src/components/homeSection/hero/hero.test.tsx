@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react"
 import { Hero } from "."
-import image from "@assets/imgs/heroImage.jpg"
+import image from "@assets/imgs/homeAndNavBar/heroImage.jpg"
 
 describe("hero", () => {
     it("should render the component correctly", () => {

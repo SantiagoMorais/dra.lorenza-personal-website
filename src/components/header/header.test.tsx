@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react"
 import { Header } from "."
 import { BrowserRouter } from "react-router-dom"
-import verticalLogoImage from "@assets/imgs/verticalLogo.jpg"
-import horizontalLogoImage from "@assets/imgs/horizontalLogo.jpg"
+import verticalLogoImage from "@assets/imgs/homeAndNavBar/verticalLogo.jpg"
+import horizontalLogoImage from "@assets/imgs/homeAndNavBar/horizontalLogo.jpg"
 
 describe("<Header />", () => {
     it("should render the correct logo image", () => {

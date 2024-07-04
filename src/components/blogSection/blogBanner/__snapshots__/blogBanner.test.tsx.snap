@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<BlogBanner /> > should render the title and subtitle correctly 1`] = `
+<div
+  class="info"
+>
+  <h2
+    class="title"
+  >
+    Blog de Nutrologia: Saúde e Ciência
+  </h2>
+  <h3
+    class="subtitle"
+  >
+    Informações precisas para otimizar sua alimentação e seu bem-estar
+  </h3>
+</div>
+`;

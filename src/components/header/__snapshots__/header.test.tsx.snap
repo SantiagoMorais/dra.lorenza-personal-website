@@ -40,7 +40,7 @@ exports[`<Header /> > should render the schedule appointment and whatsApp button
   >
     <a
       class="link"
-      href="https://api.whatsApp.com/send?phone=31990757035&text=Ol%C3%A1%2C%20dra.Lorenza%2C%20eu%20encontrei%20o%20seu%20contato%20pelo%20seu%20site.%20Eu%20gostaria%20de%20agendar%20uma%20consulta."
+      href="https://api.whatsApp.com/send?phone=31990757035&text=Ol%C3%A1%2C%20bom%20dia!%20Eu%20encontrei%20o%20contato%20da%20Dra.%20Lorenza%20pelo%20seu%20site%20pessoal.%20Eu%20gostaria%20de%20agendar%20uma%20consulta."
       target="_blank"
     >
       <svg
