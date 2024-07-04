@@ -2,7 +2,7 @@ import { Button } from "@components/button"
 import { IconDefinition, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 import { emailLink, instagramLink, whatsAppLink } from "@styles/variables"
 import styled from "styled-components"
-import horizontalLogo from "@assets/imgs/horizontalLogo.jpg"
+import horizontalLogo from "@assets/imgs/homeAndNavBar/horizontalLogo.jpg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAt, faPhone } from "@fortawesome/free-solid-svg-icons"
 import { fontSize, fontStyle, style } from "@styles/style"
@@ -36,7 +36,7 @@ export const Footer = () => {
                 <p className="text">
                     Agende sua consulta comigo diretamente pelo WhatsApp
                 </p>
-                <Button href={whatsAppLink} icon={faWhatsapp} content="Falar no WhatsApp" />
+                <Button href={whatsAppLink} icon={faWhatsapp} content="Falar no WhatsApp" buttonColor="#25D366" />
             </div>
             <div className="content">
                 <div className="imageContainer">

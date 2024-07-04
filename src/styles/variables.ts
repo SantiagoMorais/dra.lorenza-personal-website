@@ -20,7 +20,27 @@ function formatMessageForWeb(message: string): string {
     return encodeURIComponent(message)
 }
 
-const defaultWhatsappMessage: string = "Olá, dra.Lorenza, eu encontrei o seu contato pelo seu site. Eu gostaria de agendar uma consulta.";
+function greetingsHour () {
+    const date = new Date();
+    const hour = date.getHours();
+    const inTheMorning = hour >= 6 && hour < 12;
+    const inTheAfternon = hour >= 12 && hour < 18;
+    const inTheNight = hour >= 18 && hour < 24;
+
+    switch(true) {
+        case inTheMorning:
+            return ", bom dia";
+        case inTheAfternon:
+            return ", boa tarde";
+        case inTheNight:
+            return ", boa noite";
+        default:
+            return ""
+    }
+}
+
+const defaultWhatsappMessage: string = `Olá${greetingsHour()}! Eu encontrei o contato da Dra. Lorenza pelo seu site pessoal. Eu gostaria de agendar uma consulta.`;
+
 export const whatsAppLink: string = `https://api.whatsApp.com/send?phone=${phoneNumber}&text=${formatMessageForWeb(defaultWhatsappMessage)}`;
 export const googleMapsLink: string = `https://www.google.com/maps/search/?api=1&query=${formatMessageForWeb(address)}`
 

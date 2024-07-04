@@ -16,6 +16,8 @@ export const ScheduleAppointment = () => {
                     </h2>
                     <p className="text instagram">
                         Me siga no instagram!
+                        <br />
+                        @dralorenzaarruda
                     </p>
                     <Button icon={faInstagram} content="Instagram" href={instagramLink} />
                     <div className="breakLine"></div>
@@ -24,14 +26,14 @@ export const ScheduleAppointment = () => {
                     <img src={scheduleImage} alt="Marque a sua consulta" className="scheduleImage" />
                 </div>
                 <div className="info">
-                    <h2 className="title">Agende agora sua consulta</h2>
+                    <h2 className="title">Pronto para transformar sua vida?</h2>
                     <p className="text">
-                        Precisa de orientações sobre nutrição ou quer agendar uma consulta?
+                    Agende uma consulta hoje mesmo e descubra como podemos ajudar você a alcançar uma vida plena e saudável
                     </p>
                     <p className="text">
                         Entre em contato: <br />{phoneNumberInString} ou faça sua reserva aqui mesmo.
                     </p>
-                    <Button href={scheduleAnAppointmentLink} icon={faCalendarDays} content="Agende a sua consulta" />
+                    <Button href={scheduleAnAppointmentLink} icon={faCalendarDays} content="Agendar consulta" />
                 </div>
             </div>
         </Container>
@@ -121,7 +123,8 @@ const Container = styled.section`
                 width: 100%;
                 height: 40rem;
                 order: 1;
-
+                flex: auto;
+                
                 .scheduleImage {
                     mask-image: linear-gradient(to bottom, black, black 90%, transparent 100%);
                     -webkit-mask-image: linear-gradient(to bottom, black, black 90%, transparent 100%);

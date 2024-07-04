@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import image from "@assets/imgs/aboutMeImage.jpg"
+import image from "@assets/imgs/homeAndNavBar/aboutMeImage.jpg"
 import { Button } from "@components/button"
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons"
 import { fontSize, fontStyle, style } from "@styles/style"

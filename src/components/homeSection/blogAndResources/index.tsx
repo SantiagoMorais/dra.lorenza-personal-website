@@ -11,7 +11,7 @@ import { NavBarContext } from "@contexts/navBarContext"
 import lorenzaPNG from "@assets/imgs/blogAndSourcesImages/blogImagePng.png"
 import blogSectionImage from "@assets/imgs/blogAndSourcesImages/blogComputerPNG.png"
 import instagramImage from "@assets/imgs/blogAndSourcesImages/instagramPosts.png"
-import textureImage from "@assets/imgs/heroImage.jpg"
+import textureImage from "@assets/imgs/homeAndNavBar/heroImage.jpg"
 
 export const BlogAndResources = () => {
     const { setCurrentLink } = useContext(NavBarContext)
@@ -157,7 +157,7 @@ const Container = styled.section`
             position: absolute;
             height: 30rem;
             z-index: 0;
-            opacity: .4;
+            opacity: .3;
 
             &.instagram {
                 left: 3dvw;
@@ -220,7 +220,7 @@ const Container = styled.section`
                 text-align: center;
                 align-items: center;
                 gap: 1rem;
-                background-color: rgba(115, 36, 60,.3);
+                background: linear-gradient(to left, rgba(0,0,0,0), rgba(255, 255, 255, 0.8), rgba(0,0,0,0));
                 padding: 1rem 2rem;
                 width: 100%;
 
