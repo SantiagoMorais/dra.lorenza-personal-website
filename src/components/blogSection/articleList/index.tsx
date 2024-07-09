@@ -1,12 +1,16 @@
 import { faAdd } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { fontSize, fontStyle, style } from "@styles/style"
-import { articles } from "articles"
+import { IArticle } from "articles"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 
-export const ArticleList = () => {
+interface IArticleListProps {
+    articles: IArticle[],
+}
+
+export const ArticleList: React.FC<IArticleListProps> = ({ articles }) => {
     const [articlesPerPage, setArticlesPerPage] = useState<number>(10);
 
     const handleLoadMoreArticles = () => {
@@ -17,7 +21,7 @@ export const ArticleList = () => {
         <>
             <List data-testid="articleList">
                 {articles.slice(0, articlesPerPage).map((article, index) =>
-                    <li className="articleContainer">
+                    <li className="articleContainer" data-testid="articleItem">
                         <Link to={`/blog/${index}`} className="imageContainer" >
                             <img src={article.image} alt="Imagem do artigo" className="articleImage" />
                         </Link>

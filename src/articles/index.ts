@@ -2,7 +2,7 @@ import randomImage from "@assets/imgs/caringBeyondImages/caringBeyondTopic1.jpg"
 import randomImage2 from "@assets/imgs/caringBeyondImages/caringBeyondTopic2.jpg"
 import randomImage3 from "@assets/imgs/caringBeyondImages/caringBeyondTopic3.jpg"
 
-interface IArticle {
+export interface IArticle {
     title: string,
     subtitle?: string,
     image: string,

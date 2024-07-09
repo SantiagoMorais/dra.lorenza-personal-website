@@ -4,8 +4,8 @@ import { WhatsAppButton } from "@components/whatsAppButton"
 import styled from "styled-components"
 import { BlogBanner } from "./blogBanner"
 import { ArticleList } from "./articleList"
-import { articles } from "articles"
 import { SectionEmpty } from "./sectionEmpty"
+import { articles } from "articles"
 
 export const BlogSection = () => {
     return (
@@ -13,7 +13,7 @@ export const BlogSection = () => {
             <Header />
             <BlogBanner />
             {articles.length > 0
-                ? <ArticleList />
+                ? <ArticleList articles={articles}/>
                 : <SectionEmpty />
             }
             <Footer />
