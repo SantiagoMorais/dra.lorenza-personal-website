@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 export const ArticleList = () => {
-
     return (
         <List>
             {articles.length > 0 && articles.map((article, index) =>
@@ -29,7 +28,7 @@ export const ArticleList = () => {
                     </div>
 
                     <h4 className="author">
-                        Dra.Lorenza Arruda oi
+                        Dra.Lorenza Arruda
                     </h4>
                 </li>
             )}

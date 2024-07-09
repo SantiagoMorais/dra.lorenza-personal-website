@@ -88,7 +88,6 @@ const Container = styled.section`
             .seeLocation {
                 position: absolute;
                 width: 100%;
-                padding: 0 2rem;
                 display: flex;
                 height: 100%;
                 background-color: rgba(0,0,0,.6);
@@ -96,6 +95,8 @@ const Container = styled.section`
                 transition: .3s;
                 cursor: pointer;
                 align-items: center;
+                justify-content: center;
+                padding: 2rem;
                 
                 .message {
                     color: ${style.textColor};

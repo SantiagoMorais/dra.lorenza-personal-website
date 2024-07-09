@@ -8,7 +8,7 @@ export const AppRoutes = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage />}/>
-                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/contato" element={<ContactPage />} />
                 <Route path="/blog" element={<BlogPage />} />
             </Routes>
         </BrowserRouter>

@@ -13,7 +13,7 @@ describe("<Footer />", () => {
     it("should render the logo correctly", () => {
         render(<Footer />, {wrapper: BrowserRouter});
 
-        const logo = screen.getByRole("img");
+        const logo = screen.getByAltText("logo");
 
         expect(logo).toBeInTheDocument();
         expect(logo).toHaveAttribute("src", horizontalLogo);
@@ -28,6 +28,6 @@ describe("<Footer />", () => {
     it("should render all navigation buttons correctly", () => {
         render(<Footer />, {wrapper: BrowserRouter});
         const buttons = document.querySelectorAll(".section");
-        expect(buttons).toHaveLength(3);
+        expect(buttons).toHaveLength(4);
     })
 })

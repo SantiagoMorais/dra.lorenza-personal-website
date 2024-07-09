@@ -1,23 +1,25 @@
 import { Button } from "@components/button"
 import { IconDefinition, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons"
-import { emailLink, instagramLink, whatsAppLink } from "@styles/variables"
+import { emailLink, googleMapsLink, instagramLink, scheduleAnAppointmentLink, whatsAppLink } from "@styles/variables"
 import styled from "styled-components"
 import horizontalLogo from "@assets/imgs/homeAndNavBar/horizontalLogo.jpg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faAt, faPhone } from "@fortawesome/free-solid-svg-icons"
+import { faAt } from "@fortawesome/free-solid-svg-icons"
 import { fontSize, fontStyle, style } from "@styles/style"
 import data from "@json/data.json"
-import { Link } from "react-router-dom"
-import { useContext } from "react"
-import { NavBarContext } from "@contexts/navBarContext"
+import { Link, useLocation } from "react-router-dom"
+import { useEffect, useState } from "react"
+import doctoraliaLogo from "@assets/imgs/homeAndNavBar/doctoralia-icon.png"
 
 interface ILinks {
-    icon: IconDefinition,
+    icon?: IconDefinition,
+    image?: string,
     link: string
 }
 
 export const Footer = () => {
-    const { currentLink, setCurrentLink } = useContext(NavBarContext);
+    const [currentLink, setCurrentLink] = useState<string>("")
+    const location = useLocation();
 
     const handlePageChange = (link: string) => {
         setCurrentLink(link);
@@ -25,10 +27,30 @@ export const Footer = () => {
 
     const links: ILinks[] = [
         { icon: faInstagram, link: instagramLink },
-        { icon: faPhone, link: whatsAppLink },
         { icon: faAt, link: emailLink },
         { icon: faWhatsapp, link: whatsAppLink },
+        { image: doctoraliaLogo, link: scheduleAnAppointmentLink },
     ];
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
+    };
+
+    useEffect(() => {
+        const pathName = location.pathname;
+        const pathString = pathName.slice(1);
+
+        const handleCurrentLocation = () => {
+            return pathName === "/"
+                ? setCurrentLink("home")
+                : setCurrentLink(pathString)
+        }
+
+        handleCurrentLocation()
+    }, [location])
 
     return (
         <Container >
@@ -44,15 +66,16 @@ export const Footer = () => {
                 </div>
                 <div className="info">
                     <p className="about">
-                    A Dra. Lorenza Arruda é uma médica nutróloga dedicada a oferecer um atendimento de qualidade, individualizado e com empatia. Ela se empenha em entender as necessidades dos pacientes, abordando cada caso de forma holística. Dra. Lorenza busca tratar, educar e capacitar seus pacientes, proporcionando uma experiência médica única, com confiança, conforto e excelência.
+                        A Dra. Lorenza Arruda é uma médica nutróloga dedicada a oferecer um atendimento de qualidade, individualizado e com empatia. Ela se empenha em entender as necessidades dos pacientes, abordando cada caso de forma holística. Dra. Lorenza busca tratar, educar e capacitar seus pacientes, proporcionando uma experiência médica única, com confiança, conforto e excelência.
                     </p>
                     <div className="social">
                         <p className="follow">Entre em contato pelas minhas redes:</p>
                         <ul className="socialList">
                             {links.map((item, index) =>
                                 <li className="listItem" key={index}>
-                                    <a href={item.link} className="button">
-                                        <FontAwesomeIcon icon={item.icon} className="icon" />
+                                    <a href={item.link} className="button" target="_blank">
+                                        {item.image && <img className="icon image" src={item.image} alt="ícone da doctoralia" />}
+                                        {item.icon && <FontAwesomeIcon icon={item.icon} className="icon" />}
                                     </a>
                                 </li>
                             )}
@@ -62,9 +85,19 @@ export const Footer = () => {
                 <div className="navigation">
                     {data.links.map(item =>
                         <div key={item.name} className="link">
-                            <Link className={`section ${currentLink === item.name && "pageSelected"}`} to={item.link} onClick={() => handlePageChange(item.name)}>
-                                {item.name}
-                            </Link>
+                            {item.name !== "como chegar"
+                                ?
+                                <Link
+                                    className={`section ${currentLink === item.name && "pageSelected"}`}
+                                    to={item.link}
+                                    onClick={() => {handlePageChange(item.name), scrollToTop()}}>
+                                    {item.name}
+                                </Link>
+                                :
+                                <a href={googleMapsLink} target="_blank" className="section">
+                                    Como chegar
+                                </a>
+                            }
                         </div>
                     )}
                 </div>
@@ -159,6 +192,12 @@ const Container = styled.div`
                                 font-size: ${fontSize.fontSizeLarge};
                                 color: ${style.primaryColor};
                                 opacity: .8;
+
+                                &.image {
+                                    filter: hue-rotate(180deg) brightness(55%);
+                                    width: auto;
+                                    height: 3.2rem;
+                                }
                             }
                         }
                     }

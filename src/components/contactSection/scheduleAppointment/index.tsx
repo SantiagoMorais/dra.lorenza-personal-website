@@ -57,7 +57,7 @@ const Container = styled.section`
 
         .imageContainer {
             max-width: 40rem;
-            height: 50rem;
+            height: 100%;
             overflow: hidden; 
             position: relative;
             flex: 2;
@@ -79,6 +79,7 @@ const Container = styled.section`
             gap: 1rem;
             justify-content: center;
             flex: 1;
+            padding: 2rem 0;
 
             .title {
                 font-size: ${fontSize.fontSizeMedium};

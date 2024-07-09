@@ -110,10 +110,9 @@ const Container = styled.div`
                 font-size: ${fontSize.fontSizeBase};
 
                 &.selected {
-                    height: 10rem;
+                    height: 11rem;
                     opacity: 1;
                     transform: translateY(0rem);
-                    max-height: min-content;
                 }
             }
         }

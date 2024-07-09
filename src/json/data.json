@@ -10,7 +10,11 @@
         },
         {
             "name": "contato",
-            "link": "/contact"
+            "link": "/contato"
+        },
+        {
+            "name": "como chegar",
+            "link": ""
         }
     ],
     "faqs": [

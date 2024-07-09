@@ -1,15 +1,16 @@
 import { fontSize, fontStyle, style } from "@styles/style"
 import styled from "styled-components"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import data from "@json/data.json"
-import { useContext, useState } from "react"
-import { NavBarContext } from "@contexts/navBarContext"
+import { useEffect, useState } from "react"
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { googleMapsLink } from "@styles/variables"
 
 export const NavBar = () => {
     const [accordionOppened, setAccordionOppened] = useState<boolean>(false)
-    const { currentLink, setCurrentLink } = useContext(NavBarContext);
+    const [ currentLink, setCurrentLink ] = useState<string>("")
+    const location = useLocation();
 
     const handleOpenAccordion = () => {
         if (window.innerWidth < 768) setAccordionOppened(!accordionOppened)
@@ -18,6 +19,20 @@ export const NavBar = () => {
     const handlePageChange = (link: string) => {
         setCurrentLink(link);
     }
+
+    useEffect(() => {
+        const pathName = location.pathname;
+        const pathString = pathName.slice(1);
+        console.log(pathString);
+        
+        const handleCurrentLocation = () => {
+            return pathName === "/" 
+                ? setCurrentLink("home")
+                : setCurrentLink(pathString)
+        }
+
+        handleCurrentLocation()
+    }, [location])
 
     return (
         <Container data-testid="navBar">
@@ -40,12 +55,20 @@ export const NavBar = () => {
                             className="page"
                             onClick={() => {
                                 handleOpenAccordion(),
-                                    handlePageChange(page.name)
+                                    page.name !== "como chegar" ?
+                                        handlePageChange(page.name) : ""
                             }}
                         >
-                            <Link to={page.link} className={`name ${currentLink === page.name ? "pageSelected" : ""}`}>
-                                {page.name}
-                            </Link>
+                            {page.name !== "como chegar"
+                                ?
+                                <Link to={page.link} className={`name ${currentLink === page.name ? "pageSelected" : ""}`}>
+                                    {page.name}
+                                </Link>
+                                :
+                                <a href={googleMapsLink} target="_blank" className="name">
+                                    Como chegar
+                                </a>
+                            }
                         </li>
                     )}
                 </ul>

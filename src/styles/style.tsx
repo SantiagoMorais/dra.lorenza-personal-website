@@ -48,7 +48,7 @@ export const faqBreakPoints = () => `
                 .faq {
                     .answer {
                         &.selected {
-                            height: 12rem;
+                            height: 13rem;
                         }
                     }
                 }
@@ -60,7 +60,7 @@ export const faqBreakPoints = () => `
                 .faq {
                     .answer {
                         &.selected {
-                            height: 20rem;
+                            height: 21rem;
                         }
                     }
                 }
@@ -72,7 +72,19 @@ export const faqBreakPoints = () => `
                 .faq {
                     .answer {
                         &.selected {
-                            height: 32rem;
+                            height: 33rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 360px) {
+            .faqs {
+                .faq {
+                    .answer {
+                        &.selected {
+                            height: 43rem;
                         }
                     }
                 }
@@ -84,8 +96,7 @@ export const faqBreakPoints = () => `
                 .faq {
                     .answer {
                         &.selected {
-                            height: 42rem;
-                            max-height: min-content;
+                            height: 49rem;
                         }
                     }
                 }
@@ -97,8 +108,7 @@ export const faqBreakPoints = () => `
                 .faq {
                     .answer {
                         &.selected {
-                            height: 48rem;
-                            max-height: min-content;
+                            height: 60rem;
                         }
                     }
                 }

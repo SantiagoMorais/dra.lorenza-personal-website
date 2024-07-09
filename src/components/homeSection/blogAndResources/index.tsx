@@ -5,8 +5,6 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons"
 import { instagramLink } from "@styles/variables"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "react-router-dom"
-import { useContext } from "react"
-import { NavBarContext } from "@contexts/navBarContext"
 
 import lorenzaPNG from "@assets/imgs/blogAndSourcesImages/blogImagePng.png"
 import blogSectionImage from "@assets/imgs/blogAndSourcesImages/blogComputerPNG.png"
@@ -14,11 +12,12 @@ import instagramImage from "@assets/imgs/blogAndSourcesImages/instagramPosts.png
 import textureImage from "@assets/imgs/homeAndNavBar/heroImage.jpg"
 
 export const BlogAndResources = () => {
-    const { setCurrentLink } = useContext(NavBarContext)
-
-    const handleChangePage = (link: string) => {
-        setCurrentLink(link)
-    }
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
+    };
 
     return (
         <Container>
@@ -37,7 +36,7 @@ export const BlogAndResources = () => {
                     </h3>
                     <button className="button">
                         <FontAwesomeIcon icon={faInstagram} />
-                        <a href={instagramLink}>Instagram</a>
+                        <a href={instagramLink} target="blank">Instagram</a>
                     </button>
                 </div>
 
@@ -52,7 +51,7 @@ export const BlogAndResources = () => {
                     <h3 className="subtitle">
                         Acesse nosso blog para dicas de saúde, receitas e mais.
                     </h3>
-                    <button className="button" onClick={() => handleChangePage("blog")}>
+                    <button className="button" onClick={() => scrollToTop()}>
                         <FontAwesomeIcon icon={faComputer} />
                         <Link to="/blog">Leia nosso blog</Link>
                     </button>

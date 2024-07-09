@@ -3,12 +3,14 @@ import { Header } from "@components/header"
 import { WhatsAppButton } from "@components/whatsAppButton"
 import styled from "styled-components"
 import { BlogBanner } from "./blogBanner"
+import { ArticleList } from "./articleList"
 
 export const BlogSection = () => {
     return (
         <Container>
             <Header />
             <BlogBanner />
+            <ArticleList />
             <Footer />
             <WhatsAppButton />
         </Container>
