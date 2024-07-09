@@ -28,7 +28,6 @@
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
       "@styles/*": ["styles/*"],
-      "@contexts/*": ["contexts/*"],
       "@json/*": ["json/*"],
       "@pages/*": ["pages/*"],
     },

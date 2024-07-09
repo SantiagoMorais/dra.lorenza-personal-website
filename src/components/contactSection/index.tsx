@@ -7,7 +7,7 @@ import { ScheduleAppointment } from "@components/contactSection/scheduleAppointm
 
 export const ContactSection = () => {
     return (
-        <Container>
+        <Container data-testid="contactSection">
             <Header />
             <ScheduleAppointment />
             <Address />

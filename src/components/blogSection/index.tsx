@@ -4,13 +4,18 @@ import { WhatsAppButton } from "@components/whatsAppButton"
 import styled from "styled-components"
 import { BlogBanner } from "./blogBanner"
 import { ArticleList } from "./articleList"
+import { articles } from "articles"
+import { SectionEmpty } from "./sectionEmpty"
 
 export const BlogSection = () => {
     return (
-        <Container>
+        <Container data-testid="blogSection">
             <Header />
             <BlogBanner />
-            <ArticleList />
+            {articles.length > 0
+                ? <ArticleList />
+                : <SectionEmpty />
+            }
             <Footer />
             <WhatsAppButton />
         </Container>

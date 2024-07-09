@@ -12,7 +12,7 @@ import { BlogAndResources } from "./blogAndResources"
 
 export const Home = () => {
     return (
-        <Container>
+        <Container data-testid="home">
             <Header />
             <Hero />
             <AboutMe />
