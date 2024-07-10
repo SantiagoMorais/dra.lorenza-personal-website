@@ -6,7 +6,7 @@ import doctoraliaIcon from "@assets/imgs/homeAndNavBar/doctoralia-icon.png"
 describe("<Assessments />", () => {
     it("should render the component correctly", () => {
         render(<Assessments />);
-        const title = screen.getByText(/O Que Nossos Pacientes Dizem/i);
+        const title = screen.getByText(/O Que Nossos Pacientes Dizem:/i);
         expect(title).toBeInTheDocument();
     });
 

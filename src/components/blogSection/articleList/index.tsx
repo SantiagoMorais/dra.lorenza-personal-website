@@ -41,7 +41,7 @@ export const ArticleList: React.FC<IArticleListProps> = ({ articles }) => {
                             </Link>
                         </div>
                         <h4 className="author">
-                            Dra.Lorenza Arruda
+                            Dra. Lorenza Arruda
                         </h4>
                     </li>
                 )

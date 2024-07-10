@@ -23,7 +23,7 @@ export const Assessments = () => {
     return (
         <Container >
             <div className="container">
-                <h3 className="title">O que nossos pacientes dizem</h3>
+                <h3 className="title">O que nossos pacientes dizem:</h3>
                 <CarouselSlides info={assessments} slidesNumber={1} />
                 <p className="message">
                     Veja mais depoimentos!

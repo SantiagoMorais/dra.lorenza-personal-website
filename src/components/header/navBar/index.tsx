@@ -239,6 +239,8 @@ const Container = styled.section`
             opacity: .6;
             z-index: 2;
             transition: .3s;
+            top: 0;
+            left: 0;
         }
         
         .pagesContainer {

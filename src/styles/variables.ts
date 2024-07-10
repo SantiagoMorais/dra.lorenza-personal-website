@@ -9,6 +9,7 @@ export const emailLink: string = "mailto:lorenzanutrologia@gmail.com";
 export const address: string = "R. Paracatu, 1154 - sala 406 - Santo Agostinho, Belo Horizonte - MG";
 export const instagramLink: string = "https://www.instagram.com/dralorenzaarruda/"
 export const scheduleAnAppointmentLink: string = "https://www.doctoralia.com.br/lorenza-arruda/nutrologo/belo-horizonte"
+export const websiteCreatorsLink: string = "https://www.linkedin.com/in/felipe-santiago-morais/"
 
 interface IListItems {
     text: string,
@@ -39,7 +40,7 @@ function greetingsHour () {
     }
 }
 
-const defaultWhatsappMessage: string = `Olá${greetingsHour()}! Eu encontrei o contato da Dra. Lorenza pelo seu site pessoal. Eu gostaria de agendar uma consulta.`;
+const defaultWhatsappMessage: string = `Olá${greetingsHour()}! Encontrei o site pessoal da Dra. Lorenza e gostaria de agendar uma consulta.`;
 
 export const whatsAppLink: string = `https://api.whatsApp.com/send?phone=${phoneNumber}&text=${formatMessageForWeb(defaultWhatsappMessage)}`;
 export const googleMapsLink: string = `https://www.google.com/maps/search/?api=1&query=${formatMessageForWeb(address)}`

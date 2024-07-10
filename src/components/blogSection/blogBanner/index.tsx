@@ -45,14 +45,12 @@ const Container = styled.section`
 
             .title {
                 font-size: 3.2dvw;
-                text-align: end;
                 font-weight: ${fontStyle.boldWeight};
                 color: ${style.primaryColor};
             }
             
             .subtitle {
                 font-size: 1.8dvw;
-                text-align: end;
                 font-weight: ${fontStyle.mediumWeight};
                 color: ${style.primaryColor};
                 opacity: .7;
@@ -113,7 +111,6 @@ const Container = styled.section`
 
                 .title {
                     font-size: 5dvw;
-                    text-align: left;
                     position: absolute;
                     width: 45dvw;
                     top: 5dvw;
@@ -123,7 +120,6 @@ const Container = styled.section`
                 
                 .subtitle {
                     font-size: 4dvw;
-                    text-align: left;
                     position: absolute;
                     width: 45dvw;
                     top: 23dvw;

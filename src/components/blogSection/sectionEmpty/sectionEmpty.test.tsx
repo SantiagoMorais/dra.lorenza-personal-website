@@ -11,7 +11,7 @@ describe("<SectionEmpty />", () => {
 
     it("should render the message correctly", () => {
         render(<SectionEmpty />);
-        const message = screen.getByText("Teremos novas publicações em breve, com mais conteúdos sobre nutrologia para você!")
+        const message = screen.getByText("Teremos novas publicações em breve com mais conteúdos sobre nutrologia para você!")
         expect(message).toBeInTheDocument();
     });
 

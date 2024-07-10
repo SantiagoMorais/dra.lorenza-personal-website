@@ -70,7 +70,8 @@ const Container = styled.section`
     display: flex;
     justify-content: center;
     background-color: ${style.textColor};
-
+    user-select: none;
+    
     .content {
         display: flex;
         width: 100%;
@@ -79,13 +80,13 @@ const Container = styled.section`
         position: relative;
         align-items: center;
         overflow: hidden;
-
+        
         .textureImage {
             position: absolute;
             height: 100%;
             width: 100%;
             object-fit: cover;
-            opacity: .2;
+            opacity: .15;
             left: 0;
             top: 0;
         }
@@ -103,33 +104,33 @@ const Container = styled.section`
                 -webkit-mask-image: linear-gradient(to left, transparent, black 10%, black 90%);
             }
         }
-
+        
         .info {
             flex: 1;
             display: flex;
             flex-direction: column;
             gap: 1rem;
             z-index: 2;
-
+            
             .title {
                 font-size: 2.6dvw;
                 color: ${style.primaryColor};
                 font-weight: ${fontStyle.boldWeight};
                 filter: drop-shadow(0 0 .2rem ${style.textColor});
             }
-
+            
             .subtitle {
                 font-size: 2dvw;
                 color: ${style.secondaryTextColor};
                 font-weight: ${fontStyle.mediumWeight};
                 filter: drop-shadow(0 0 .2rem ${style.textColor});
             }
-
+            
             &.instagram {
                 text-align: right;
                 align-items: end;
             }
-
+            
             .button {
                 background-color: ${style.primaryColor};
                 color: ${style.textColor};
@@ -144,20 +145,20 @@ const Container = styled.section`
                 transition: scale .3s, opacity .3s;
                 cursor: pointer;
                 filter: drop-shadow(0 0 .5rem ${style.textColor});
-
+                
                 &:hover {
                     scale: 1.15;
                     opacity: .8;
                 }
             }
         }
-
+        
         .backgroundImage {
             position: absolute;
             height: 30rem;
             z-index: 0;
-            opacity: .3;
-
+            opacity: .2;
+            
             &.instagram {
                 left: 3dvw;
                 rotate: -15deg;

@@ -1,6 +1,6 @@
 import { Button } from "@components/button"
 import { IconDefinition, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons"
-import { emailLink, googleMapsLink, instagramLink, scheduleAnAppointmentLink, whatsAppLink } from "@styles/variables"
+import { emailLink, googleMapsLink, instagramLink, scheduleAnAppointmentLink, websiteCreatorsLink, whatsAppLink } from "@styles/variables"
 import styled from "styled-components"
 import horizontalLogo from "@assets/imgs/homeAndNavBar/horizontalLogo.jpg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -69,7 +69,7 @@ export const Footer = () => {
                         A Dra. Lorenza Arruda é uma médica nutróloga dedicada a oferecer um atendimento de qualidade, individualizado e com empatia. Ela se empenha em entender as necessidades dos pacientes, abordando cada caso de forma holística. Dra. Lorenza busca tratar, educar e capacitar seus pacientes, proporcionando uma experiência médica única, com confiança, conforto e excelência.
                     </p>
                     <div className="social">
-                        <p className="follow">Entre em contato pelas minhas redes:</p>
+                        <p className="follow">Entre em contato pelas redes sociais:</p>
                         <ul className="socialList">
                             {links.map((item, index) =>
                                 <li className="listItem" key={index}>
@@ -90,7 +90,7 @@ export const Footer = () => {
                                 <Link
                                     className={`section ${currentLink === item.name && "pageSelected"}`}
                                     to={item.link}
-                                    onClick={() => {handlePageChange(item.name), scrollToTop()}}>
+                                    onClick={() => { handlePageChange(item.name), scrollToTop() }}>
                                     {item.name}
                                 </Link>
                                 :
@@ -101,6 +101,14 @@ export const Footer = () => {
                         </div>
                     )}
                 </div>
+            </div>
+            <div className="websiteCreator">
+                <a href={websiteCreatorsLink} target="_blank" className="creator" data-testid="websiteCreatorsLink">
+                    Criado por: 
+                    <span className="name">
+                        Felipe Santiago Morais
+                    </span>
+                </a>
             </div>
         </Container>
     )
@@ -264,6 +272,32 @@ const Container = styled.div`
                 }
             }
 
+        }
+    }
+
+    .websiteCreator {
+        width: 100dvw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, ${style.secondaryTextColor}, ${style.primaryColor});
+
+        .creator {
+            color: ${style.textColor};
+            font-weight: ${fontStyle.lightWeight};
+            font-size: ${fontSize.fontSizeSmall};
+            transition: .3s;
+            opacity: .8;
+            
+            .name {
+                margin-left: .5rem;
+                font-weight: ${fontStyle.mediumWeight};
+            }
+            
+            &:hover {
+                opacity: 1;
+                letter-spacing: .1rem;
+            }
         }
     }
 

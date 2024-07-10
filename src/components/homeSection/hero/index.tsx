@@ -16,7 +16,7 @@ export const Hero = () => {
                 <img src={heroImageMobile} alt="Imagem principal" className="heroImageMobile" />
                 <div className="slogan">
                     <h1 className="title">Uma Jornada para <br />uma Vida Plena</h1>
-                    <h2 className="subtitle">Bases Integradas para Saúde, Bem-Estar e Equilíbrio</h2>
+                    <h2 className="subtitle">Bases Integradas para Saúde, Bem-estar e Equilíbrio</h2>
                 </div>
                 <span className="lineStyle"></span>
             </div>

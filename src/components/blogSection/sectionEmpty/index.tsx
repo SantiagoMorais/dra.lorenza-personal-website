@@ -6,7 +6,7 @@ export const SectionEmpty = () => {
     return (
         <Container data-testid="sectionEmpty">
             <h3 className="warningTitle">Novidades em breve</h3>
-            <p className="warningText">Teremos novas publicações em breve, com mais conteúdos sobre nutrologia para você!</p>
+            <p className="warningText">Teremos novas publicações em breve com mais conteúdos sobre nutrologia para você!</p>
             <img className="image" src={image} alt="Sessão liberada em breve" />
         </Container>
     )
