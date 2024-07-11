@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { HomePage } from "./homePage"
 import { ContactPage } from "./contactPage"
 import { BlogPage } from "./blogPage"
+import { ArticlePage } from "./articlePage"
 
 export const AppRoutes = () => {
     return (
@@ -10,6 +11,7 @@ export const AppRoutes = () => {
                 <Route path="/" element={<HomePage />}/>
                 <Route path="/contato" element={<ContactPage />} />
                 <Route path="/blog" element={<BlogPage />} />
+                <Route path="/blog/:id" element={<ArticlePage /> } />
             </Routes>
         </BrowserRouter>
     )

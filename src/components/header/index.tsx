@@ -4,7 +4,7 @@ import styled from "styled-components"
 import verticalLogo from "@assets/imgs/homeAndNavBar/verticalLogo.jpg"
 import horizontalLogo from "@assets/imgs/homeAndNavBar/horizontalLogo.jpg"
 import { Link } from "react-router-dom"
-import { navBarButtons, } from "@styles/variables"
+import { navBarButtons, } from "@utils/variables"
 import { NavBar } from "./navBar"
 
 export const Header = () => {
@@ -33,6 +33,7 @@ const Container = styled.section`
     flex-direction: column;
     width: 100%;
     position: relative;
+    overflow: hidden;
     z-index: 999;
 
     .scheduleAppointment {

@@ -1,6 +1,6 @@
 import { Button } from "@components/button"
 import { IconDefinition, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons"
-import { emailLink, googleMapsLink, instagramLink, scheduleAnAppointmentLink, websiteCreatorsLink, whatsAppLink } from "@styles/variables"
+import { emailLink, googleMapsLink, instagramLink, scheduleAnAppointmentLink, websiteCreatorsLink, whatsAppLink } from "@utils/variables"
 import styled from "styled-components"
 import horizontalLogo from "@assets/imgs/homeAndNavBar/horizontalLogo.jpg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -41,7 +41,7 @@ export const Footer = () => {
 
     useEffect(() => {
         const pathName = location.pathname;
-        const pathString = pathName.slice(1);
+        const pathString = pathName.slice(1).split('/')[0];
 
         const handleCurrentLocation = () => {
             return pathName === "/"
@@ -88,7 +88,7 @@ export const Footer = () => {
                             {item.name !== "como chegar"
                                 ?
                                 <Link
-                                    className={`section ${currentLink === item.name && "pageSelected"}`}
+                                    className={`section ${currentLink === item.name || location.pathname.startsWith(`/${item.name}`) ? "pageSelected" : ""}`}
                                     to={item.link}
                                     onClick={() => { handlePageChange(item.name), scrollToTop() }}>
                                     {item.name}
@@ -104,7 +104,11 @@ export const Footer = () => {
             </div>
             <div className="websiteCreator">
                 <a href={websiteCreatorsLink} target="_blank" className="creator" data-testid="websiteCreatorsLink">
-                    Criado por: 
+                    <p className="logo">
+                        <span className="first-letter">F</span>
+                        <span className="second-letter">S</span>
+                    </p>
+                    Criado por:
                     <span className="name">
                         Felipe Santiago Morais
                     </span>
@@ -119,6 +123,7 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: auto;
+    overflow: hidden;
 
     .contact {
         display: flex;
@@ -288,6 +293,35 @@ const Container = styled.div`
             font-size: ${fontSize.fontSizeSmall};
             transition: .3s;
             opacity: .8;
+            display: flex;
+            align-items: center;
+
+            .logo {
+                font-size: ${fontSize.fontSizeBase};
+                margin-right: 1rem;
+                display: flex;
+                justify-content: center;
+                align-items: baseline;
+            
+                .first-letter {
+                    font-size: ${fontSize.fontSizeBase};
+                }
+            
+                .second-letter {
+                    font-size: ${fontSize.fontSizeSmall};
+                    position: relative;
+            
+                    &::after {
+                        content: '';
+                        height: 0.4rem;
+                        width: 0.4rem;
+                        background: orange;
+                        display: inline-block;
+                        border-radius: 50%;
+                        margin-left: .1rem;
+                    }
+                }
+            }
             
             .name {
                 margin-left: .5rem;

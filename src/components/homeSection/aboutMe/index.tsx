@@ -4,7 +4,7 @@ import { Button } from "@components/button"
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons"
 import { fontSize, fontStyle, style } from "@styles/style"
 import data from "@json/data.json"
-import { scheduleAnAppointmentLink } from "@styles/variables"
+import { scheduleAnAppointmentLink } from "@utils/variables"
 
 export const AboutMe = () => {
     return (

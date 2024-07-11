@@ -5,11 +5,11 @@ import data from "@json/data.json"
 import { useEffect, useState } from "react"
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { googleMapsLink } from "@styles/variables"
+import { googleMapsLink } from "@utils/variables"
 
 export const NavBar = () => {
     const [accordionOppened, setAccordionOppened] = useState<boolean>(false)
-    const [ currentLink, setCurrentLink ] = useState<string>("")
+    const [currentLink, setCurrentLink] = useState<string>("")
     const location = useLocation();
 
     const handleOpenAccordion = () => {
@@ -22,11 +22,10 @@ export const NavBar = () => {
 
     useEffect(() => {
         const pathName = location.pathname;
-        const pathString = pathName.slice(1);
-        console.log(pathString);
-        
+        const pathString = pathName.slice(1).split('/')[0]; 
+
         const handleCurrentLocation = () => {
-            return pathName === "/" 
+            return pathName === "/"
                 ? setCurrentLink("home")
                 : setCurrentLink(pathString)
         }
@@ -61,7 +60,7 @@ export const NavBar = () => {
                         >
                             {page.name !== "como chegar"
                                 ?
-                                <Link to={page.link} className={`name ${currentLink === page.name ? "pageSelected" : ""}`}>
+                                <Link to={page.link} className={`name ${currentLink === page.name || location.pathname.startsWith(`/${page.name}`) ? "pageSelected" : ""}`}>
                                     {page.name}
                                 </Link>
                                 :
@@ -190,7 +189,6 @@ const Container = styled.section`
                             }
                             
                             &:not(:hover)::after {
-                                transform: scaleX(0);
                                 transform-origin: right;
                             }
                         }

@@ -6,7 +6,7 @@ import assessment4 from "@assets/imgs/assessmentsImages/assessment-4.jpg"
 import assessment5 from "@assets/imgs/assessmentsImages/assessment-5.jpg"
 import assessment6 from "@assets/imgs/assessmentsImages/assessment-6.jpg"
 import doctoraliaIcon from "@assets/imgs/homeAndNavBar/doctoralia-icon.png"
-import { doctoraliaReviewsLink } from "@styles/variables"
+import { doctoraliaReviewsLink } from "@utils/variables"
 import { fontSize, style } from "@styles/style"
 import { CarouselSlides, ICarouselInfo } from "@components/carouselSlides"
 

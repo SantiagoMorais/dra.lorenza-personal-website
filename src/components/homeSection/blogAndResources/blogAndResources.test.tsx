@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { BlogAndResources } from ".";
 import { BrowserRouter } from "react-router-dom";
-import { instagramLink } from "@styles/variables";
+import { instagramLink } from "@utils/variables";
 
 describe("<BlogAndResources />", () => {
     it("should render the component correctly", () => {
@@ -29,7 +29,7 @@ describe("<BlogAndResources />", () => {
         const readBlogButton = screen.getByText(/Leia nosso blog/i);
         expect(readBlogButton).toBeInTheDocument();
 
-        const instagramButton = screen.getByRole("link", {name: /Instagram/i});
+        const instagramButton = screen.getByRole("link", { name: /Instagram/i });
         expect(instagramButton).toBeInTheDocument();
 
         const instagramImage = document.querySelector(".instagram")

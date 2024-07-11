@@ -4,7 +4,7 @@ import heroImageMobile from "@assets/imgs/homeAndNavBar/heroImageMobile.jpg"
 import heroImageWithoutBG from "@assets/imgs/homeAndNavBar/heroImageWithoutBg.png"
 import { fontSize, fontStyle, style } from "@styles/style"
 import { Button } from "@components/button"
-import { whatsAppLink } from "@styles/variables"
+import { whatsAppLink } from "@utils/variables"
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 
 export const Hero = () => {

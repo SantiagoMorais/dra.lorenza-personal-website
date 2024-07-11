@@ -1,17 +1,20 @@
 import { faAdd } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { fontSize, fontStyle, style } from "@styles/style"
-import { IArticle } from "articles"
+import { IArticleFormat } from "@utils/articlesFormat"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
+import { imageMapper } from "utils/imageMapper"
 
 interface IArticleListProps {
-    articles: IArticle[],
+    articles: IArticleFormat[],
 }
 
 export const ArticleList: React.FC<IArticleListProps> = ({ articles }) => {
     const [articlesPerPage, setArticlesPerPage] = useState<number>(10);
+
+    const disableButton: boolean = articlesPerPage >= articles.length ? true : false
 
     const handleLoadMoreArticles = () => {
         setArticlesPerPage((prev) => Math.min(prev + 10, articles.length));
@@ -21,33 +24,33 @@ export const ArticleList: React.FC<IArticleListProps> = ({ articles }) => {
         <>
             <List data-testid="articleList">
                 {articles.slice(0, articlesPerPage).map((article, index) =>
-                    <li className="articleContainer" data-testid="articleItem">
-                        <Link to={`/blog/${index}`} className="imageContainer" >
-                            <img src={article.image} alt="Imagem do artigo" className="articleImage" />
-                        </Link>
+                    <Link to={`/blog/${index}`} className="articleContainer" data-testid="articleItem">
+                        <div className="imageContainer" >
+                            <img src={imageMapper[article.image]} alt="Imagem do artigo" className="articleImage" />
+                        </div>
                         <div className="content">
-                            <Link to={`/blog/${index}`} className="link" >
+                            <div className="link" >
                                 <h2 className="title">
                                     {article.title}
                                 </h2>
-                            </Link>
+                            </div>
                             {article.subtitle &&
                                 <h3 className="subtitle">
                                     {article.subtitle}
                                 </h3>
                             }
-                            <Link to={`/blog/${index}`} className="link" >
+                            <p className="link" >
                                 Ler publicação
-                            </Link>
+                            </p>
                         </div>
                         <h4 className="author">
                             Dra. Lorenza Arruda
                         </h4>
-                    </li>
+                    </Link>
                 )
                 }
             </List>
-            <LoadMoreButton onClick={handleLoadMoreArticles} disabled={articlesPerPage >= articles.length}>
+            <LoadMoreButton onClick={handleLoadMoreArticles} disabled={articlesPerPage >= articles.length} $disableButton={disableButton}>
                 <FontAwesomeIcon icon={faAdd} />
                 Carregar mais
             </LoadMoreButton>
@@ -138,7 +141,7 @@ const List = styled.ul`
     }
 `
 
-const LoadMoreButton = styled.button`
+const LoadMoreButton = styled.button<{ $disableButton: boolean }>`
     display: flex;
     padding: .5rem 2rem;
     align-items: center;
@@ -147,13 +150,18 @@ const LoadMoreButton = styled.button`
     border-radius: 50rem;
     margin: 0 2rem 2rem;
     border: none;
-    background-color: ${style.primaryColor};
     color: ${style.textColor};
-    cursor: pointer;
+    cursor: ${props => props.$disableButton ? "default" : "pointer"};
+    opacity: ${props => props.$disableButton ? ".6" : "1"};
+    background-color: ${props => props.$disableButton ? "rgb(145, 102, 102)" : style.primaryColor };
     transition: .3s;
+    user-select: none;
 
-    &:hover {
-        opacity: .8;
-        scale: 1.15;
+    //chatgpt, como faço para que a lógica abaixo funcione no styled-components?
+    ${props => props.$disableButton === false && `
+        &:hover {
+            opacity: .8;
+            scale: 1.15;
+        }`
     }
 `

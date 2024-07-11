@@ -4,7 +4,7 @@ import scheduleImage from "@assets/imgs/contactImages/scheduleAppointment.jpg"
 import { Button } from "@components/button"
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons"
 import { faInstagram } from "@fortawesome/free-brands-svg-icons"
-import { instagramLink, phoneNumberInString, scheduleAnAppointmentLink } from "@styles/variables"
+import { instagramLink, phoneNumberInString, scheduleAnAppointmentLink } from "@utils/variables"
 
 export const ScheduleAppointment = () => {
     return (
@@ -28,7 +28,7 @@ export const ScheduleAppointment = () => {
                 <div className="info">
                     <h2 className="title">Pronto para transformar sua vida?</h2>
                     <p className="text">
-                    Agende uma consulta hoje mesmo e descubra como podemos ajudar você a alcançar uma vida plena e saudável
+                        Agende uma consulta hoje mesmo e descubra como podemos ajudar você a alcançar uma vida plena e saudável
                     </p>
                     <p className="text">
                         Entre em contato: <br />{phoneNumberInString} ou faça sua reserva aqui mesmo.

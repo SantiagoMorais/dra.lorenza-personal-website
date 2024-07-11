@@ -2,7 +2,7 @@ import { faComputer } from "@fortawesome/free-solid-svg-icons"
 import { fontSize, fontStyle, style } from "@styles/style"
 import styled from "styled-components"
 import { faInstagram } from "@fortawesome/free-brands-svg-icons"
-import { instagramLink } from "@styles/variables"
+import { instagramLink } from "@utils/variables"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "react-router-dom"
 

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import { Assessments } from "."
-import { doctoraliaReviewsLink } from "@styles/variables";
+import { doctoraliaReviewsLink } from "@utils/variables";
 import doctoraliaIcon from "@assets/imgs/homeAndNavBar/doctoralia-icon.png"
 
 describe("<Assessments />", () => {

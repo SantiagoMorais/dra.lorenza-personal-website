@@ -4,7 +4,7 @@ import styled from "styled-components"
 import location from "@assets/imgs/contactImages/location.jpg"
 import mapImage from "@assets/imgs/contactImages/mapAddress.jpg"
 import { fontSize, style } from "@styles/style"
-import { address, googleMapsLink } from "@styles/variables"
+import { address, googleMapsLink } from "@utils/variables"
 
 export const Address = () => {
     return (

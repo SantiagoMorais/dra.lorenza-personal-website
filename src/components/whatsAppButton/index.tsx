@@ -1,7 +1,7 @@
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { fontSize, style } from "@styles/style"
-import { whatsAppLink } from "@styles/variables"
+import { whatsAppLink } from "@utils/variables"
 import { useEffect, useState } from "react"
 import styled from "styled-components"
 
@@ -13,7 +13,7 @@ export const WhatsAppButton = () => {
             const windowHeight = window.innerHeight;
             const scrollHeight = document.body.scrollHeight;
             const scrollPosition = window.scrollY
-            
+
             windowHeight + scrollPosition + 200 >= scrollHeight
                 ? setShowButton(false)
                 : setShowButton(true)
