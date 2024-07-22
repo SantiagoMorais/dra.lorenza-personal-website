@@ -5,7 +5,7 @@ import styled from "styled-components"
 import { BlogBanner } from "./blogBanner"
 import { ArticleList } from "./articleList"
 import { SectionEmpty } from "./sectionEmpty"
-import { articles, emptyList } from "@json/articles.json"
+import { emptyList } from "@json/articles.json"
 
 export const BlogSection = () => {
     const articlesList = emptyList;
