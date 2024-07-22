@@ -47,8 +47,7 @@ export const ArticleList: React.FC<IArticleListProps> = ({ articles }) => {
                             Dra. Lorenza Arruda
                         </h4>
                     </Link>
-                )
-                }
+                )}
             </List>
             <LoadMoreButton onClick={handleLoadMoreArticles} disabled={articlesPerPage >= articles.length} $disableButton={disableButton}>
                 <FontAwesomeIcon icon={faAdd} />

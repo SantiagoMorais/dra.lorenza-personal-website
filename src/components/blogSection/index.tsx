@@ -5,15 +5,17 @@ import styled from "styled-components"
 import { BlogBanner } from "./blogBanner"
 import { ArticleList } from "./articleList"
 import { SectionEmpty } from "./sectionEmpty"
-import { articles } from "@json/articles.json"
+import { articles, emptyList } from "@json/articles.json"
 
 export const BlogSection = () => {
+    const articlesList = emptyList;
+    
     return (
         <Container data-testid="blogSection">
             <Header />
             <BlogBanner />
-            {articles.length > 0
-                ? <ArticleList articles={articles}/>
+            {articlesList.length > 0
+                ? <ArticleList articles={articlesList}/>
                 : <SectionEmpty />
             }
             <Footer />
