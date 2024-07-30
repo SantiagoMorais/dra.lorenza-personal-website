@@ -46,6 +46,7 @@ export const whatsAppLink: string = `https://api.whatsApp.com/send?phone=${phone
 export const googleMapsLink: string = `https://www.google.com/maps/search/?api=1&query=${formatMessageForWeb(address)}`
 
 export const navBarButtons: IListItems[] = [
-    { text: "agendar consulta", icon: faCalendarDays, href: scheduleAnAppointmentLink },
+    // currently, dra.Lorenza ask to keep the "agendar consulta" button guide the user to the whatsapp, no to the doctoralia link.
+    { text: "agendar consulta", icon: faCalendarDays, href: whatsAppLink },
     { text: "WhatsApp", icon: faWhatsapp, href: whatsAppLink }
 ];
