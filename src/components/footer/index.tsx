@@ -1,6 +1,6 @@
 import { Button } from "@components/button"
 import { IconDefinition, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons"
-import { emailLink, googleMapsLink, instagramLink, scheduleAnAppointmentLink, websiteCreatorsLink, whatsAppLink } from "@utils/variables"
+import { emailLink, googleMapsLink, instagramLink, websiteCreatorsLink, whatsAppLink } from "@utils/variables"
 import styled from "styled-components"
 import horizontalLogo from "@assets/imgs/homeAndNavBar/horizontalLogo.jpg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -9,7 +9,6 @@ import { fontSize, fontStyle, style } from "@styles/style"
 import data from "@json/data.json"
 import { Link, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
-import doctoraliaLogo from "@assets/imgs/homeAndNavBar/doctoralia-icon.png"
 
 interface ILinks {
     icon?: IconDefinition,
@@ -29,7 +28,7 @@ export const Footer = () => {
         { icon: faInstagram, link: instagramLink },
         { icon: faAt, link: emailLink },
         { icon: faWhatsapp, link: whatsAppLink },
-        { image: doctoraliaLogo, link: scheduleAnAppointmentLink },
+        // { image: doctoraliaLogo, link: scheduleAnAppointmentLink },
     ];
 
     const scrollToTop = () => {

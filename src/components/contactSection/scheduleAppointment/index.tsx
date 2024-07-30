@@ -4,7 +4,7 @@ import scheduleImage from "@assets/imgs/contactImages/scheduleAppointment.jpg"
 import { Button } from "@components/button"
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons"
 import { faInstagram } from "@fortawesome/free-brands-svg-icons"
-import { instagramLink, phoneNumberInString, scheduleAnAppointmentLink } from "@utils/variables"
+import { instagramLink, phoneNumberInString, whatsAppLink } from "@utils/variables"
 
 export const ScheduleAppointment = () => {
     return (
@@ -33,7 +33,7 @@ export const ScheduleAppointment = () => {
                     <p className="text">
                         Entre em contato: <br />{phoneNumberInString} ou faça sua reserva aqui mesmo.
                     </p>
-                    <Button href={scheduleAnAppointmentLink} icon={faCalendarDays} content="Agendar consulta" />
+                    <Button href={whatsAppLink} icon={faCalendarDays} content="Agendar consulta" />
                 </div>
             </div>
         </Container>

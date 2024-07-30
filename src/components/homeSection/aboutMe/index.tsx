@@ -4,7 +4,7 @@ import { Button } from "@components/button"
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons"
 import { fontSize, fontStyle, style } from "@styles/style"
 import data from "@json/data.json"
-import { scheduleAnAppointmentLink } from "@utils/variables"
+import { whatsAppLink } from "@utils/variables"
 
 export const AboutMe = () => {
     return (
@@ -29,7 +29,7 @@ export const AboutMe = () => {
                             </li>
                         )}
                     </ul>
-                    <Button href={scheduleAnAppointmentLink} icon={faCalendarDays} content="Agende a sua consulta" />
+                    <Button href={whatsAppLink} icon={faCalendarDays} content="Agende a sua consulta" />
                 </div>
             </div>
         </Container>
