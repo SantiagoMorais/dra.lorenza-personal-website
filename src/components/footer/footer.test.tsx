@@ -23,7 +23,7 @@ describe("<Footer />", () => {
     it("should render all social media links correctly", () => {
         render(<Footer />, { wrapper: BrowserRouter });
         const socialLinks = screen.getAllByRole("listitem");
-        expect(socialLinks).toHaveLength(4);
+        expect(socialLinks).toHaveLength(3);
     })
 
     it("should render all navigation buttons correctly", () => {
