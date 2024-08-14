@@ -1,42 +1,39 @@
 import { faAdd } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { fontSize, fontStyle, style } from "@styles/style"
-import { IArticleFormat } from "@utils/articlesFormat"
+import { IPostsData } from "@utils/blogApi"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-import { imageMapper } from "utils/imageMapper"
 
-interface IArticleListProps {
-    articles: IArticleFormat[],
-}
+export const ArticleList: React.FC<IPostsData> = ({ posts }) => {
+    const [postsPerPage, setPostsPerPage] = useState<number>(10);
 
-export const ArticleList: React.FC<IArticleListProps> = ({ articles }) => {
-    const [articlesPerPage, setArticlesPerPage] = useState<number>(10);
+    const disableButton: boolean = postsPerPage >= posts?.length ? true : false
+    console.log(posts);
+    
 
-    const disableButton: boolean = articlesPerPage >= articles.length ? true : false
-
-    const handleLoadMoreArticles = () => {
-        setArticlesPerPage((prev) => Math.min(prev + 10, articles.length));
+    const handleLoadMorePosts = () => {
+        setPostsPerPage((prev) => Math.min(prev + 10, posts.length));
     }
 
     return (
         <>
             <List data-testid="articleList">
-                {articles.slice(0, articlesPerPage).map((article, index) =>
-                    <Link to={`/blog/${index}`} className="articleContainer" data-testid="articleItem">
+                {posts.slice(0, postsPerPage).map(article =>
+                    <Link key={article.id}  to={`/blog/${article.id}`} className="articleContainer" data-testid="articleItem">
                         <div className="imageContainer" >
-                            <img src={imageMapper[article.image]} alt="Imagem do artigo" className="articleImage" />
+                            <img src={article.imagem.url} alt="Imagem do artigo" className="articleImage" />
                         </div>
                         <div className="content">
                             <div className="link" >
                                 <h2 className="title">
-                                    {article.title}
+                                    {article.titulo}
                                 </h2>
                             </div>
-                            {article.subtitle &&
+                            {article.subtitulo &&
                                 <h3 className="subtitle">
-                                    {article.subtitle}
+                                    {article.subtitulo}
                                 </h3>
                             }
                             <p className="link" >
@@ -49,7 +46,7 @@ export const ArticleList: React.FC<IArticleListProps> = ({ articles }) => {
                     </Link>
                 )}
             </List>
-            <LoadMoreButton onClick={handleLoadMoreArticles} disabled={articlesPerPage >= articles.length} $disableButton={disableButton}>
+            <LoadMoreButton onClick={handleLoadMorePosts} disabled={postsPerPage >= posts.length} $disableButton={disableButton}>
                 <FontAwesomeIcon icon={faAdd} />
                 Carregar mais
             </LoadMoreButton>
