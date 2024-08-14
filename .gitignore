@@ -24,3 +24,4 @@ src/docs/
 *.sln
 *.sw?
 
+.env
