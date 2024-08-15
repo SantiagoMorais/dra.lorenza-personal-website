@@ -10,8 +10,6 @@ export const ArticleList: React.FC<IPostsData> = ({ posts }) => {
     const [postsPerPage, setPostsPerPage] = useState<number>(10);
 
     const disableButton: boolean = postsPerPage >= posts?.length ? true : false
-    console.log(posts);
-    
 
     const handleLoadMorePosts = () => {
         setPostsPerPage((prev) => Math.min(prev + 10, posts.length));

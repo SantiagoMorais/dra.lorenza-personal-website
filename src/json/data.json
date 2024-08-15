@@ -59,12 +59,5 @@
             "Capacitação em Modulação Intestinal",
             "Certificação para Terapeutas pelo Instituto CIM"
         ]
-    },
-    "treatments": [
-        {"id": 1, "description": "Avaliação nutricional personalizada", "image": "https://placehold.co/100x100"},
-        {"id": 2, "description": "Composição corporal (bioimpedância)", "image": "https://placehold.co/200x200"},
-        {"id": 3, "description": "Reprogramação de sono", "image": "https://placehold.co/300x300"},
-        {"id": 4, "description": "Gestão de ansiedade", "image": "https://placehold.co/400x400"},
-        {"id": 5, "description": "Consultas de suplementação e intervenção medicamentosa", "image": "https://placehold.co/500x500"}
-    ]
+    }
 }

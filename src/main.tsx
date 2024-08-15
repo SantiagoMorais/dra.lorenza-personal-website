@@ -5,7 +5,6 @@ import { GlobalStyles } from '@styles/globalStyles.tsx'
 import { register } from 'swiper/element/bundle';
 import { ApolloProvider } from '@apollo/client';
 
-
 register()
 import "swiper/swiper-bundle.css"
 import "swiper/css/navigation"
