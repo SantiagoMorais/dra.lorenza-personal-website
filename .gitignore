@@ -23,5 +23,3 @@ src/docs/
 *.njsproj
 *.sln
 *.sw?
-
-.env
