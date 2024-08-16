@@ -92,10 +92,9 @@ const Container = styled.section`
                     position: absolute;
                     bottom: -.1rem;
                     left: 0;
-                    width: 200%;
+                    width: 110%;
                     height: .1rem;
                     background: linear-gradient(to right, ${style.primaryColor} 80%, transparent 100%); 
-                    max-width: 95dvw;
                 }
             }
 
