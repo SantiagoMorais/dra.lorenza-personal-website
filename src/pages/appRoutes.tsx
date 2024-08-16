@@ -3,6 +3,7 @@ import { HomePage } from "./homePage"
 import { ContactPage } from "./contactPage"
 import { BlogPage } from "./blogPage"
 import { ArticlePage } from "./articlePage"
+import { ContentNotFoundPage } from "./contentNotFoundPage"
 
 export const AppRoutes = () => {
     return (
@@ -12,6 +13,7 @@ export const AppRoutes = () => {
                 <Route path="/contato" element={<ContactPage />} />
                 <Route path="/blog" element={<BlogPage />} />
                 <Route path="/blog/:id" element={<ArticlePage /> } />
+                <Route path="/*" element={<ContentNotFoundPage />}/>
             </Routes>
         </BrowserRouter>
     )

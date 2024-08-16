@@ -117,7 +117,7 @@ export const Footer = () => {
     )
 }
 
-const Container = styled.div`
+const Container = styled.footer`
     display: flex;
     flex-direction: column;
     align-items: center;
