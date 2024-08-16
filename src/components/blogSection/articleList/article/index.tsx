@@ -8,6 +8,7 @@ import { useQuery } from "@apollo/client";
 import { GET_POSTS_QUERY, IPostsData } from "@utils/blogApi";
 import parse from 'html-react-parser';
 import { ArticleHeader } from "./articleHeader";
+import { ContentNotFound } from "@components/contentNotFound";
 
 export const Article = () => {
     const { data } = useQuery<IPostsData>(GET_POSTS_QUERY)
@@ -16,28 +17,34 @@ export const Article = () => {
 
     return (
         <>
-            <Header />
-            <Container>
-                <div className="content">
-                    <ArticleHeader data={currentPost}/>
-                    <div className="postContent">
-                        <img
-                            src={currentPost?.imagem.url}
-                            alt={`Imagem do artigo "${currentPost?.titulo}"`}
-                            className="postImage"
-                        />
-                        {currentPost?.texto.html && parse(currentPost?.texto.html)}
+            {currentPost !== undefined
+                ?
+                <>
+                    <Header />
+                    <Container>
+                        <div className="content">
+                            <ArticleHeader data={currentPost} />
+                            <div className="postContent">
+                                <img
+                                    src={currentPost?.imagem.url}
+                                    alt={`Imagem do artigo "${currentPost?.titulo}"`}
+                                    className="postImage"
+                                />
+                                {currentPost?.texto.html && parse(currentPost?.texto.html)}
 
-                        {currentPost?.videoUrl &&
-                            <div className="video">
-                                {parse(currentPost?.videoUrl)}
+                                {currentPost?.videoUrl &&
+                                    <div className="video">
+                                        {parse(currentPost?.videoUrl)}
+                                    </div>
+                                }
                             </div>
-                        }
-                    </div>
-                </div>
-            </Container>
-            <Footer />
-            <WhatsAppButton />
+                        </div>
+                    </Container>
+                    <Footer />
+                    <WhatsAppButton />
+                </>
+                : <ContentNotFound />
+            }
         </>
     )
 }
