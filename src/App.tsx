@@ -1,7 +1,7 @@
-import { AppRoutes } from "@pages/appRoutes"
+import { AppRoutes } from "@pages/appRoutes";
 
 function App() {
-  return <AppRoutes />
+  return <AppRoutes />;
 }
 
-export default App
+export default App;

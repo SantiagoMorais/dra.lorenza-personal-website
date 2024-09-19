@@ -1,5 +1,5 @@
-import { ContentNotFound } from "@components/contentNotFound"
+import { ContentNotFound } from "@components/contentNotFound";
 
 export const ContentNotFoundPage = () => {
-    return <ContentNotFound />
-}
+  return <ContentNotFound />;
+};

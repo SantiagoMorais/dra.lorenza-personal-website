@@ -1,63 +1,64 @@
 {
-    "links": [
-        {
-            "name": "home",
-            "link": "/"
-        },
-        {
-            "name": "blog",
-            "link": "/blog"
-        },
-        {
-            "name": "contato",
-            "link": "/contato"
-        },
-        {
-            "name": "como chegar",
-            "link": ""
-        }
-    ],
-    "faqs": [
-        {
-            "question": "O que é a Metodologia 'Cuidar Além'?",
-            "answer": "A Metodologia 'Cuidar Além' é uma abordagem integral que desenvolvi para ajudar meus pacientes a alcançarem uma vida plena e saudável. Ela abrange a avaliação nutricional, física, mental e emocional, com foco em estratégias personalizadas para criar hábitos duradouros e transformadores."
-        },
-        {
-            "question": "Como funciona a avaliação clínica global e nutricional?",
-            "answer": "A avaliação clínica global e nutricional inclui uma anamnese detalhada para entender seus hábitos de vida, uma análise minuciosa da sua dieta atual, a identificação de hábitos alimentares prejudiciais e o desenvolvimento de estratégias nutricionais personalizadas. Se necessário, também abordamos a suplementação ou intervenções medicamentosas."
-        },
-        {
-            "question": "O que é avaliado na consulta de composição corporal (bioimpedância)?",
-            "answer": "A avaliação de composição corporal, realizada através da bioimpedância, fornece uma análise detalhada da sua massa muscular, percentual de gordura, hidratação e outros parâmetros corporais. Isso nos ajuda a entender melhor a sua saúde e a personalizar seu plano de tratamento."
-        },
-        {
-            "question": "Como vocês abordam a reprogramação de sono?",
-            "answer": "Avaliamos a qualidade do seu sono e o impacto que ele tem nas suas atividades diárias. Em seguida, desenvolvemos estratégias para melhorar a qualidade do sono e o tempo de descanso, o que é crucial para seu bem-estar geral e sucesso no tratamento."
-        },
-        {
-            "question": "De que forma a atividade física é integrada no tratamento?",
-            "answer": "Avaliamos seu nível atual de atividade física e discutimos a possibilidade de suplementação para melhorar a performance. Criamos um plano personalizado para aumentar sua atividade física de maneira segura e eficaz, contribuindo para seus objetivos de saúde e emagrecimento."
-        },
-        {
-            "question": "Como a gestão da ansiedade é abordada nas consultas?",
-            "answer": "Avaliamos sua saúde mental e níveis de estresse, utilizando técnicas de relaxamento e estratégias para gerenciar a ansiedade. Discutimos como as emoções afetam suas escolhas alimentares e ajudamos a desenvolver novas rotinas e hábitos saudáveis."
-        },
-        {
-            "question": "Como funciona o teleatendimento?",
-            "answer": "O teleatendimento foi desenvolvido para facilitar o acesso aos meus serviços, superando barreiras geográficas. Os protocolos de atendimento são adaptados ao ambiente virtual, garantindo que todas as necessidades das consultas presenciais sejam atendidas. Toda a documentação é gerada com assinatura digital certificada."
-        }
-    ],
-    "aboutMeInfo": {
-        "title": "Médica Nutróloga especializada em Emagrecimento e Saúde Mental, comprometida em ajudar você a alcançar uma vida plena e saudável.",
-        "academy": [
-            "Graduada em Medicina pela Escola Superior da Santa Casa de Misericórdia de Vitória - EMESCAM", "Residência em Clínica Médica pelo Instituto de Previdência dos Servidores do Estado de Minas Gerais- IPSEMG",
-            "Residência em Nutrologia pelo Instituto de Previdência dos Servidores do Estado de Minas Gerais- IPSEMG",
-            "Pós graduação em Nutrologia pela USP",
-            "Pós Graduação em Fisiologia do Exercício - UNIFESP"
-        ],
-        "otherStudies": [
-            "Capacitação em Modulação Intestinal",
-            "Certificação para Terapeutas pelo Instituto CIM"
-        ]
+  "links": [
+    {
+      "name": "home",
+      "link": "/"
+    },
+    {
+      "name": "blog",
+      "link": "/blog"
+    },
+    {
+      "name": "contato",
+      "link": "/contato"
+    },
+    {
+      "name": "como chegar",
+      "link": ""
     }
+  ],
+  "faqs": [
+    {
+      "question": "O que é a Metodologia 'Cuidar Além'?",
+      "answer": "A Metodologia 'Cuidar Além' é uma abordagem integral que desenvolvi para ajudar meus pacientes a alcançarem uma vida plena e saudável. Ela abrange a avaliação nutricional, física, mental e emocional, com foco em estratégias personalizadas para criar hábitos duradouros e transformadores."
+    },
+    {
+      "question": "Como funciona a avaliação clínica global e nutricional?",
+      "answer": "A avaliação clínica global e nutricional inclui uma anamnese detalhada para entender seus hábitos de vida, uma análise minuciosa da sua dieta atual, a identificação de hábitos alimentares prejudiciais e o desenvolvimento de estratégias nutricionais personalizadas. Se necessário, também abordamos a suplementação ou intervenções medicamentosas."
+    },
+    {
+      "question": "O que é avaliado na consulta de composição corporal (bioimpedância)?",
+      "answer": "A avaliação de composição corporal, realizada através da bioimpedância, fornece uma análise detalhada da sua massa muscular, percentual de gordura, hidratação e outros parâmetros corporais. Isso nos ajuda a entender melhor a sua saúde e a personalizar seu plano de tratamento."
+    },
+    {
+      "question": "Como vocês abordam a reprogramação de sono?",
+      "answer": "Avaliamos a qualidade do seu sono e o impacto que ele tem nas suas atividades diárias. Em seguida, desenvolvemos estratégias para melhorar a qualidade do sono e o tempo de descanso, o que é crucial para seu bem-estar geral e sucesso no tratamento."
+    },
+    {
+      "question": "De que forma a atividade física é integrada no tratamento?",
+      "answer": "Avaliamos seu nível atual de atividade física e discutimos a possibilidade de suplementação para melhorar a performance. Criamos um plano personalizado para aumentar sua atividade física de maneira segura e eficaz, contribuindo para seus objetivos de saúde e emagrecimento."
+    },
+    {
+      "question": "Como a gestão da ansiedade é abordada nas consultas?",
+      "answer": "Avaliamos sua saúde mental e níveis de estresse, utilizando técnicas de relaxamento e estratégias para gerenciar a ansiedade. Discutimos como as emoções afetam suas escolhas alimentares e ajudamos a desenvolver novas rotinas e hábitos saudáveis."
+    },
+    {
+      "question": "Como funciona o teleatendimento?",
+      "answer": "O teleatendimento foi desenvolvido para facilitar o acesso aos meus serviços, superando barreiras geográficas. Os protocolos de atendimento são adaptados ao ambiente virtual, garantindo que todas as necessidades das consultas presenciais sejam atendidas. Toda a documentação é gerada com assinatura digital certificada."
+    }
+  ],
+  "aboutMeInfo": {
+    "title": "Médica Nutróloga especializada em Emagrecimento e Saúde Mental, comprometida em ajudar você a alcançar uma vida plena e saudável.",
+    "academy": [
+      "Graduada em Medicina pela Escola Superior da Santa Casa de Misericórdia de Vitória - EMESCAM",
+      "Residência em Clínica Médica pelo Instituto de Previdência dos Servidores do Estado de Minas Gerais- IPSEMG",
+      "Residência em Nutrologia pelo Instituto de Previdência dos Servidores do Estado de Minas Gerais- IPSEMG",
+      "Pós graduação em Nutrologia pela USP",
+      "Pós Graduação em Fisiologia do Exercício - UNIFESP"
+    ],
+    "otherStudies": [
+      "Capacitação em Modulação Intestinal",
+      "Certificação para Terapeutas pelo Instituto CIM"
+    ]
+  }
 }

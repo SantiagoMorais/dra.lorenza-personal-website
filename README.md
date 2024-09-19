@@ -50,11 +50,11 @@
 - [Styled-Components](https://styled-components.com) - A popular CSS-in-JS library that brings the full power of JavaScript to styling, enabling the creation of component-level styles with ease, ensuring modular and maintainable code.
 - [Typescript](https://www.typescriptlang.org) - A JavaScript superset that enhances code quality, minimizes bugs, and boosts security.
 
-
 ### Project Functionality
 
 The project is not complex, but is huge, so let's explain everything by parts.
-- The code was created with React, Vite and TypeScript to your structure. 
+
+- The code was created with React, Vite and TypeScript to your structure.
 - Styled-Components library was used to style the components using string interpolation.
 - Vitest and React-Testing-Library were used to test our components to avoid errors and components conflicts.
 - Swipper library permits to create a carrousel that shows the patients reviews and the procedures performed in the office.
@@ -66,20 +66,20 @@ Let's divide by parts. To performs the project and to make easy to maintain and 
 
 ```ts
 interface IStyle {
-    primaryColor: string,
-    secondaryColor: string,
-    tertiaryColor: string,
-    textColor: string,
-    secondaryTextColor: string
+  primaryColor: string;
+  secondaryColor: string;
+  tertiaryColor: string;
+  textColor: string;
+  secondaryTextColor: string;
 }
 
 export const style: IStyle = {
-    primaryColor: "#73243C",
-    secondaryColor: "#EDDDD6",
-    tertiaryColor: "#B68C8A",
-    textColor: "#ffffff",
-    secondaryTextColor: "#000000"
-}
+  primaryColor: "#73243C",
+  secondaryColor: "#EDDDD6",
+  tertiaryColor: "#B68C8A",
+  textColor: "#ffffff",
+  secondaryTextColor: "#000000",
+};
 ```
 
 #### Swiper
@@ -87,6 +87,7 @@ export const style: IStyle = {
 The Swiper library is really detailed and documented, that turns possible to use it easily on services and assessments components.
 
 The configuration is really simple:
+
 - loop: defines if the carousel will run in loop automatically.
 - spaceBetween: space between slides/images.
 - slidesPerView: how many slides will be shown. It was used a variable that changes when the screen width changes to adapt to the mobile screen.
@@ -98,30 +99,29 @@ The configuration is really simple:
 - And even more.
 
 ```tsx
-  <Swiper
-    loop={true}
-    className="swiper"
-    spaceBetween={spaceBetween ? spaceBetween : 50}
-    slidesPerView={slidesPerView}
-    navigation
-    modules={[Pagination]}
-    pagination={{
-      dynamicBullets: true, clickable: true
-    }}
-    autoplay={{
-      delay: 5000,
-      disableOnInteraction: false
-    }}
-  >
-    {info.map(item =>
-      <SwiperSlide key={item.id} className="slide">
-        <img src={item.image} alt="slideImage" className="slideImage" />
-        <h3 className="itemDescription">
-          {item.description}
-        </h3>
-      </SwiperSlide>
-    )}
-  </Swiper>
+<Swiper
+  loop={true}
+  className="swiper"
+  spaceBetween={spaceBetween ? spaceBetween : 50}
+  slidesPerView={slidesPerView}
+  navigation
+  modules={[Pagination]}
+  pagination={{
+    dynamicBullets: true,
+    clickable: true,
+  }}
+  autoplay={{
+    delay: 5000,
+    disableOnInteraction: false,
+  }}
+>
+  {info.map((item) => (
+    <SwiperSlide key={item.id} className="slide">
+      <img src={item.image} alt="slideImage" className="slideImage" />
+      <h3 className="itemDescription">{item.description}</h3>
+    </SwiperSlide>
+  ))}
+</Swiper>
 ```
 
 For more details, access the [documentation here](https://swiperjs.com/get-started).
@@ -141,34 +141,34 @@ Using Apollo Client with Hygraph is recommended because it allows us to efficien
 #### Configuration
 
 ```ts
-import { ApolloClient, HttpLink, InMemoryCache, gql } from "@apollo/client"
+import { ApolloClient, HttpLink, InMemoryCache, gql } from "@apollo/client";
 
 export const client = new ApolloClient({
+  uri: import.meta.env.VITE_HYGRAPH_API_URL,
+  cache: new InMemoryCache(),
+  link: new HttpLink({
     uri: import.meta.env.VITE_HYGRAPH_API_URL,
-    cache: new InMemoryCache(),
-    link: new HttpLink({
-        uri: import.meta.env.VITE_HYGRAPH_API_URL,
-        headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_HYGRAPH_API_TOKEN}`
-        }
-    })
-})
+    headers: {
+      Authorization: `Bearer ${import.meta.env.VITE_HYGRAPH_API_TOKEN}`,
+    },
+  }),
+});
 ```
 
 A new client is created using ApolloClient and it is used to wrap the components that will use it, using ApolloProvider.
 
 ```tsx
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <GlobalStyles />
     <ApolloProvider client={client}>
       <App />
     </ApolloProvider>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
 ```
 
-The hygraph give us sensitive data, as the API URL access from your data and a security token. That way, it is necessary to configure a ``.env`` file to aims these data, using it, for example that way: ```import.meta.env.VITE_HYGRAPH_API_URL```. Vite automatically configure .env in the project, so don't worry to configure it if you are using your React app with it.
+The hygraph give us sensitive data, as the API URL access from your data and a security token. That way, it is necessary to configure a `.env` file to aims these data, using it, for example that way: `import.meta.env.VITE_HYGRAPH_API_URL`. Vite automatically configure .env in the project, so don't worry to configure it if you are using your React app with it.
 
 Apollo-client requires the uri(the API URL), the cache and the headers, that is the security token created in the hygraph website. Without the token, we can't access the API data.
 
@@ -176,30 +176,30 @@ After that, it's necessary to configure the GraphQL query code. It's really simi
 
 ```ts
 export const GET_POSTS_QUERY = gql`
-    {
-        posts {
-            id
-            titulo
-            subtitulo
-            data
-            imagem {
-                url
-            }
-            videoUrl
-            texto {
-                html
-            }
-            autor {
-                nome
-                descricao
-                avatar {
-                    url
-                }
-                crm
-                rqe
-            }
+  {
+    posts {
+      id
+      titulo
+      subtitulo
+      data
+      imagem {
+        url
+      }
+      videoUrl
+      texto {
+        html
+      }
+      autor {
+        nome
+        descricao
+        avatar {
+          url
         }
+        crm
+        rqe
+      }
     }
+  }
 `;
 ```
 
@@ -207,7 +207,7 @@ That way, our API return will be available as:
 
 <img src="./src/assets/screenshots/API-result.png" alt="API return">
 
-Finally, we just need to configure the components that need these data to show them into the screen using ``useQuery`` hook, made available by Apollo-Client.
+Finally, we just need to configure the components that need these data to show them into the screen using `useQuery` hook, made available by Apollo-Client.
 
 ```tsx
 const { loading, error, data } = useQuery(GET_POSTS_QUERY);
@@ -218,6 +218,7 @@ It's possible to configure the component to render specific messages when the da
 The post text is returned as a string in html format. That way, it's necessary to use [html-react-parser](https://www.npmjs.com/package/html-react-parser) library that converts an HTML string to one or more React elements.
 
 ### How to execute the project
+
 - The project was created with [React-Vite](https://vitejs.dev).
 
 - To download the project, open the terminal in the VSCode and write the dependencies code installations: **npm install**
@@ -232,7 +233,6 @@ The package.json file already contains the version of the library in its data, s
 
 <img src='./src/assets/screenshots/instructions-path-2.bmp' alt="instructions path 2">
 
-
 - Finally, in the terminal, keep the **localhost** link will appear where the project will be running in your browser. Hover over it and click **Follow link**, or press the ctrl button on your keyboard and click on the **localhost**, and the page will open in your default browser.
 
 <img src='./src/assets/screenshots/instructions-path-3.bmp' alt="instructions path 3">
@@ -241,7 +241,7 @@ There are other ways to open the project, but that form it is the one that I'm u
 
 ### Continuous development
 
-That was the first freelancer project that I've made, and that was exciting, because I had to study subjects that I don't even knew that existed. It's incredible how exist almost a library for everything, as the [Swiper](https://swiperjs.com) and [html-react-parser](https://www.npmjs.com/package/html-react-parser), that made us more secure to make risks and try to face a new project. 
+That was the first freelancer project that I've made, and that was exciting, because I had to study subjects that I don't even knew that existed. It's incredible how exist almost a library for everything, as the [Swiper](https://swiperjs.com) and [html-react-parser](https://www.npmjs.com/package/html-react-parser), that made us more secure to make risks and try to face a new project.
 
 With it, I could improve my habilities to communicate with a client, to understand his wishes and interests and to learn how to explain the project and the paths correctly.
 
@@ -249,8 +249,7 @@ That is just the beggining of more opportunities like that. Specially to face so
 
 ### Useful Resources
 
-- [Hygraph](https://hygraph.com/docs): A headless CMS that enables flexible content management through a GraphQL API, allowing developers to create structured content models and seamlessly integrate dynamic content into applications.
--[html-react-parser](https://www.npmjs.com/package/html-react-parser): A utility for parsing and rendering HTML strings as React components, providing a safe and convenient way to integrate dynamic HTML content within React applications.
+- [Hygraph](https://hygraph.com/docs): A headless CMS that enables flexible content management through a GraphQL API, allowing developers to create structured content models and seamlessly integrate dynamic content into applications. -[html-react-parser](https://www.npmjs.com/package/html-react-parser): A utility for parsing and rendering HTML strings as React components, providing a safe and convenient way to integrate dynamic HTML content within React applications.
 - [Font-awesome-icons](https://fontawesome.com) - A straightforward React library for easily integrating a wide range of icons into projects.
 
 ## Author
@@ -259,7 +258,3 @@ That is just the beggining of more opportunities like that. Specially to face so
 - Linkedin - [Felipe Santiago](https://www.linkedin.com/in/felipe-santiago-873025288/)
 - Instagram - [@felipe.santiago.morais](https://www.instagram.com/felipe.santiago.morais)
 - Email - <a href="mailto:contatofelipesantiago@gmail.com" target="blank">contatofelipesantiago@gmail.com</a>
-
-
-
-

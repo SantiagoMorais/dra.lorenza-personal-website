@@ -1,46 +1,46 @@
 interface IStyle {
-    primaryColor: string,
-    secondaryColor: string,
-    tertiaryColor: string,
-    textColor: string,
-    secondaryTextColor: string
+  primaryColor: string;
+  secondaryColor: string;
+  tertiaryColor: string;
+  textColor: string;
+  secondaryTextColor: string;
 }
 
 interface ITipography {
-    lightWeight: number,
-    mediumWeight: number,
-    boldWeight: number
+  lightWeight: number;
+  mediumWeight: number;
+  boldWeight: number;
 }
 
 export interface IFontSize {
-    fontSizeSmall: string,
-    fontSizeBase: string,
-    fontSizeMedium: string,
-    fontSizeLarge: string,
-    fontSizeExtraLarge: string,
+  fontSizeSmall: string;
+  fontSizeBase: string;
+  fontSizeMedium: string;
+  fontSizeLarge: string;
+  fontSizeExtraLarge: string;
 }
 
 export const style: IStyle = {
-    primaryColor: "#73243C",
-    secondaryColor: "#EDDDD6",
-    tertiaryColor: "#B68C8A",
-    textColor: "#ffffff",
-    secondaryTextColor: "#000000"
-}
+  primaryColor: "#73243C",
+  secondaryColor: "#EDDDD6",
+  tertiaryColor: "#B68C8A",
+  textColor: "#ffffff",
+  secondaryTextColor: "#000000",
+};
 
 export const fontStyle: ITipography = {
-    lightWeight: 300,
-    mediumWeight: 500,
-    boldWeight: 700
-}
+  lightWeight: 300,
+  mediumWeight: 500,
+  boldWeight: 700,
+};
 
 export const fontSize: IFontSize = {
-    fontSizeSmall: "1.4rem",
-    fontSizeBase: "1.8rem",
-    fontSizeMedium: "2.4rem",
-    fontSizeLarge: "3rem",
-    fontSizeExtraLarge: "3.6rem"
-}
+  fontSizeSmall: "1.4rem",
+  fontSizeBase: "1.8rem",
+  fontSizeMedium: "2.4rem",
+  fontSizeLarge: "3rem",
+  fontSizeExtraLarge: "3.6rem",
+};
 
 export const faqBreakPoints = () => `
         @media (max-width: 1024px) {
@@ -115,4 +115,4 @@ export const faqBreakPoints = () => `
             }
         }
     )
-`
+`;
