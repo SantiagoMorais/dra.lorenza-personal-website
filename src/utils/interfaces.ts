@@ -1,23 +1,25 @@
 export interface IPostNode {
-  id: string;
-  titulo: string;
-  subtitulo?: string;
-  data: string;
-  imagem?: {
-    url: string;
-  };
-  videoUrl?: string;
-  texto: {
-    html: string;
-  };
-  autor: {
-    nome: string;
-    descricao: string;
-    avatar?: {
+  node: {
+    id: string;
+    titulo: string;
+    subtitulo?: string;
+    data: string;
+    imagem?: {
       url: string;
     };
-    crm?: number;
-    rqe?: number;
+    videoUrl?: string;
+    texto: {
+      html: string;
+    };
+    autor: {
+      nome: string;
+      descricao: string;
+      avatar?: {
+        url: string;
+      };
+      crm?: number;
+      rqe?: number;
+    };
   };
 }
 
@@ -32,7 +34,7 @@ export interface IPageInfo {
 
 export interface IPostsConnection {
   pageInfo: IPageInfo;
-  edged: IPostEdge;
+  edges: IPostNode[];
 }
 
 export interface IPostsData {

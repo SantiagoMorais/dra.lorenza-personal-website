@@ -1,43 +1,31 @@
-import { faAdd } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fontSize, fontStyle, style } from "@styles/style";
-import { IPostsData } from "@utils/blogApi";
-import { useState } from "react";
+import { IPostEdge } from "@utils/interfaces";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const ArticleList: React.FC<IPostsData> = ({ posts }) => {
-  const [postsPerPage, setPostsPerPage] = useState<number>(10);
-
-  const disableButton: boolean = postsPerPage >= posts?.length ? true : false;
-
-  const handleLoadMorePosts = () => {
-    setPostsPerPage((prev) => Math.min(prev + 10, posts.length));
-  };
-
+export const ArticleList: React.FC<IPostEdge> = ({ edges }) => {
   return (
-    <>
       <List data-testid="articleList">
-        {posts.slice(0, postsPerPage).map((article) => (
+        {edges?.map((article) => (
           <Link
-            key={article.id}
-            to={`/blog/${article.id}`}
+            key={article.node.id}
+            to={`/blog/${article.node.id}`}
             className="articleContainer"
             data-testid="articleItem"
           >
             <div className="imageContainer">
               <img
-                src={article.imagem.url}
+                src={article?.node.imagem?.url}
                 alt="Imagem do artigo"
                 className="articleImage"
               />
             </div>
             <div className="content">
               <div className="link">
-                <h2 className="title">{article.titulo}</h2>
+                <h2 className="title">{article.node.titulo}</h2>
               </div>
-              {article.subtitulo && (
-                <h3 className="subtitle">{article.subtitulo}</h3>
+              {article.node.subtitulo && (
+                <h3 className="subtitle">{article.node.subtitulo}</h3>
               )}
               <p className="link">Ler publicação</p>
             </div>
@@ -45,15 +33,6 @@ export const ArticleList: React.FC<IPostsData> = ({ posts }) => {
           </Link>
         ))}
       </List>
-      <LoadMoreButton
-        onClick={handleLoadMorePosts}
-        disabled={postsPerPage >= posts.length}
-        $disableButton={disableButton}
-      >
-        <FontAwesomeIcon icon={faAdd} />
-        Carregar mais
-      </LoadMoreButton>
-    </>
   );
 };
 
@@ -138,31 +117,4 @@ const List = styled.ul`
   @media (max-width: 600px) {
     grid-template-columns: minmax(0rem, 1fr);
   }
-`;
-
-const LoadMoreButton = styled.button<{ $disableButton: boolean }>`
-  display: flex;
-  padding: 0.5rem 2rem;
-  align-items: center;
-  gap: 1rem;
-  font-size: ${fontSize.fontSizeBase};
-  border-radius: 50rem;
-  margin: 0 2rem 2rem;
-  border: none;
-  color: ${style.textColor};
-  cursor: ${(props) => (props.$disableButton ? "default" : "pointer")};
-  opacity: ${(props) => (props.$disableButton ? ".6" : "1")};
-  background-color: ${(props) =>
-    props.$disableButton ? "rgb(145, 102, 102)" : style.primaryColor};
-  transition: 0.3s;
-  user-select: none;
-
-  //chatgpt, como faço para que a lógica abaixo funcione no styled-components?
-  ${(props) =>
-    props.$disableButton === false &&
-    `
-        &:hover {
-            opacity: .8;
-            scale: 1.15;
-        }`}
 `;

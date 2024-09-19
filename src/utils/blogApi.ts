@@ -14,7 +14,7 @@ export const client = new ApolloClient({
 
 export const GET_POSTS_QUERY = gql`
   query getPostsQuery($after: String, $first: Int!) {
-    postsConnection(first: $first, after: $after) {
+    postsConnection(after: $after, first: $first) {
       pageInfo {
         hasNextPage
         endCursor

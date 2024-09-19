@@ -11,11 +11,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { fontSize, style } from "@styles/style";
 import { ErrorComponent } from "./errorComponent";
+import { IPostsData } from "@utils/interfaces";
 
 export const BlogSection = () => {
-  const { loading, error, data } = useQuery(GET_POSTS_QUERY, {
+  const { loading, error, data } = useQuery<IPostsData>(GET_POSTS_QUERY, {
     fetchPolicy: "network-only",
+    variables: {
+      first: 2,
+    },
   });
+
+  console.log(data);
+  
 
   return (
     <Container data-testid="blogSection">
@@ -28,8 +35,8 @@ export const BlogSection = () => {
         </p>
       ) : error ? (
         <ErrorComponent />
-      ) : data?.posts.length > 0 ? (
-        <ArticleList posts={data?.posts} />
+      ) : data && data.postsConnection.edges.length > 0 ? (
+        <ArticleList edges={data?.postsConnection.edges} />
       ) : (
         <SectionEmpty />
       )}
