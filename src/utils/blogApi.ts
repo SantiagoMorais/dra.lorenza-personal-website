@@ -1,19 +1,20 @@
 import { ApolloClient, HttpLink, InMemoryCache, gql } from "@apollo/client";
+import { env } from "env";
 
 export const client = new ApolloClient({
-  uri: import.meta.env.VITE_HYGRAPH_API_URL,
+  uri: env.VITE_HYGRAPH_API_URL,
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: import.meta.env.VITE_HYGRAPH_API_URL,
+    uri: env.VITE_HYGRAPH_API_URL,
     headers: {
-      Authorization: `Bearer ${import.meta.env.VITE_HYGRAPH_API_TOKEN}`,
+      Authorization: `Bearer ${env.VITE_HYGRAPH_API_TOKEN}`,
     },
   }),
-})
+});
 
 export const GET_POSTS_QUERY = gql`
-  query getPostsQuery ($after: String, $first: Int!) {
-    postsConnection (first: $first, after: $after) {
+  query getPostsQuery($after: String, $first: Int!) {
+    postsConnection(first: $first, after: $after) {
       pageInfo {
         hasNextPage
         endCursor
@@ -45,5 +46,3 @@ export const GET_POSTS_QUERY = gql`
     }
   }
 `;
-
-
