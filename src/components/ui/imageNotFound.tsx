@@ -4,12 +4,12 @@ import { fontSize, fontStyle, style } from "@styles/style";
 import styled from "styled-components";
 
 interface IImageNotFound {
-  articleList: boolean;
+  articleList?: boolean;
 }
 
 export const ImageNotFound: React.FC<IImageNotFound> = ({ articleList }) => {
   return (
-    <Container $articleList={articleList}>
+    <Container $articleList={articleList ? true : false}>
       <p id="imageNotFoundTitle">Imagem não encontrada</p>
       <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
     </Container>

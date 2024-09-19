@@ -7,20 +7,52 @@ import { ArticleList } from "./articleList";
 import { SectionEmpty } from "./sectionEmpty";
 import { useQuery } from "@apollo/client";
 import { GET_POSTS_QUERY } from "@utils/blogApi";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { fontSize, style } from "@styles/style";
 import { ErrorComponent } from "./errorComponent";
 import { IPostsData } from "@utils/interfaces";
 import { Loading } from "../ui/loading";
+import { useState } from "react";
+import { LoadMoreButton } from "./articleList/loadMoreButton";
 
 export const BlogSection = () => {
-  const { loading, error, data } = useQuery<IPostsData>(GET_POSTS_QUERY, {
-    fetchPolicy: "network-only",
-    variables: {
-      first: 2,
-    },
-  });
+  const [loadingMore, setLoadingMore] = useState<boolean>(false);
+  const { loading, error, data, fetchMore } = useQuery<IPostsData>(
+    GET_POSTS_QUERY,
+    {
+      fetchPolicy: "network-only",
+      variables: {
+        first: 2,
+      },
+    }
+  );
+
+  const loadMorePosts = () => {
+    if (loading || !data) return;
+    const endCursor: string = data.postsConnection.pageInfo.endCursor;
+
+    setLoadingMore(true);
+
+    fetchMore({
+      variables: {
+        after: endCursor,
+        first: 2,
+      },
+      updateQuery: (prevResult, { fetchMoreResult }) => {
+        setLoadingMore(false);
+
+        if (!fetchMoreResult) return prevResult;
+
+        return {
+          postsConnection: {
+            ...fetchMoreResult.postsConnection,
+            edges: [
+              ...prevResult.postsConnection.edges,
+              ...fetchMoreResult.postsConnection.edges,
+            ],
+          },
+        };
+      },
+    });
+  };
 
   return (
     <Container data-testid="blogSection">
@@ -31,7 +63,10 @@ export const BlogSection = () => {
       ) : error ? (
         <ErrorComponent />
       ) : data && data.postsConnection.edges.length > 0 ? (
-        <ArticleList edges={data?.postsConnection.edges} />
+        <>
+          <ArticleList edges={data?.postsConnection.edges} />
+          <LoadMoreButton hasMoreData={data.postsConnection.pageInfo.hasNextPage} loadMore={loadMorePosts} loadingMore={loadingMore}/>
+        </>
       ) : (
         <SectionEmpty />
       )}

@@ -25,14 +25,14 @@ export const Article = () => {
 
   return (
     <>
-      {loading ? (
-        <Loading />
-      ) : error ? (
-        <ErrorComponent />
-      ) : data ? (
-        <>
-          <Header />
-          <Container>
+      <Header />
+      <Container>
+        {loading ? (
+          <Loading />
+        ) : error ? (
+          <ErrorComponent />
+        ) : data ? (
+          <>
             <div className="content">
               <ArticleHeader data={data} />
               <div className="postContent">
@@ -53,13 +53,13 @@ export const Article = () => {
                 )}
               </div>
             </div>
-          </Container>
-          <Footer />
-          <WhatsAppButton />
-        </>
-      ) : (
-        <ContentNotFound />
-      )}
+          </>
+        ) : (
+          <ContentNotFound />
+        )}
+      </Container>
+      <Footer />
+      <WhatsAppButton />
     </>
   );
 };

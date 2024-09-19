@@ -12,10 +12,12 @@ export const Loading = () => {
 };
 
 const Container = styled.p`
+  padding: 4rem 2rem;
   font-size: ${fontSize.fontSizeLarge};
   color: ${style.primaryColor};
   margin: auto;
   min-height: 100%;
+  text-align: center;
 
   .icon {
     margin-right: 0.5rem;
