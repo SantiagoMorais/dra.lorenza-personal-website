@@ -14,7 +14,7 @@ export const LoadMoreButton: React.FC<ILoadMoreButton> = ({
   loadMore,
 }) => {
   return (
-    <Button $hasMoreData={hasMoreData} onClick={loadMore} disabled={!hasMoreData}>
+    <Button $hasMoreData={hasMoreData} onClick={() => hasMoreData && loadMore} disabled={!hasMoreData}>
       <FontAwesomeIcon icon={faAdd} />
       <span className="buttonMessage">Carregar mais</span>
     </Button>

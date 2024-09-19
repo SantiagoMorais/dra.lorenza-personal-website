@@ -20,7 +20,7 @@ export const BlogSection = () => {
     {
       fetchPolicy: "network-only",
       variables: {
-        first: 2,
+        first: 10,
       },
     }
   );
@@ -34,7 +34,7 @@ export const BlogSection = () => {
     fetchMore({
       variables: {
         after: endCursor,
-        first: 2,
+        first: 5,
       },
       updateQuery: (prevResult, { fetchMoreResult }) => {
         setLoadingMore(false);
