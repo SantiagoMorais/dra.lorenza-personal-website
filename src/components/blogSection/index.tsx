@@ -12,7 +12,7 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { fontSize, style } from "@styles/style";
 import { ErrorComponent } from "./errorComponent";
 import { IPostsData } from "@utils/interfaces";
-import { Loading } from "./loading";
+import { Loading } from "../ui/loading";
 
 export const BlogSection = () => {
   const { loading, error, data } = useQuery<IPostsData>(GET_POSTS_QUERY, {

@@ -1,3 +1,4 @@
+import { ImageNotFound } from "@components/ui/imageNotFound";
 import { fontSize, fontStyle, style } from "@styles/style";
 import { IPostEdge } from "@utils/interfaces";
 import { Link } from "react-router-dom";
@@ -5,34 +6,38 @@ import styled from "styled-components";
 
 export const ArticleList: React.FC<IPostEdge> = ({ edges }) => {
   return (
-      <List data-testid="articleList">
-        {edges?.map((article) => (
-          <Link
-            key={article.node.id}
-            to={`/blog/${article.node.id}`}
-            className="articleContainer"
-            data-testid="articleItem"
-          >
-            <div className="imageContainer">
+    <List data-testid="articleList">
+      {edges?.map((article) => (
+        <Link
+          key={article.node.id}
+          to={`/blog/${article.node.id}`}
+          className="articleContainer"
+          data-testid="articleItem"
+        >
+          <div className="imageContainer">
+            {article?.node.imagem ? (
               <img
                 src={article?.node.imagem?.url}
                 alt="Imagem do artigo"
                 className="articleImage"
               />
+            ) : (
+              <ImageNotFound articleList/>
+            )}
+          </div>
+          <div className="content">
+            <div className="link">
+              <h2 className="title">{article.node.titulo}</h2>
             </div>
-            <div className="content">
-              <div className="link">
-                <h2 className="title">{article.node.titulo}</h2>
-              </div>
-              {article.node.subtitulo && (
-                <h3 className="subtitle">{article.node.subtitulo}</h3>
-              )}
-              <p className="link">Ler publicação</p>
-            </div>
-            <h4 className="author">Dra. Lorenza Arruda</h4>
-          </Link>
-        ))}
-      </List>
+            {article.node.subtitulo && (
+              <h3 className="subtitle">{article.node.subtitulo}</h3>
+            )}
+            <p className="link">Ler publicação</p>
+          </div>
+          <h4 className="author">Dra. Lorenza Arruda</h4>
+        </Link>
+      ))}
+    </List>
   );
 };
 

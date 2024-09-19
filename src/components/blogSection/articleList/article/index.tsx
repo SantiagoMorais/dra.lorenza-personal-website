@@ -10,8 +10,9 @@ import { WhatsAppButton } from "@components/whatsAppButton";
 import { ContentNotFound } from "@components/contentNotFound";
 import parse from "html-react-parser";
 import { ArticleHeader } from "./articleHeader";
-import { Loading } from "@components/blogSection/loading";
+import { Loading } from "@components/ui/loading";
 import { ErrorComponent } from "@components/blogSection/errorComponent";
+import { ImageNotFound } from "@components/ui/imageNotFound";
 
 export const Article = () => {
   const { id } = useParams<{ id: string }>();
@@ -21,8 +22,6 @@ export const Article = () => {
       variables: { id },
     }
   );
-
-  console.log(data);
 
   return (
     <>
@@ -37,11 +36,16 @@ export const Article = () => {
             <div className="content">
               <ArticleHeader data={data} />
               <div className="postContent">
-                <img
-                  src={data?.post.imagem?.url}
-                  alt={`Imagem do artigo "${data?.post.titulo}"`}
-                  className="postImage"
-                />
+                {data?.post.imagem ? (
+                  <img
+                    src={data?.post.imagem?.url}
+                    alt={`Imagem do artigo "${data?.post.titulo}"`}
+                    className="postImage"
+                  />
+                ) : (
+                  <ImageNotFound />
+                )}
+
                 {data?.post.texto?.html && parse(data?.post.texto.html)}
 
                 {data?.post.videoUrl && (

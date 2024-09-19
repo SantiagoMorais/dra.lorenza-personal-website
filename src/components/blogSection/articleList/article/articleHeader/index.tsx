@@ -1,4 +1,4 @@
-import articlesAuthor from "@assets/imgs/blogSection/article's-author.jpg";
+import noAvatar from "@assets/imgs/noAvatarPhoto.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -11,10 +11,7 @@ interface IArticleHeader {
   data: ICurrentlyPost
 }
 
-export const ArticleHeader: React.FC<IArticleHeader> = ({ data }) => {
-
-  console.log(data);
-  
+export const ArticleHeader: React.FC<IArticleHeader> = ({ data }) => {    
   return (
     <Container>
       {data?.post?.autor && (
@@ -25,7 +22,7 @@ export const ArticleHeader: React.FC<IArticleHeader> = ({ data }) => {
           </Link>
           <div className="author">
             <img
-              src={articlesAuthor}
+              src={data?.post?.autor?.avatar?.url ? data.post.autor.avatar.url : noAvatar}
               alt="Foto do(a) autor(a) do artigo"
               className="profilePhoto"
             />
