@@ -1,5 +1,7 @@
-export interface IPostNode {
-  node: {
+// Post fetched by id
+
+export interface ICurrentlyPost {
+  post: {
     id: string;
     titulo: string;
     subtitulo?: string;
@@ -19,6 +21,22 @@ export interface IPostNode {
       };
       crm?: number;
       rqe?: number;
+    };
+  };
+}
+
+// All posts fetched
+
+export interface IPostNode {
+  node: {
+    id: string;
+    titulo: string;
+    subtitulo?: string;
+    imagem?: {
+      url: string;
+    };
+    autor: {
+      nome: string;
     };
   };
 }

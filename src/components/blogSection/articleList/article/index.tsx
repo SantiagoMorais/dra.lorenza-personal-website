@@ -1,38 +1,51 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { fontSize, fontStyle, style } from "@styles/style";
+import { useQuery } from "@apollo/client";
+import { GET_CURRENTLY_POST_QUERY } from "@utils/blogApi";
+import { ICurrentlyPost } from "@utils/interfaces";
 import { Header } from "@components/header";
 import { Footer } from "@components/footer";
-import { fontSize, fontStyle, style } from "@styles/style";
 import { WhatsAppButton } from "@components/whatsAppButton";
-import { useQuery } from "@apollo/client";
-import { GET_POSTS_QUERY, IPostsData } from "@utils/blogApi";
+import { ContentNotFound } from "@components/contentNotFound";
 import parse from "html-react-parser";
 import { ArticleHeader } from "./articleHeader";
-import { ContentNotFound } from "@components/contentNotFound";
+import { Loading } from "@components/blogSection/loading";
+import { ErrorComponent } from "@components/blogSection/errorComponent";
 
 export const Article = () => {
-  const { data } = useQuery<IPostsData>(GET_POSTS_QUERY);
-  const { id } = useParams();
-  const currentPost = data?.posts.find((post) => post.id === id);
+  const { id } = useParams<{ id: string }>();
+  const { data, loading, error } = useQuery<ICurrentlyPost>(
+    GET_CURRENTLY_POST_QUERY,
+    {
+      variables: { id },
+    }
+  );
+
+  console.log(data);
 
   return (
     <>
-      {currentPost !== undefined ? (
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <ErrorComponent />
+      ) : data ? (
         <>
           <Header />
           <Container>
             <div className="content">
-              <ArticleHeader data={currentPost} />
+              <ArticleHeader data={data} />
               <div className="postContent">
                 <img
-                  src={currentPost?.imagem.url}
-                  alt={`Imagem do artigo "${currentPost?.titulo}"`}
+                  src={data?.post.imagem?.url}
+                  alt={`Imagem do artigo "${data?.post.titulo}"`}
                   className="postImage"
                 />
-                {currentPost?.texto.html && parse(currentPost?.texto.html)}
+                {data?.post.texto?.html && parse(data?.post.texto.html)}
 
-                {currentPost?.videoUrl && (
-                  <div className="video">{parse(currentPost?.videoUrl)}</div>
+                {data?.post.videoUrl && (
+                  <div className="video">{parse(data?.post.videoUrl)}</div>
                 )}
               </div>
             </div>

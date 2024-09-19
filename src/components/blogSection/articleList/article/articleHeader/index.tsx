@@ -2,19 +2,22 @@ import articlesAuthor from "@assets/imgs/blogSection/article's-author.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { IPost } from "@utils/blogApi";
 import styled from "styled-components";
 import { fontSize, fontStyle, style } from "@styles/style";
 import React from "react";
+import { ICurrentlyPost } from "@utils/interfaces";
 
 interface IArticleHeader {
-  data: IPost | undefined;
+  data: ICurrentlyPost
 }
 
 export const ArticleHeader: React.FC<IArticleHeader> = ({ data }) => {
+
+  console.log(data);
+  
   return (
     <Container>
-      {data && (
+      {data?.post?.autor && (
         <>
           <Link to="/blog" className="returnButton">
             <FontAwesomeIcon icon={faRotateLeft} className="icon" />
@@ -27,19 +30,19 @@ export const ArticleHeader: React.FC<IArticleHeader> = ({ data }) => {
               className="profilePhoto"
             />
             <div className="about">
-              <h3 className="name">Por: {data?.autor.nome}</h3>
-              <p className="text">{data?.autor.descricao}</p>
+              <h3 className="name">Por: {data?.post.autor?.nome}</h3>
+              <p className="text">{data?.post.autor.descricao}</p>
               <div className="medicalRegistry">
-                {data?.autor.crm && (
-                  <p className="registry">CRM: {data?.autor.crm}</p>
+                {data?.post.autor.crm && (
+                  <p className="registry">CRM: {data?.post.autor.crm}</p>
                 )}
-                {data?.autor.rqe && (
-                  <p className="registry">RQE: {data?.autor.rqe}</p>
+                {data?.post.autor.rqe && (
+                  <p className="registry">RQE: {data?.post.autor.rqe}</p>
                 )}
               </div>
             </div>
           </div>
-          <h2 className="articleTitle">{data?.titulo}</h2>
+          <h2 className="articleTitle">{data?.post.titulo}</h2>
         </>
       )}
     </Container>

@@ -13,7 +13,7 @@ export const client = new ApolloClient({
 });
 
 export const GET_POSTS_QUERY = gql`
-  query getPostsQuery($after: String, $first: Int!) {
+  query GetPostsQuery($after: String, $first: Int!) {
     postsConnection(after: $after, first: $first) {
       pageInfo {
         hasNextPage
@@ -24,24 +24,40 @@ export const GET_POSTS_QUERY = gql`
           id
           titulo
           subtitulo
-          data
           imagem {
             url
           }
-          videoUrl
-          texto {
-            html
-          }
           autor {
             nome
-            descricao
-            avatar {
-              url
-            }
-            crm
-            rqe
           }
         }
+      }
+    }
+  }
+`;
+
+export const GET_CURRENTLY_POST_QUERY = gql`
+  query GetCurrentlyPostQuery($id: ID!) {
+    post (where: {id: $id}) {
+      id
+      titulo
+      subtitulo
+      data
+      imagem {
+        url
+      }
+      videoUrl
+      texto {
+        html
+      }
+      autor {
+        nome
+        descricao
+        avatar {
+          url
+        }
+        crm
+        rqe
       }
     }
   }

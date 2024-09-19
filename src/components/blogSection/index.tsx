@@ -12,6 +12,7 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { fontSize, style } from "@styles/style";
 import { ErrorComponent } from "./errorComponent";
 import { IPostsData } from "@utils/interfaces";
+import { Loading } from "./loading";
 
 export const BlogSection = () => {
   const { loading, error, data } = useQuery<IPostsData>(GET_POSTS_QUERY, {
@@ -21,18 +22,12 @@ export const BlogSection = () => {
     },
   });
 
-  console.log(data);
-  
-
   return (
     <Container data-testid="blogSection">
       <Header />
       <BlogBanner />
       {loading ? (
-        <p className="loading">
-          <FontAwesomeIcon className="icon" icon={faSpinner} spin />{" "}
-          Carregando...
-        </p>
+        <Loading />
       ) : error ? (
         <ErrorComponent />
       ) : data && data.postsConnection.edges.length > 0 ? (
@@ -52,15 +47,4 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  .loading {
-    font-size: ${fontSize.fontSizeLarge};
-    color: ${style.primaryColor};
-    margin: auto;
-    min-height: 100%;
-
-    .icon {
-      margin-right: 0.5rem;
-    }
-  }
 `;
