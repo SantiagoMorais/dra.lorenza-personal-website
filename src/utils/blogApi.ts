@@ -9,58 +9,41 @@ export const client = new ApolloClient({
       Authorization: `Bearer ${import.meta.env.VITE_HYGRAPH_API_TOKEN}`,
     },
   }),
-});
+})
 
 export const GET_POSTS_QUERY = gql`
-  {
-    posts {
-      id
-      titulo
-      subtitulo
-      data
-      imagem {
-        url
+  query getPostsQuery ($after: String, $first: Int!) {
+    postsConnection (first: $first, after: $after) {
+      pageInfo {
+        hasNextPage
+        endCursor
       }
-      videoUrl
-      texto {
-        html
-      }
-      autor {
-        nome
-        descricao
-        avatar {
-          url
+      edges {
+        node {
+          id
+          titulo
+          subtitulo
+          data
+          imagem {
+            url
+          }
+          videoUrl
+          texto {
+            html
+          }
+          autor {
+            nome
+            descricao
+            avatar {
+              url
+            }
+            crm
+            rqe
+          }
         }
-        crm
-        rqe
       }
     }
   }
 `;
 
-export interface IPost {
-  id: string;
-  titulo: string;
-  subtitulo?: string;
-  data: string;
-  imagem: {
-    url: string;
-  };
-  videoUrl?: string;
-  texto: {
-    html: string;
-  };
-  autor: {
-    nome: string;
-    descricao: string;
-    avatar: {
-      url: string;
-    };
-    crm?: number;
-    rqe?: number;
-  };
-}
 
-export interface IPostsData {
-  posts: IPost[];
-}
