@@ -23,16 +23,18 @@ export const Article = () => {
     }
   );
 
+  if (!data || error) return <ContentNotFound />;
+
   return (
     <>
-      <Header />
-      <Container>
-        {loading ? (
-          <Loading />
-        ) : error ? (
-          <ErrorComponent />
-        ) : data ? (
-          <>
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <ErrorComponent />
+      ) : data.post ? (
+        <>
+          <Header />
+          <Container>
             <div className="content">
               <ArticleHeader data={data} />
               <div className="postContent">
@@ -53,13 +55,13 @@ export const Article = () => {
                 )}
               </div>
             </div>
-          </>
-        ) : (
-          <ContentNotFound />
-        )}
-      </Container>
-      <Footer />
-      <WhatsAppButton />
+          </Container>
+          <Footer />
+          <WhatsAppButton />
+        </>
+      ) : (
+        <ContentNotFound />
+      )}
     </>
   );
 };
@@ -164,7 +166,7 @@ const Container = styled.section`
         margin: 1rem 0;
         background-color: ${style.secondaryColor};
         border-radius: 0 1rem 1rem 0;
-        padding: .5rem 1rem;
+        padding: 0.5rem 1rem;
       }
 
       img {
@@ -221,12 +223,12 @@ const Container = styled.section`
 
       table {
         width: 100%;
-        
+
         thead {
           tr {
             th {
               background-color: ${style.primaryColor};
-              border: .1rem solid rgba(0, 0, 0, 0.6);
+              border: 0.1rem solid rgba(0, 0, 0, 0.6);
 
               p {
                 text-align: center;
@@ -235,11 +237,11 @@ const Container = styled.section`
             }
           }
         }
-        
+
         tbody {
           tr {
             td {
-              border: .1rem solid rgba(0, 0, 0, 0.6);
+              border: 0.1rem solid rgba(0, 0, 0, 0.6);
               p {
                 text-align: center;
                 text-indent: 0;
