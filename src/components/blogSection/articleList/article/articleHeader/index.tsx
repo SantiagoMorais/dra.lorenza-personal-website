@@ -8,10 +8,10 @@ import React from "react";
 import { ICurrentlyPost } from "@utils/interfaces";
 
 interface IArticleHeader {
-  data: ICurrentlyPost
+  data: ICurrentlyPost;
 }
 
-export const ArticleHeader: React.FC<IArticleHeader> = ({ data }) => {    
+export const ArticleHeader: React.FC<IArticleHeader> = ({ data }) => {
   return (
     <Container>
       {data?.post?.autor && (
@@ -22,7 +22,11 @@ export const ArticleHeader: React.FC<IArticleHeader> = ({ data }) => {
           </Link>
           <div className="author">
             <img
-              src={data?.post?.autor?.avatar?.url ? data.post.autor.avatar.url : noAvatar}
+              src={
+                data?.post?.autor?.avatar?.url
+                  ? data.post.autor.avatar.url
+                  : noAvatar
+              }
               alt="Foto do(a) autor(a) do artigo"
               className="profilePhoto"
             />
@@ -150,6 +154,10 @@ const Container = styled.div`
     margin-bottom: 3rem;
     width: 100%;
     position: relative;
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
 
     &::after {
       content: "";
